@@ -1,18 +1,38 @@
 import React from 'react';
 
-const buttonStyles = {
-  border: '1px solid #eee',
+const baseStyles = {
   borderRadius: 3,
-  backgroundColor: '#FFFFFF',
   cursor: 'pointer',
   fontSize: 15,
   padding: '3px 10px',
-  margin: 10,
-};
+  margin: 10
+}
 
-const Button = ({ children, onClick }) => (
+const regularStyles = {
+  background: 'white',
+  color: '#333',
+  border: '1px solid #ddd'
+}
+
+const dangerStyles = {
+  background: '#f44242',
+  color: 'white',
+  border:'1px solid #bc2727'
+}
+
+const getStylesForButtonRole = ({role}) => {
+  switch (role) {
+    case 'danger':
+      return Object.assign(baseStyles, dangerStyles)
+      break;
+    default:
+      return Object.assign(baseStyles, regularStyles)
+  }
+}
+
+const Button = ({ children, onClick, role }) => (
   <button
-    style={buttonStyles}
+    style={getStylesForButtonRole({role})}
     onClick={onClick}
   >
     {children}
