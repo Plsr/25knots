@@ -1,5 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App.jsx'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
-ReactDOM.render(<App />, document.getElementById('root'))
+import App from './components/App.jsx'
+import Typography from './components/Typography.jsx'
+import Intro from './components/Intro.jsx'
+
+ReactDOM.render(
+  <Router>
+    <Switch>
+      <Route exact path="/" component={App}/>
+      <Route path="/intro" component={Intro}/>
+      <Route path="/typography" component={Typography}/>
+    </Switch>
+  </Router>,
+  document.getElementById('root')
+)
