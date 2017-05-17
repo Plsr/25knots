@@ -1,11 +1,9 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import Button from './Button';
+import AppControlButton from './AppControlButton'
 
-storiesOf('Button', module)
-  .add('regular', () => (
-    <Button onClick={action('clicked')}>Regular Button</Button>
+storiesOf('Buttons', module)
+  .add('Regular App Control Button', () => (
+    <AppControlButton onClick={action('clicked')}>Next</AppControlButton>
   ))
-  .add('danger', () => (
-    <Button role='danger' onClick={action('clicked')}>Danger Button</Button>
-  ));
