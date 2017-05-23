@@ -1,5 +1,7 @@
 export const baseColors = {
   white: '#FFFFFF',
+  lightGrey: '#EEEEEE',
+  darkGrey: '#BBBBBB',
   black: '#333333'
 }
 
