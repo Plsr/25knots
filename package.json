@@ -3,22 +3,25 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "homepage": "https://plsr.github.io/25knots",
   "scripts": {
     "start": "webpack-dev-server",
+    "build": "webpack --config webpack.config.js",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "html-webpack-plugin": "^2.28.0",
     "path": "^0.12.7",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router": "^4.1.1",
-    "react-router-dom": "^4.1.1",
-    "webpack": "^2.5.1",
-    "webpack-dev-server": "^2.4.5"
+    "react-router-dom": "^4.1.1"
   },
   "devDependencies": {
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.5",
     "@kadira/storybook": "^2.21.0",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
