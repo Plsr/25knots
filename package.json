@@ -4,6 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "homepage": "https://plsr.github.io/25knots",
+  "engines": {
+    "node": "7.8.0"
+  },
   "scripts": {
     "start": "webpack-dev-server",
     "production": "NODE_ENV=production node server.js",
