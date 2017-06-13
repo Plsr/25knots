@@ -1,32 +1,36 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { StyleSheet, css } from 'aphrodite'
 
+import NavigationItem from './NavigationItem.jsx'
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 
-export default class Navigation extends React.Component {
-  render() {
-    return (
+function Navigation() {
+  return (
+    <ul className={css(styles.ListStyles)}>
       <SpacingInset size='m'>
-        <nav>
-          <ul>
-            <li>
-              <Link to='/intro'>Intro</Link>
-            </li>
-            <li>
-              <Link to='/typography'>Typography</Link>
-            </li>
-            <li>
-              <Link to='/intro'>Grids & Layout</Link>
-            </li>
-            <li>
-              <Link to='/intro'>Farben</Link>
-            </li>
-            <li>
-              <Link to='/intro'>Ergebnisse</Link>
-            </li>
-          </ul>
-        </nav>
+        <NavigationItem path='/intro' title='Intro' />
+        <li>
+          <Link to='/typography'>Typography</Link>
+        </li>
+        <li>
+          <Link to='/intro'>Grids & Layout</Link>
+        </li>
+        <li>
+          <Link to='/intro'>Farben</Link>
+        </li>
+        <li>
+          <Link to='/intro'>Ergebnisse</Link>
+        </li>
       </SpacingInset>
-    )
-  }
+    </ul>
+  )
 }
+
+const styles = StyleSheet.create ({
+  ListStyles: {
+    listStyle: 'none'
+  }
+})
+
+export default Navigation
