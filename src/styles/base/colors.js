@@ -9,5 +9,6 @@ export const baseColors = {
 
 export const appColors = {
   main: '#E37272',
-  mainDarkened: '#BF5C5C'
+  mainDarkened: '#BF5C5C',
+  secondary: '#21A2E6'
 }
