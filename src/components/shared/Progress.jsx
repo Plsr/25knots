@@ -3,19 +3,21 @@ import { Link } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite'
 
 import ProgressItem from './ProgressItem.jsx'
-import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import { spacing } from '../../styles/base/spacing'
 import { baseColors } from '../../styles/base/colors'
 
 function Progress() {
   return (
-    <ul className={css(styles.ListStyles)}>
-      <ProgressItem title='Intro' />
-      <ProgressItem title='Typography' />
-      <ProgressItem title='Grids & Layout' />
-      <ProgressItem title='Farben' />
-      <ProgressItem title='Ergebnisse' />
-    </ul>
+    <SpacingStack size='xl'>
+      <ul className={css(styles.ListStyles)}>
+        <ProgressItem title='Intro' />
+        <ProgressItem title='Typography' />
+        <ProgressItem title='Grids & Layout' />
+        <ProgressItem title='Farben' />
+        <ProgressItem title='Ergebnisse' />
+      </ul>
+    </SpacingStack>
   )
 }
 
