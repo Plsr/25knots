@@ -1,5 +1,6 @@
 export const baseColors = {
   white: '#FFFFFF',
+  ultraLightGrey: '#F8F8F8',
   lightGrey: '#EEEEEE',
   midGrey: '#999999',
   darkGrey: '#BBBBBB',

@@ -4,10 +4,10 @@ import { StyleSheet, css } from 'aphrodite'
 
 import { baseColors, appColors } from '../../styles/base/colors.js'
 
-function NavigationItem(props, context) {
+function ProgressItem(props) {
   return (
     <li className={css(styles.NavigationItem)}>
-      <Link className={css(styles.LinkStyle)} to={props.path}>{props.title}</Link>
+      <span className={css(styles.ProgressTextStyle)}> {props.title} </span>
     </li>
   )
 }
@@ -16,10 +16,9 @@ const styles = StyleSheet.create({
   NavigationItem: {
     display: 'inline'
   },
-  LinkStyle: {
-    color: baseColors.midGrey,
-    textDecoration: 'none'
+  ProgressTextStyle: {
+    color: baseColors.midGrey
   }
 })
 
-export default NavigationItem
+export default ProgressItem

@@ -2,18 +2,19 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite'
 
-import NavigationItem from './NavigationItem.jsx'
+import ProgressItem from './ProgressItem.jsx'
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import { spacing } from '../../styles/base/spacing'
+import { baseColors } from '../../styles/base/colors'
 
-function Navigation() {
+function Progress() {
   return (
     <ul className={css(styles.ListStyles)}>
-      <NavigationItem path='/intro' title='Intro' />
-      <NavigationItem path='/typography' title='Typography' />
-      <NavigationItem path='/intro' title='Grids & Layout' />
-      <NavigationItem path='/intro' title='Farben' />
-      <NavigationItem path='/intro' title='Ergebnisse' />
+      <ProgressItem title='Intro' />
+      <ProgressItem title='Typography' />
+      <ProgressItem title='Grids & Layout' />
+      <ProgressItem title='Farben' />
+      <ProgressItem title='Ergebnisse' />
     </ul>
   )
 }
@@ -24,8 +25,9 @@ const styles = StyleSheet.create ({
     display: 'flex',
     justifyContent: 'space-between',
     listStyle: 'none',
-    margin: 0
+    margin: 0,
+    backgroundColor: baseColors.ultraLightGrey
   }
 })
 
-export default Navigation
+export default Progress
