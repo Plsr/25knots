@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
+import './styles/global.css'
+
 import App from './components/App.jsx'
 import Typography from './components/Typography.jsx'
 import Intro from './components/Intro.jsx'
