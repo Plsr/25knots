@@ -9,15 +9,13 @@ import { baseColors } from '../../styles/base/colors'
 
 function Progress() {
   return (
-    <SpacingStack size='xl'>
-      <ul className={css(styles.ListStyles)}>
-        <ProgressItem title='Intro' />
-        <ProgressItem title='Typography' />
-        <ProgressItem title='Grids & Layout' />
-        <ProgressItem title='Farben' />
-        <ProgressItem title='Ergebnisse' />
-      </ul>
-    </SpacingStack>
+    <ul className={css(styles.ListStyles)}>
+      <ProgressItem title='Intro' />
+      <ProgressItem title='Typography' />
+      <ProgressItem title='Grids & Layout' />
+      <ProgressItem title='Farben' />
+      <ProgressItem title='Ergebnisse' />
+    </ul>
   )
 }
 
