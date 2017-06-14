@@ -3,10 +3,13 @@ import { StyleSheet, css } from 'aphrodite'
 
 import { fontSizes } from '../styles/base/fonts.js'
 import { appColors } from '../styles/base/colors.js'
+import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 
 function Headline1(props) {
   return(
-    <h1 className={css(styles.Healine1Styles)}>{ props.content }</h1>
+    <SpacingStack size='l'>
+      <h1 className={css(styles.Healine1Styles)}>{ props.content }</h1>
+    </SpacingStack>
   )
 }
 

@@ -2,3 +2,8 @@ body {
   font-family: 'Cabin', sans-serif;
   color: #333333;
 }
+
+/* Manual resets */
+p {
+  margin: 0;
+}
