@@ -18,10 +18,7 @@ class NavigationButton extends React.Component {
   render() {
     return (
       <button
-        className={css(
-          styles.buttonReset,
-          styles.buttonStyles
-        )}
+        className={css(styles.buttonReset, styles.buttonStyles)}
         onClick={this.props.onClick}
       >
         <SpacingSquishedInset size='l'>
