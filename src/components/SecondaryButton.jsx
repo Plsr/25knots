@@ -13,6 +13,7 @@ function SecondaryButton(props) {
         styles.buttonReset,
         styles.buttonStyles
       )}
+      onClick={props.onClick}
     >
       <SpacingSquishedInset size='l'>
         {props.children}
