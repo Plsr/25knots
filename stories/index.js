@@ -5,12 +5,16 @@ import {ICONS} from '../src/components/helpers/constants/icons.js'
 import { appColors } from '../src/styles/base/colors.js'
 
 import NavigationButton from '../src/components/NavigationButton.jsx'
+import SecondaryButton from '../src/components/SecondaryButton.jsx'
 import IconButton from '../src/components/IconButton.jsx'
 import Icon from '../src/components/Icon.jsx'
 
 storiesOf('Buttons', module)
   .add('Regular App Navigation Button', () => (
     <NavigationButton onClick={action('clicked')}>Next Step</NavigationButton>
+  ))
+  .add('Regular Secondary Button', () => (
+    <SecondaryButton onClick={action('clicked')}>Next Step</SecondaryButton>
   ))
   .add('Icon Button', () => (
     <IconButton

@@ -3,6 +3,7 @@ import { StyleSheet, css } from 'aphrodite'
 
 import { fontFamily, fontSizes, fontWeights } from '../styles/base/fonts.js'
 import { baseColors, appColors } from '../styles/base/colors.js'
+import { buttonReset } from '../styles/shared/buttonReset.js'
 import SpacingSquishedInset from './helpers/spacing/SpacingSquishedInset.jsx'
 
 /**
@@ -31,10 +32,7 @@ class NavigationButton extends React.Component {
 
 const styles = StyleSheet.create({
   buttonReset: {
-    border: 0,
-    padding: 0,
-    background: 'none',
-    fontFamily: fontFamily.mainFamily
+    ...buttonReset
   },
   buttonStyles: {
     fontSize: fontSizes.m,
