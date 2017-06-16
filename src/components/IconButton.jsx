@@ -24,7 +24,7 @@ class IconButton extends React.Component {
   }
 
   computeIconColor() {
-    return this.state.hover ? appColors.secondary : baseColors.lighterMidGrey
+    return this.state.hover || this.props.active ? appColors.secondary : baseColors.lighterMidGrey
   }
 
   render() {
@@ -32,10 +32,11 @@ class IconButton extends React.Component {
       <button
         onMouseOver={this.toggleHoverState}
         onMouseOut={this.toggleHoverState}
-        onClick={this.props.onClick}
+        onClick={() => this.props.onClick(this.props.identifier)}
         className={css(
           styles.baseStyles,
-          this.state.hover && styles.hoverStyles
+          this.state.hover && styles.hoverStyles,
+          this.props.active && styles.activeStyles
         )}
       >
         <SpacingInset size='l'>
@@ -57,9 +58,16 @@ const styles = StyleSheet.create({
     borderColor: baseColors.lighterMidGrey,
     color: baseColors.lighterMidGrey,
     fontSize: fontSizes.m,
-    cursor: 'pointer'
+    cursor: 'pointer',
+    ':focus': {
+      outline: 0
+    }
   },
   hoverStyles: {
+    borderColor: appColors.secondary,
+    color: appColors.secondary
+  },
+  activeStyles: {
     borderColor: appColors.secondary,
     color: appColors.secondary
   }
