@@ -5,11 +5,20 @@ import {ICONS} from '../src/components/helpers/constants/icons.js'
 import { appColors } from '../src/styles/base/colors.js'
 
 import NavigationButton from '../src/components/NavigationButton.jsx'
+import IconButton from '../src/components/IconButton.jsx'
 import Icon from '../src/components/Icon.jsx'
 
 storiesOf('Buttons', module)
   .add('Regular App Navigation Button', () => (
     <NavigationButton onClick={action('clicked')}>Next Step</NavigationButton>
+  ))
+  .add('Icon Button', () => (
+    <IconButton
+      onClick={action('clicked')}
+      icon={ICONS.SMARTPHONE}
+    >
+      Smartphone
+    </IconButton>
   ))
 storiesOf('Icons', module)
   .add('Regular Icon', () => (
