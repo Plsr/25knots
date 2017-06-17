@@ -30,18 +30,33 @@ class SetupContainer extends React.Component {
   handleButtonClick() {
     this.props.setScope(this.state.activeOption)
 
+    // If the current setup step is the last, also set the setup state to finished
     if(this.props.setupStep == this.props.setupSteps) {
       this.props.setSetupToFinished()
     }
 
+    // Reset this components' internal state to disable the button
     this.setState({
       activeOption: false
     })
   }
 
+  /**
+   * Generates the main content for the setup component (i.e. Iconbuttons).
+   * Determines the correct subset of options and calls constructIconButtons()
+   * with that supset.
+   *
+   * @return {Array} An array of IconButtons ready for rendering
+   */
   generateContent() {
     let setupOptions = []
 
+    /**
+     * If this is the first step in the setup, only use options
+     * marked as initial options.
+     * Else, got through all options and determine for every one,
+     * if it should be displayed
+     */
     if(this.props.setupStep == 1) {
       for (var i = 0; i < this.props.setupOptions.length; i++) {
         let currentOption = this.props.setupOptions[i]
@@ -53,6 +68,7 @@ class SetupContainer extends React.Component {
       for (var i = 0; i < this.props.setupOptions.length; i++) {
         let currentOption = this.props.setupOptions[i]
 
+        // An element should only be displayed, if its scope matches on of the global scopes
         if (this.props.scopes.indexOf(currentOption.shouldDisplayForScope) > -1)
           setupOptions.push(currentOption)
       }
@@ -61,10 +77,20 @@ class SetupContainer extends React.Component {
     return this.constructIconButtons(setupOptions)
   }
 
+  /**
+   * Constrocts an array of IconButtons based on a given set of options
+   *
+   * NOTE: This will construct an IconButton for every element in the given options
+   * and does not validate them.
+   *
+   * @param {Array} setupOptions
+   * @returns {Array} An Array of iconButtons
+   */
   constructIconButtons(setupOptions) {
     let iconButtons = []
     for (var i = 0; i < setupOptions.length; i++) {
       let currentOption = setupOptions[i]
+
       iconButtons.push(
         <IconButton
           icon={currentOption.icon}
@@ -93,10 +119,6 @@ class SetupContainer extends React.Component {
           <SpacingInset size='l' />
           <SecondaryButton inactive={this.state.activeOption == false} onClick={this.handleButtonClick}>Next Step</SecondaryButton>
         </SpacingInset>
-        {/* TODO: Remove, just debug */}
-        {this.props.setupStep}
-        {this.props.setupFinished.toString()}
-        {this.props.scopes}
       </div>
     )
   }
