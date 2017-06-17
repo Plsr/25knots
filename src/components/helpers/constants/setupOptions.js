@@ -6,19 +6,22 @@ export const setupOptions = [
     icon: ICONS.SMARTPHONE,
     text: 'Native App',
     value: SCOPES.NATIVE_APP,
-    shouldDisplayForScope: undefined
+    shouldDisplayForScope: undefined,
+    initialOption: true
   },
   {
     icon: ICONS.WEBSITE,
     text: 'Website',
     value: SCOPES.WEBSITE,
-    shouldDisplayForScope: undefined
+    shouldDisplayForScope: undefined,
+    initialOption: true
   },
   {
     icon: ICONS.PAGE,
     text: 'Text Document',
     value: SCOPES.TEXT_DOCUMENT,
-    shouldDisplayForScope: undefined
+    shouldDisplayForScope: undefined,
+    initialOption: true
   },
   {
     icon: ICONS.ANDROID,

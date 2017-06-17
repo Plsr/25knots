@@ -1,20 +1,23 @@
 import { connect } from 'react-redux'
-import { setArtifactScope } from '../actions'
+import { setScope, setSetupToFinished } from '../actions'
 import SetupContainer from '../components/SetupContainer.jsx'
 
 const mapStatetoProps = (state, ownProps) => {
   return {
     setupStep: state.setupStep,
     setupFinished: state.setupFinished,
-    artifactScope: state.artifactScope,
+    scopes: state.scopes,
     ...ownProps
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onNextButtonClick: scope => {
-      dispatch(setArtifactScope(scope))
+    setScope: scope => {
+      dispatch(setScope(scope))
+    },
+    setSetupToFinished: () => {
+      dispatch(setSetupToFinished())
     }
   }
 }

@@ -14,9 +14,10 @@ class SetupContainer extends React.Component {
     this.handleIconButtonClick = this.handleIconButtonClick.bind(this)
     this.handleButtonClick = this.handleButtonClick.bind(this)
     this.constructIconButtons = this.constructIconButtons.bind(this)
+    this.generateContent = this.generateContent.bind(this)
 
     this.state = {
-      activeOption: false
+      activeOption: false,
     }
   }
 
@@ -27,28 +28,54 @@ class SetupContainer extends React.Component {
   }
 
   handleButtonClick() {
-    this.props.onNextButtonClick(this.state.activeOption)
+    this.props.setScope(this.state.activeOption)
+
+    if(this.props.setupStep == this.props.setupSteps) {
+      this.props.setSetupToFinished()
+    }
+
+    this.setState({
+      activeOption: false
+    })
   }
 
-  constructIconButtons(steps) {
-    console.log(steps);
-    let iconButtons = []
-    for (var i = 0; i < steps.length; i++) {
-      let step = steps[i]
+  generateContent() {
+    let setupOptions = []
 
-      if(step.shouldDisplayForScope == this.props.artifactScope) {
-        iconButtons.push(
-          <IconButton
-            icon={step.icon}
-            onClick={this.handleIconButtonClick}
-            key={step.value}
-            identifier={step.value}
-            active={this.state.activeOption === step.value}
-          >
-            {step.text}
-          </IconButton>
-        )
+    if(this.props.setupStep == 1) {
+      for (var i = 0; i < this.props.setupOptions.length; i++) {
+        let currentOption = this.props.setupOptions[i]
+
+        if (currentOption.initialOption)
+          setupOptions.push(currentOption)
       }
+    } else {
+      for (var i = 0; i < this.props.setupOptions.length; i++) {
+        let currentOption = this.props.setupOptions[i]
+
+        if (this.props.scopes.indexOf(currentOption.shouldDisplayForScope) > -1)
+          setupOptions.push(currentOption)
+      }
+    }
+
+    return this.constructIconButtons(setupOptions)
+  }
+
+  constructIconButtons(setupOptions) {
+    let iconButtons = []
+    for (var i = 0; i < setupOptions.length; i++) {
+      let currentOption = setupOptions[i]
+      iconButtons.push(
+        <IconButton
+          icon={currentOption.icon}
+          onClick={this.handleIconButtonClick}
+          key={currentOption.value}
+          identifier={currentOption.value}
+          active={this.state.activeOption === currentOption.value}
+        >
+          {currentOption.text}
+        </IconButton>
+      )
     }
 
     return iconButtons
@@ -61,14 +88,15 @@ class SetupContainer extends React.Component {
           <span>This will later be some explanation</span>
           <SpacingInset size='l' />
           <div className={css(styles.buttonWrapperStyles)}>
-            {this.constructIconButtons(this.props.steps)}
+            {this.generateContent()}
           </div>
           <SpacingInset size='l' />
-          <SecondaryButton onClick={this.handleButtonClick}>Next Step</SecondaryButton>
+          <SecondaryButton inactive={this.state.activeOption == false} onClick={this.handleButtonClick}>Next Step</SecondaryButton>
         </SpacingInset>
+        {/* TODO: Remove, just debug */}
         {this.props.setupStep}
-        {this.props.setupFinished}
-        {this.props.artifactScope}
+        {this.props.setupFinished.toString()}
+        {this.props.scopes}
       </div>
     )
   }

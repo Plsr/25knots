@@ -11,9 +11,10 @@ function SecondaryButton(props) {
     <button
       className={css(
         styles.buttonReset,
-        styles.buttonStyles
+        styles.buttonStyles,
+        props.inactive && styles.buttonInactiveStyles
       )}
-      onClick={props.onClick}
+      onClick={props.inactive ? '' : props.onClick}
     >
       <SpacingSquishedInset size='l'>
         {props.children}
@@ -39,6 +40,16 @@ const styles = StyleSheet.create({
     cursor: 'pointer',
     ':hover': {
       backgroundColor: appColors.secondaryDarkened
+    },
+    ':focus': {
+      outline: 'none'
+    }
+  },
+  buttonInactiveStyles: {
+    opacity: '0.6',
+    cursor: 'not-allowed',
+    ':hover': {
+      backgroundColor: appColors.secondary
     }
   }
 })

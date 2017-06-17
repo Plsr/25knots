@@ -1,21 +1,29 @@
-import { NEXT_SETUP_STEP, SET_ARTIFACT_SCOPE } from '../actions'
+import { NEXT_SETUP_STEP, SET_SCOPE, SET_SETUP_TO_FINISHED } from '../actions'
 
 const initialState = {
-  setupStep: 0,
+  setupStep: 1,
   setupFinished: false,
-  artifactScope: undefined
+  scopes: []
 }
 
 const setup = (state = initialState, action) => {
   switch (action.type) {
+    // FIXME: Is this still needed?
     case NEXT_SETUP_STEP:
       return Object.assign({}, state, {
         setupStep: state.setupStep + 1
       })
-    case SET_ARTIFACT_SCOPE:
+    case SET_SCOPE:
       return Object.assign({}, state, {
-        setupStep: state.setupStep + 1,
-        artifactScope: action.scope
+        setupStep: state.setupStep + 1, // FIXME: Evaluate if this is still needed
+        scopes: [
+          ...state.scopes,
+          action.scope
+        ]
+      })
+    case SET_SETUP_TO_FINISHED:
+      return Object.assign({}, state, {
+        setupFinished: true
       })
     default:
       return state

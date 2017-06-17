@@ -18,7 +18,7 @@ export default class App extends React.Component {
         <SpacingInset size='xl'>
           <IntroductionHero />
           <Link to='/intro'>Intro</Link>
-          <SetupProgress steps={setupOptions} />
+          <SetupProgress setupOptions={setupOptions} setupSteps={2} />
         </SpacingInset>
       </div>
     )
