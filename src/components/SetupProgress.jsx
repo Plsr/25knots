@@ -14,6 +14,7 @@ class SetupProgress extends React.Component {
     super(props)
     this.handleIconButtonClick = this.handleIconButtonClick.bind(this)
     this.handleButtonClick = this.handleButtonClick.bind(this)
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
     this.constructIconButtons = this.constructIconButtons.bind(this)
     this.generateContent = this.generateContent.bind(this)
 
@@ -40,6 +41,10 @@ class SetupProgress extends React.Component {
     this.setState({
       activeOption: false
     })
+  }
+
+  handleBackButtonClick() {
+    this.props.previousSetupStep()
   }
 
   /**
@@ -118,7 +123,10 @@ class SetupProgress extends React.Component {
             {this.generateContent()}
           </div>
           <SpacingInset size='l' />
-          <SecondaryButton inactive={this.state.activeOption == false} onClick={this.handleButtonClick}>Next Step</SecondaryButton>
+          <div className={css(styles.buttonWrapperStyles)}>
+            <SecondaryButton inactive={this.props.setupStep < 2} onClick={this.handleBackButtonClick} variant={'outline'}>Back</SecondaryButton>
+            <SecondaryButton inactive={this.state.activeOption == false} onClick={this.handleButtonClick}>Next Step</SecondaryButton>
+          </div>
         </SpacingInset>
       </BorderedBox>
     )

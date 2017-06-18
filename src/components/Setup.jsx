@@ -20,6 +20,7 @@ function Setup(props) {
         setupOptions={props.setupOptions}
         setScope={props.setScope}
         setSetupToFinished={props.setSetupToFinished}
+        previousSetupStep={props.previousSetupStep}
       />
     )
   }

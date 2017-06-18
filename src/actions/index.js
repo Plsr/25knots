@@ -2,6 +2,7 @@
 export const NEXT_SETUP_STEP = 'NEXT_SETUP_STEP'
 export const SET_SCOPE = 'SET_SCOPE'
 export const SET_SETUP_TO_FINISHED = 'SET_SETUP_TO_FINISHED'
+export const PREVIOUS_SETUP_STEP = 'PREVIOUS_SETUP_STEP'
 
 export const nextSetupStep = () => {
   return {
@@ -19,5 +20,11 @@ export const setScope = scope => {
 export const setSetupToFinished = () => {
   return {
     type: SET_SETUP_TO_FINISHED
+  }
+}
+
+export const previousSetupStep = () => {
+  return {
+    type: PREVIOUS_SETUP_STEP
   }
 }
