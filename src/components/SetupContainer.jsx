@@ -7,6 +7,7 @@ import SpacingInset from './helpers/spacing/SpacingInset.jsx'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import IconButton from './IconButton.jsx'
 import SecondaryButton from './SecondaryButton.jsx'
+import BorderedBox from './BorderedBox.jsx'
 
 class SetupContainer extends React.Component {
   constructor(props) {
@@ -109,7 +110,7 @@ class SetupContainer extends React.Component {
 
   render() {
     return(
-      <div className={css(styles.containerStyles)}>
+      <BorderedBox>
         <SpacingInset size='l'>
           <span>This will later be some explanation</span>
           <SpacingInset size='l' />
@@ -119,20 +120,12 @@ class SetupContainer extends React.Component {
           <SpacingInset size='l' />
           <SecondaryButton inactive={this.state.activeOption == false} onClick={this.handleButtonClick}>Next Step</SecondaryButton>
         </SpacingInset>
-      </div>
+      </BorderedBox>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  containerStyles: {
-    borderRadius: '4px',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: baseColors.lighterMidGrey,
-    maxWidth: '800px',
-    margin: '0 auto'
-  },
   buttonWrapperStyles: {
     display: 'flex',
     justifyContent: 'space-between'
