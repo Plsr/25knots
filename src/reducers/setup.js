@@ -1,4 +1,4 @@
-import { SET_SCOPE, SET_SETUP_TO_FINISHED, PREVIOUS_SETUP_STEP } from '../actions'
+import { SET_SCOPE, SET_SETUP_TO_FINISHED, PREVIOUS_SETUP_STEP, RESET_SETUP } from '../actions'
 
 const initialState = {
   setupStep: 1,
@@ -24,6 +24,10 @@ const setup = (state = initialState, action) => {
       return Object.assign({}, state, {
         setupStep: state.setupStep - 1,
         scopes: state.scopes.slice(0, -1)
+      })
+    case RESET_SETUP:
+      return Object.assign({}, state, {
+        ...initialState
       })
     default:
       return state

@@ -9,6 +9,7 @@ function Setup(props) {
       <SetupSummary
         setupOptions={props.setupOptions}
         scopes={props.scopes}
+        resetSetup={props.resetSetup}
       />
     )
   } else {

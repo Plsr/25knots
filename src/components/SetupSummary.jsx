@@ -2,6 +2,7 @@ import React from 'react'
 
 import BorderedBox from './BorderedBox.jsx'
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'
+import SecondaryButton from './SecondaryButton.jsx'
 
 function extractScopeInformation(scopes, options) {
   let extractedScopes = []
@@ -26,6 +27,7 @@ function SetupSummary(props) {
     <BorderedBox>
       <SpacingInset size='l'>
         {extractScopeInformation(props.scopes, props.setupOptions)}
+        <SecondaryButton variant={'outline'} onClick={props.resetSetup}>Start over</SecondaryButton>
       </SpacingInset>
     </BorderedBox>
   )
