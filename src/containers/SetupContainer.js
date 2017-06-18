@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { setScope, setSetupToFinished } from '../actions'
-import SetupContainer from '../components/SetupContainer.jsx'
+import Setup from '../components/Setup.jsx'
 
 const mapStatetoProps = (state, ownProps) => {
   return {
@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export const SetupProgress = connect(
+export const SetupContainer = connect(
   mapStatetoProps,
   mapDispatchToProps
-)(SetupContainer)
+)(Setup)

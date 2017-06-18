@@ -9,7 +9,7 @@ import IconButton from './IconButton.jsx'
 import SecondaryButton from './SecondaryButton.jsx'
 import BorderedBox from './BorderedBox.jsx'
 
-class SetupContainer extends React.Component {
+class SetupProgress extends React.Component {
   constructor(props) {
     super(props)
     this.handleIconButtonClick = this.handleIconButtonClick.bind(this)
@@ -132,4 +132,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default SetupContainer
+export default SetupProgress

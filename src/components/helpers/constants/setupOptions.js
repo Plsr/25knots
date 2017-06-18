@@ -37,14 +37,32 @@ export const setupOptions = [
   },
   {
     icon: ICONS.WEBSITE,
-    text: 'Show for Website',
-    value: 'WEBSITE',
+    text: 'Responsive',
+    value: SCOPES.RESPONSIVE,
+    shouldDisplayForScope: 'WEBSITE'
+  },
+  {
+    icon: ICONS.WEBSITE,
+    text: 'Not responsive',
+    value: SCOPES.NOT_RESPONSIVE,
     shouldDisplayForScope: 'WEBSITE'
   },
   {
     icon: ICONS.PAGE,
-    text: 'Show for Text Document',
-    value: 'TEXT_DOCUMENT',
+    text: 'Auf Papier',
+    value: SCOPES.PAPER,
+    shouldDisplayForScope: 'TEXT_DOCUMENT'
+  },
+  {
+    icon: ICONS.PAGE,
+    text: 'Am Display',
+    value: SCOPES.DISPLAY,
+    shouldDisplayForScope: 'TEXT_DOCUMENT'
+  },
+  {
+    icon: ICONS.PAGE,
+    text: 'Papier & Display',
+    value: SCOPES.PAPER_DISPLAY,
     shouldDisplayForScope: 'TEXT_DOCUMENT'
   }
 ]
