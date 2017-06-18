@@ -1,28 +1,39 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import { buttonReset } from '../styles/shared/buttonReset.js'
+import { buttonReset, buttonBaseStyles, buttonInactiveStyles } from '../styles/shared/buttons.js'
 import { fontSizes, fontWeights } from '../styles/base/fonts.js'
 import { baseColors, appColors } from '../styles/base/colors.js'
 import SpacingSquishedInset from './helpers/spacing/SpacingSquishedInset.jsx'
 
-function setVariantStyles(variant) {
+function setStyles(variant, inactive) {
   if (variant == 'outline') {
-    return styles.buttonOutlineStyles
-  }
+    return(
+      css(
+        styles.buttonReset,
+        styles.buttonBaseStyles,
+        styles.buttonOutlineStyles,
+        inactive && styles.buttonOutlineInactiveStyles
+      )
+    )
 
-  return styles.buttonSolidStyles
+  } else {
+    return(
+      css(
+        styles.buttonReset,
+        styles.buttonBaseStyles,
+        styles.buttonSolidStyles,
+        inactive && styles.buttonSolidInactiveStyles
+      )
+    )
+  }
 }
 
 function SecondaryButton(props) {
+  console.log(setStyles(props.variant, props.inactive));
   return(
     <button
-      className={css(
-        styles.buttonReset,
-        styles.buttonBaseStyles,
-        setVariantStyles(props.variant),
-        props.inactive && styles.buttonInactiveStyles
-      )}
+      className={setStyles(props.variant, props.inactive)}
       onClick={props.inactive ? '' : props.onClick}
     >
       <SpacingSquishedInset size='l'>
@@ -37,13 +48,7 @@ const styles = StyleSheet.create({
     ...buttonReset
   },
   buttonBaseStyles: {
-    fontSize: fontSizes.m,
-    fontWeight: fontWeights.semiBold,
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderRadius: '4px',
-    lineHeight: 1,
-    cursor: 'pointer'
+    ...buttonBaseStyles
   },
   buttonSolidStyles: {
     color: baseColors.white,
@@ -51,27 +56,27 @@ const styles = StyleSheet.create({
     borderColor: appColors.secondaryDarkened,
     ':hover': {
       backgroundColor: appColors.secondaryDarkened
-    },
-    ':focus': {
-      outline: 'none'
+    }
+  },
+  buttonSolidInactiveStyles: {
+    ...buttonInactiveStyles,
+    ':hover': {
+      backgroundColor: appColors.secondary
     }
   },
   buttonOutlineStyles: {
-    color: baseColors.secondary,
+    color: appColors.secondary,
     borderColor: appColors.secondary,
     ':hover': {
-      backgroundColor: appColors.secondary,
-      color: baseColors.white
-    },
-    ':focus': {
-      outline: 'none'
+      color: baseColors.white,
+      backgroundColor: appColors.secondary
     }
   },
-  buttonInactiveStyles: {
-    opacity: '0.6',
-    cursor: 'not-allowed',
+  buttonOutlineInactiveStyles: {
+    ...buttonInactiveStyles,
     ':hover': {
-      backgroundColor: appColors.secondary
+      color: appColors.secondary,
+      backgroundColor: 'none'
     }
   }
 })
