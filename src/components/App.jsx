@@ -7,6 +7,7 @@ import SpacingInset from './helpers/spacing/SpacingInset.jsx'
 import NavigationButton from './NavigationButton.jsx'
 import SetupProgress from './SetupProgress.jsx'
 import SetupSummary from './SetupSummary.jsx'
+import NavigationBackground from './shared/NavigationBackground.jsx'
 import {AppContainer} from '../containers/AppContainer.js'
 
 import {setupOptions} from './helpers/constants/setupOptions.js' // Remove after setupSteps was moved to redux container
@@ -46,13 +47,15 @@ export default class App extends React.Component {
     return (
       <div>
         <Progress />
-        <SpacingInset size='xl'>
+        <SpacingInset size='l'>
           <IntroductionHero />
+          {this.renderSetupStep()}
+        </SpacingInset>
+        <NavigationBackground>
           <NavigationButton to='/typography' inactive={!this.props.setupFinished}>
             Next Section
           </NavigationButton>
-          {this.renderSetupStep()}
-        </SpacingInset>
+        </NavigationBackground>
       </div>
     )
   }
