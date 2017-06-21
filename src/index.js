@@ -9,7 +9,7 @@ import logger from 'redux-logger'
 import './styles/global.css'
 import './styles/normalize.css'
 
-import App from './components/App.jsx'
+import {AppContainer} from './containers/AppContainer.js'
 import Typography from './components/Typography.jsx'
 import Intro from './components/Intro.jsx'
 
@@ -22,7 +22,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={App}/>
+        <Route exact path="/" component={AppContainer}/>
         <Route path="/intro" component={Intro}/>
         <Route path="/typography" component={Typography}/>
       </Switch>

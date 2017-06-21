@@ -1,9 +1,10 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
+import { Link } from 'react-router-dom'
 
 import { fontFamily, fontSizes, fontWeights } from '../styles/base/fonts.js'
 import { baseColors, appColors } from '../styles/base/colors.js'
-import { buttonReset } from '../styles/shared/buttonReset.js'
+import { buttonReset, buttonBaseStyles, buttonInactiveStyles } from '../styles/shared/buttons.js'
 import SpacingSquishedInset from './helpers/spacing/SpacingSquishedInset.jsx'
 
 /**
@@ -16,16 +17,34 @@ import SpacingSquishedInset from './helpers/spacing/SpacingSquishedInset.jsx'
  * FIXME: After building the PrimaryButton, confirm the name.
  */
 class NavigationButton extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+  handleClick(e){
+    if(this.props.inactive) {
+      e.preventDefault();
+    }
+  }
+
   render() {
     return (
-      <button
-        className={css(styles.buttonReset, styles.buttonStyles)}
-        onClick={this.props.onClick}
+      <Link
+        to={this.props.to}
+        onClick={this.handleClick}
       >
-        <SpacingSquishedInset size='l'>
-          {this.props.children}
-        </SpacingSquishedInset>
-      </button>
+        <button
+          className={css(
+            styles.buttonReset,
+            styles.buttonStyles,
+            this.props.inactive && styles.buttonInactiveStyles )}
+        >
+          <SpacingSquishedInset size='l'>
+            {this.props.children}
+          </SpacingSquishedInset>
+        </button>
+      </Link>
     )
   }
 }
@@ -35,18 +54,18 @@ const styles = StyleSheet.create({
     ...buttonReset
   },
   buttonStyles: {
-    fontSize: fontSizes.m,
-    fontWeight: fontWeights.semiBold,
+    ...buttonBaseStyles,
     color: baseColors.white,
     backgroundColor: appColors.primary,
     borderColor: appColors.primaryDarkened,
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderRadius: '4px',
-    lineHeight: 1,
-    cursor: 'pointer',
     ':hover': {
       backgroundColor: appColors.primaryDarkened
+    }
+  },
+  buttonInactiveStyles: {
+    ...buttonInactiveStyles,
+    ':hover': {
+      backgroundColor: appColors.primary
     }
   }
 })
