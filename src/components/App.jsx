@@ -1,4 +1,5 @@
 import React from 'react'
+import {StyleSheet, css} from 'aphrodite'
 
 import Intro from './Intro.jsx'
 import Progress from './shared/Progress.jsx'
@@ -52,11 +53,20 @@ export default class App extends React.Component {
           {this.renderSetupStep()}
         </SpacingInset>
         <NavigationBackground>
-          <NavigationButton to='/typography' inactive={!this.props.setupFinished}>
-            Next Section
-          </NavigationButton>
+          <div className={css(styles.alignRight)}>
+            <NavigationButton to='/typography' inactive={!this.props.setupFinished}>
+              Next Section
+            </NavigationButton>
+          </div>
         </NavigationBackground>
       </div>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  alignRight: {
+    display: 'flex',
+    justifyContent: 'flex-end'
+  }
+})
