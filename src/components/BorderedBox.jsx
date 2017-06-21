@@ -2,6 +2,7 @@ import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
 import {baseColors} from '../styles/base/colors.js'
+import {fontSizes} from '../styles/base/fonts.js'
 
 function BorderedBox(props) {
   return(
@@ -18,7 +19,8 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: baseColors.lighterMidGrey,
     maxWidth: '800px',
-    margin: '0 auto'
+    margin: '0 auto',
+    lineHeight: 1.5
   }
 })
 
