@@ -1,7 +1,9 @@
 import React from 'react'
+import {StyleSheet, css} from 'aphrodite'
 
 import TabTitle from './TabTitle.jsx'
 import TabContent from './TabContent.jsx'
+import {baseColors} from '../styles/base/colors.js'
 
 export default class TabNavigation extends React.Component {
   constructor(props) {
@@ -41,6 +43,10 @@ export default class TabNavigation extends React.Component {
     return collectedChildren
   }
 
+  /**
+   * Renders all <TabTitles> that were passed top this components as children.
+   * Every <TabTitle> is cloned and added some props.
+   */
   renderTabs() {
     let tabs = this.getChildrenOfType(TabTitle)
     let processedTabs = []
@@ -58,6 +64,7 @@ export default class TabNavigation extends React.Component {
     return processedTabs
   }
 
+  // Renders the currently active content
   renderContent() {
     let contents = this.getChildrenOfType(TabContent)
     return contents[this.state.selectedTab]
@@ -66,9 +73,19 @@ export default class TabNavigation extends React.Component {
   render() {
     return(
       <div>
-        {this.renderTabs()}
+        <div className={css(styles.TabListStyles)}>
+          {this.renderTabs()}
+        </div>
         {this.renderContent()}
       </div>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  TabListStyles: {
+    height: '100vh',
+    float: 'left',
+    backgroundColor: baseColors.ultraLightGrey
+  }
+})
