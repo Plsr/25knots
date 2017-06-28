@@ -8,6 +8,9 @@ import NavigationButton from '../src/components/NavigationButton.jsx'
 import SecondaryButton from '../src/components/SecondaryButton.jsx'
 import IconButton from '../src/components/IconButton.jsx'
 import Icon from '../src/components/Icon.jsx'
+import TabNavigation from '../src/components/TabNavigation.jsx'
+import TabTitle from '../src/components/TabTitle.jsx'
+import TabContent from '../src/components/TabContent.jsx'
 
 storiesOf('Buttons', module)
   .add('Regular App Navigation Button', () => (
@@ -24,6 +27,7 @@ storiesOf('Buttons', module)
       Smartphone
     </IconButton>
   ))
+
 storiesOf('Icons', module)
   .add('Regular Icon', () => (
     <Icon icon={ICONS.SMARTPHONE} />
@@ -33,4 +37,15 @@ storiesOf('Icons', module)
   ))
   .add('Bigger Icon', () => (
     <Icon icon={ICONS.SMARTPHONE} size={'40'}/>
+  ))
+
+storiesOf('TabNavigation', module)
+  .add('TabNavigation', () => (
+    <TabNavigation>
+      <TabTitle>Tab1</TabTitle>
+      <TabTitle>Tab2</TabTitle>
+
+      <TabContent>This is content for tab 1</TabContent>
+      <TabContent>This is content for tab 2</TabContent>
+    </TabNavigation>
   ))
