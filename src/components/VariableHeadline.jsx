@@ -2,9 +2,9 @@ import React from 'react'
 
 function VariableHeadline(props) {
   const styles = {
-    fontSize: props.fontSize,
-    marginTop: props.topSpacing,
-    marginBottom: props.bottomSpacing
+    fontSize: props.fontSize + 'px',
+    marginTop: props.SpacingTop + 'px',
+    marginBottom: props.SpacingBottom + 'px'
   }
   return(
     <span style={styles}>

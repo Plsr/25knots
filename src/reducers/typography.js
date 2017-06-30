@@ -1,9 +1,19 @@
 import {SET_VALUE_FOR_KEY} from '../actions'
 
 const initialState = {
-  fontSize: 24,
+  fontSize: 16,
   lineHeight: 1.4,
-  textWidth: 600
+  textWidth: 600,
+  textSpacing: 20,
+  headline1Size: 48,
+  headline1SpacingTop: 40,
+  headline1SpacingBottom: 20,
+  headline2Size: 36,
+  headline2SpacingTop: 30,
+  headline2SpacingBottom: 15,
+  headline3Size: 24,
+  headline3SpacingTop: 20,
+  headline3SpacingBottom: 10
 }
 
 const typography = (state = initialState, action) => {
