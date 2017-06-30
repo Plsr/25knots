@@ -4,6 +4,7 @@ export const SET_SCOPE = 'SET_SCOPE'
 export const SET_SETUP_TO_FINISHED = 'SET_SETUP_TO_FINISHED'
 export const PREVIOUS_SETUP_STEP = 'PREVIOUS_SETUP_STEP'
 export const RESET_SETUP = 'RESET_SETUP'
+export const SET_VALUE_FOR_KEY = 'SET_VALUE_FOR_KEY'
 
 export const nextSetupStep = () => {
   return {
@@ -33,5 +34,13 @@ export const previousSetupStep = () => {
 export const resetSetup = () => {
   return {
     type: RESET_SETUP
+  }
+}
+
+export const setValueForKey = (key, value) => {
+  return {
+    type: SET_VALUE_FOR_KEY,
+    key,
+    value
   }
 }

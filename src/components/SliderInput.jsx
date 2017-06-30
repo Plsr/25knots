@@ -7,6 +7,10 @@ function SliderInput(props) {
       defaultValue={props.value}
       min={props.min}
       max={props.max}
+      onChange={e => {
+        e.preventDefault()
+        props.handleChange(props.storeKey, e.target.value)
+      }}
     />
   )
 }

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import { setValueForKey } from '../actions'
 import Typography from '../components/Typography.jsx'
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,9 +12,18 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setValueForKey: (value, key) => {
+      dispatch(setValueForKey(value, key))
+    }
+  }
+}
+
 
 const TypographyContainer = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Typography)
 
 export default TypographyContainer
