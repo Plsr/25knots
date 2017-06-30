@@ -5,6 +5,7 @@ import TabTitle from './TabTitle.jsx'
 import TabContent from './TabContent.jsx'
 import SliderInput from './SliderInput.jsx'
 import UnitValueDisplay from './UnitValueDisplay.jsx'
+import VariableHeadline from './VariableHeadline.jsx'
 
 export default class Typography extends React.Component {
   constructor(props) {
@@ -35,6 +36,14 @@ export default class Typography extends React.Component {
             <UnitValueDisplay value={this.props.fontSize} unit={'px'} />
           </TabContent>
         </TabNavigation>
+
+        <VariableHeadline
+          fontSize={this.props.fontSize}
+          spacingTop={20}
+          spacingBottom={40}
+        >
+          This is a Headline
+        </VariableHeadline>
       </div>
     )
   }
