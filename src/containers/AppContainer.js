@@ -2,11 +2,12 @@ import { connect } from 'react-redux'
 import { setScope, setSetupToFinished, previousSetupStep, resetSetup } from '../actions'
 import App from '../components/App.jsx'
 
-const mapStatetoProps = (state, ownProps) => {
+const mapStateToProps = (state, ownProps) => {
+  let setupState = state.setup
   return {
-    setupStep: state.setupStep,
-    setupFinished: state.setupFinished,
-    scopes: state.scopes,
+    setupStep: setupState.setupStep,
+    setupFinished: setupState.setupFinished,
+    scopes: setupState.scopes,
     ...ownProps
   }
 }
@@ -28,7 +29,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export const AppContainer = connect(
-  mapStatetoProps,
+const AppContainer = connect(
+  mapStateToProps,
   mapDispatchToProps
 )(App)
+
+export default AppContainer

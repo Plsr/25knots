@@ -11,6 +11,8 @@ import Icon from '../src/components/Icon.jsx'
 import TabNavigation from '../src/components/TabNavigation.jsx'
 import TabTitle from '../src/components/TabTitle.jsx'
 import TabContent from '../src/components/TabContent.jsx'
+import UnitValueDisplay from '../src/components/UnitValueDisplay.jsx'
+import SliderInput from '../src/components/SliderInput.jsx'
 
 storiesOf('Buttons', module)
   .add('Regular App Navigation Button', () => (
@@ -48,4 +50,17 @@ storiesOf('TabNavigation', module)
       <TabContent>This is content for tab 1</TabContent>
       <TabContent>This is content for tab 2</TabContent>
     </TabNavigation>
+  ))
+
+storiesOf('UnitValueDisplay', module)
+  .add('As pixel value', () => (
+    <UnitValueDisplay value={23} unit={'px'}/>
+  ))
+  .add('As percentage value', () => (
+    <UnitValueDisplay value={150} unit={'%'}/>
+  ))
+
+storiesOf('SliderInput', module)
+  .add('SliderInput', () => (
+    <SliderInput value={34} min={0} max={100} />
   ))

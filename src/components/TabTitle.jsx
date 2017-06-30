@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import Icon from './Icon'
+import Icon from './Icon.jsx'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import {appColors} from '../styles/base/colors.js'
 

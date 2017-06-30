@@ -3,18 +3,18 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import setup from './reducers/setup.js'
+import ApplicationState from './reducers/ApplicationState.js'
 import logger from 'redux-logger'
 
 import './styles/global.css'
 import './styles/normalize.css'
 
-import {AppContainer} from './containers/AppContainer.js'
-import Typography from './components/Typography.jsx'
+import AppContainer from './containers/AppContainer.js'
+import TypographyContainer from './containers/TypographyContainer.js'
 import Intro from './components/Intro.jsx'
 
 let store = createStore(
-  setup,
+  ApplicationState,
   applyMiddleware(logger)
 )
 
@@ -24,7 +24,7 @@ ReactDOM.render(
       <Switch>
         <Route exact path="/" component={AppContainer}/>
         <Route path="/intro" component={Intro}/>
-        <Route path="/typography" component={Typography}/>
+        <Route path="/typography" component={TypographyContainer}/>
       </Switch>
     </Router>
   </Provider>,
