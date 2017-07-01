@@ -72,7 +72,7 @@ export default class TabNavigation extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className={css(styles.wrapperStyles)}>
         <div className={css(styles.TabListStyles)}>
           {this.renderTabs()}
         </div>
@@ -83,9 +83,13 @@ export default class TabNavigation extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  wrapperStyles: {
+    display: 'flex',
+    flexDirection: 'row'
+  },
   TabListStyles: {
     height: '100vh',
-    float: 'left',
+    maxWidth: '90px',
     backgroundColor: baseColors.ultraLightGrey
   }
 })
