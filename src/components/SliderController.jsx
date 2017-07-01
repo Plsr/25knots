@@ -10,7 +10,13 @@ function SliderController(props) {
     <div>
       <span className={css(styles.titleStyles)}>{props.title}</span>
       <span>{props.error}</span>
-      <SliderInput value={props.value} handleChange={props.handleChange} storeKey={props.storeKey} />
+      <SliderInput
+        value={props.value}
+        handleChange={props.handleChange}
+        storeKey={props.storeKey}
+        min={props.min}
+        max={props.max}
+      />
       <UnitValueDisplay value={props.value} unit={props.unit} />
     </div>
   )

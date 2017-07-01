@@ -44,8 +44,8 @@ storiesOf('Icons', module)
 storiesOf('TabNavigation', module)
   .add('TabNavigation', () => (
     <TabNavigation>
-      <TabTitle icon={ICONS.SMARTPHONE}>Tab1</TabTitle>
-      <TabTitle icon={ICONS.PAGE}>Tab2</TabTitle>
+      <TabTitle icon={ICONS.SMARTPHONE} title={'Smartphone'} />
+      <TabTitle icon={ICONS.PAGE} title={'Page'} />
 
       <TabContent>This is content for tab 1</TabContent>
       <TabContent>This is content for tab 2</TabContent>

@@ -7,6 +7,7 @@ import TabContent from './TabContent.jsx'
 import VariableHeadline from './VariableHeadline.jsx'
 import VariableText from './VariableText.jsx'
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'
+import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import SliderController from './SliderController.jsx'
 
 export default class Typography extends React.Component {
@@ -27,61 +28,199 @@ export default class Typography extends React.Component {
         <div className={css(styles.wrapperStyles)}>
           <div className={css(styles.textStyles)}>
             <SpacingInset size={'m'}>
-              <VariableHeadline
-                fontSize={this.props.headline1Size}
-                spacingTop={this.props.headline1SpacingTop}
-                spacingBottom={this.props.headline1SpacingBottom}
-              />
+              <div style={{width: this.props.textWidth, margin: '0 auto'}}>
+                <VariableHeadline
+                  fontSize={this.props.headline1Size}
+                  spacingTop={this.props.headline1SpacingTop}
+                  spacingBottom={this.props.headline1SpacingBottom}
+                />
 
-              <VariableText
-                fontSize={this.props.fontSize}
-                lineHeight={this.props.lineHeight}
-                spacingBottom={20}
-              />
+                <VariableText
+                  fontSize={this.props.fontSize}
+                  lineHeight={this.props.lineHeight}
+                  spacingBottom={0}
+                />
 
-              <VariableHeadline
-                fontSize={this.props.headline2Size}
-                spacingTop={this.props.headline2SpacingTop}
-                spacingBottom={this.props.headline2SpacingBottom}
-              />
+                <VariableHeadline
+                  fontSize={this.props.headline2Size}
+                  spacingTop={this.props.headline2SpacingTop}
+                  spacingBottom={this.props.headline2SpacingBottom}
+                />
 
-              <VariableText
-                fontSize={this.props.fontSize}
-                lineHeight={this.props.lineHeight}
-                spacingBottom={20}
-              />
+                <VariableText
+                  fontSize={this.props.fontSize}
+                  lineHeight={this.props.lineHeight}
+                  spacingBottom={0}
+                />
 
-              <VariableHeadline
-                fontSize={this.props.headline3Size}
-                spacingTop={this.props.headline3SpacingTop}
-                spacingBottom={this.props.headline3SpacingBottom}
-              />
+                <VariableHeadline
+                  fontSize={this.props.headline3Size}
+                  spacingTop={this.props.headline3SpacingTop}
+                  spacingBottom={this.props.headline3SpacingBottom}
+                />
 
-              <VariableText
-                fontSize={this.props.fontSize}
-                lineHeight={this.props.lineHeight}
-                spacingBottom={20}
-              />
+                <VariableText
+                  fontSize={this.props.fontSize}
+                  lineHeight={this.props.lineHeight}
+                  spacingBottom={this.props.textSpacing}
+                />
+                <VariableText
+                  fontSize={this.props.fontSize}
+                  lineHeight={this.props.lineHeight}
+                  spacingBottom={0}
+                />
+              </div>
             </SpacingInset>
           </div>
 
           <div>
             <TabNavigation>
-              <TabTitle>
-                General
-              </TabTitle>
-              <TabTitle>
-                Headlines
-              </TabTitle>
+              <TabTitle title={'General'} />
+              <TabTitle title={'Headline 1'} />
+              <TabTitle title={'Headline 2'} />
+              <TabTitle title={'Headline 3'} />
+              <TabTitle title={'Colors'} />
 
               <TabContent>
                 <SliderController
                   title={'Text Size'}
                   value={this.props.fontSize}
+                  min={8}
+                  max={80}
                   unit={'px'}
                   handleChange={this.handleChange}
                   storeKey={'fontSize'}
                 />
+                <SpacingStack size={'l'} />
+                <SliderController
+                  title={'Line Height'}
+                  value={this.props.lineHeight}
+                  min={80}
+                  max={300}
+                  unit={'%'}
+                  handleChange={this.handleChange}
+                  storeKey={'lineHeight'}
+                />
+                <SpacingStack size={'l'} />
+                <SliderController
+                  title={'Text Width'}
+                  value={this.props.textWidth}
+                  min={100}
+                  max={1000}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'textWidth'}
+                />
+                <SpacingStack size={'l'} />
+                <SliderController
+                  title={'Paragraph Spacing'}
+                  value={this.props.textSpacing}
+                  min={0}
+                  max={100}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'textSpacing'}
+                />
+              </TabContent>
+
+              <TabContent>
+                <SliderController
+                  title={'Headline 1 Size'}
+                  value={this.props.headline1Size}
+                  min={8}
+                  max={120}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'headline1Size'}
+                />
+                <SpacingStack size={'l'} />
+                <SliderController
+                  title={'Headline 1 Spacing Top'}
+                  value={this.props.headline1SpacingTop}
+                  min={0}
+                  max={100}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'headline1SpacingTop'}
+                />
+                <SpacingStack size={'l'} />
+                <SliderController
+                  title={'Headline 1 Spacing Bottom'}
+                  value={this.props.headline1SpacingBottom}
+                  min={0}
+                  max={100}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'headline1SpacingBottom'}
+                />
+              </TabContent>
+
+              <TabContent>
+                <SliderController
+                  title={'Headline 2 Size'}
+                  value={this.props.headline2Size}
+                  min={8}
+                  max={120}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'headline2Size'}
+                />
+                <SpacingStack size={'l'} />
+                <SliderController
+                  title={'Headline 2 Spacing Top'}
+                  value={this.props.headline2SpacingTop}
+                  min={0}
+                  max={100}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'headline2SpacingTop'}
+                />
+                <SpacingStack size={'l'} />
+                <SliderController
+                  title={'Headline 2 Spacing Bottom'}
+                  value={this.props.headline2SpacingBottom}
+                  min={0}
+                  max={100}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'headline2SpacingBottom'}
+                />
+              </TabContent>
+
+              <TabContent>
+                <SliderController
+                  title={'Headline 3 Size'}
+                  value={this.props.headline3Size}
+                  min={8}
+                  max={120}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'headline3Size'}
+                />
+                <SpacingStack size={'l'} />
+                <SliderController
+                  title={'Headline 3 Spacing Top'}
+                  value={this.props.headline3SpacingTop}
+                  min={0}
+                  max={100}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'headline3SpacingTop'}
+                />
+                <SpacingStack size={'l'} />
+                <SliderController
+                  title={'Headline 3 Spacing Bottom'}
+                  value={this.props.headline3SpacingBottom}
+                  min={0}
+                  max={100}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'headline3SpacingBottom'}
+                />
+              </TabContent>
+
+              <TabContent>
+                Ther'll be colors here later
               </TabContent>
             </TabNavigation>
           </div>

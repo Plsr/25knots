@@ -13,7 +13,7 @@ function TabTitle(props) {
     >
       <Icon icon={props.icon} />
       <SpacingStack size='s' />
-      {props.children}
+      {props.title}
     </div>
   )
 }

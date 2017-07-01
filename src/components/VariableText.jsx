@@ -19,7 +19,7 @@ export default class VariableText extends React.Component {
 function setStyles(props) {
   let styles = {
     fontSize: props.fontSize + 'px',
-    lineHeight: props.lineHeight,
+    lineHeight: props.lineHeight + '%',
     marginBottom: props.spacingBottom + 'px'
   }
 

@@ -2,7 +2,7 @@ import {SET_VALUE_FOR_KEY} from '../actions'
 
 const initialState = {
   fontSize: 16,
-  lineHeight: 1.4,
+  lineHeight: 140,
   textWidth: 600,
   textSpacing: 20,
   headline1Size: 48,
