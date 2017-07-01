@@ -1,8 +1,10 @@
 import React from 'react'
 
+import {randomDummyParagraph} from './helpers/constants/dummyText'
+
 function VariableText(props) {
   return(
-    <p style={setStyles(props)}>{props.children}</p>
+    <p style={setStyles(props)}>{randomDummyParagraph()}</p>
   )
 }
 

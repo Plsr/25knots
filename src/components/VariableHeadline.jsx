@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {randomDummyHeadline} from './helpers/constants/dummyText'
+
 function VariableHeadline(props) {
   const styles = {
     fontSize: props.fontSize + 'px',
@@ -11,7 +13,7 @@ function VariableHeadline(props) {
   console.log(styles);
   return(
     <span style={styles}>
-      {props.children}
+      {randomDummyHeadline()}
     </span>
   )
 }
