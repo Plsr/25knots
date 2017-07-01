@@ -2,20 +2,25 @@ import React from 'react'
 
 import {randomDummyHeadline} from './helpers/constants/dummyText'
 
-function VariableHeadline(props) {
-  const styles = {
-    fontSize: props.fontSize + 'px',
-    marginTop: props.spacingTop + 'px',
-    marginBottom: props.spacingBottom + 'px',
-    display: 'block'
+export default class VariableHeadline extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.text = randomDummyHeadline()
   }
 
-  console.log(styles);
-  return(
-    <span style={styles}>
-      {randomDummyHeadline()}
-    </span>
-  )
-}
+  render() {
+    const styles = {
+      fontSize: this.props.fontSize + 'px',
+      marginTop: this.props.spacingTop + 'px',
+      marginBottom: this.props.spacingBottom + 'px',
+      display: 'block'
+    }
 
-export default VariableHeadline
+    return(
+      <span style={styles}>
+        {this.text}
+      </span>
+    )
+  }
+}

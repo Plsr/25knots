@@ -2,10 +2,18 @@ import React from 'react'
 
 import {randomDummyParagraph} from './helpers/constants/dummyText'
 
-function VariableText(props) {
-  return(
-    <p style={setStyles(props)}>{randomDummyParagraph()}</p>
-  )
+export default class VariableText extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.text = randomDummyParagraph()
+  }
+
+  render(){
+    return(
+      <p style={setStyles(this.props)}>{this.text}</p>
+    )
+  }
 }
 
 function setStyles(props) {
@@ -17,5 +25,3 @@ function setStyles(props) {
 
   return styles
 }
-
-export default VariableText
