@@ -4,10 +4,10 @@ import {StyleSheet, css} from 'aphrodite'
 import TabNavigation from './TabNavigation.jsx'
 import TabTitle from './TabTitle.jsx'
 import TabContent from './TabContent.jsx'
-import SliderInput from './SliderInput.jsx'
-import UnitValueDisplay from './UnitValueDisplay.jsx'
 import VariableHeadline from './VariableHeadline.jsx'
 import VariableText from './VariableText.jsx'
+import SpacingInset from './helpers/spacing/SpacingInset.jsx'
+import SliderController from './SliderController.jsx'
 
 export default class Typography extends React.Component {
   constructor(props) {
@@ -26,48 +26,43 @@ export default class Typography extends React.Component {
         <h1>Typo!</h1>
         <div className={css(styles.wrapperStyles)}>
           <div className={css(styles.textStyles)}>
-            <VariableHeadline
-              fontSize={this.props.headline1Size}
-              spacingTop={this.props.headline1SpacingTop}
-              spacingBottom={this.props.headline1SpacingBottom}
-            >
-              This is a Headline
-            </VariableHeadline>
+            <SpacingInset size={'m'}>
+              <VariableHeadline
+                fontSize={this.props.headline1Size}
+                spacingTop={this.props.headline1SpacingTop}
+                spacingBottom={this.props.headline1SpacingBottom}
+              />
 
-            <VariableText
-              fontSize={this.props.fontSize}
-              lineHeight={this.props.lineHeight}
-              spacingBottom={20}
-            />
+              <VariableText
+                fontSize={this.props.fontSize}
+                lineHeight={this.props.lineHeight}
+                spacingBottom={20}
+              />
 
-            <VariableHeadline
-              fontSize={this.props.headline2Size}
-              spacingTop={this.props.headline2SpacingTop}
-              spacingBottom={this.props.headline2SpacingBottom}
-            >
-              This is a Headline
-            </VariableHeadline>
+              <VariableHeadline
+                fontSize={this.props.headline2Size}
+                spacingTop={this.props.headline2SpacingTop}
+                spacingBottom={this.props.headline2SpacingBottom}
+              />
 
-            <VariableText
-              fontSize={this.props.fontSize}
-              lineHeight={this.props.lineHeight}
-              spacingBottom={20}
-            />
+              <VariableText
+                fontSize={this.props.fontSize}
+                lineHeight={this.props.lineHeight}
+                spacingBottom={20}
+              />
 
-            <VariableHeadline
-              fontSize={this.props.headline3Size}
-              spacingTop={this.props.headline3SpacingTop}
-              spacingBottom={this.props.headline3SpacingBottom}
-            >
-              This is a Headline
-            </VariableHeadline>
+              <VariableHeadline
+                fontSize={this.props.headline3Size}
+                spacingTop={this.props.headline3SpacingTop}
+                spacingBottom={this.props.headline3SpacingBottom}
+              />
 
-            <VariableText
-              fontSize={this.props.fontSize}
-              lineHeight={this.props.lineHeight}
-              spacingBottom={20}
-            />
-
+              <VariableText
+                fontSize={this.props.fontSize}
+                lineHeight={this.props.lineHeight}
+                spacingBottom={20}
+              />
+            </SpacingInset>
           </div>
 
           <div>
@@ -80,9 +75,13 @@ export default class Typography extends React.Component {
               </TabTitle>
 
               <TabContent>
-                Text Size
-                <SliderInput value={this.props.fontSize} handleChange={this.handleChange} storeKey={'fontSize'}/>
-                <UnitValueDisplay value={this.props.fontSize} unit={'px'} />
+                <SliderController
+                  title={'Text Size'}
+                  value={this.props.fontSize}
+                  unit={'px'}
+                  handleChange={this.handleChange}
+                  storeKey={'fontSize'}
+                />
               </TabContent>
             </TabNavigation>
           </div>
