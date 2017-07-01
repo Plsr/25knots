@@ -1,4 +1,5 @@
 import React from 'react'
+import {StyleSheet, css} from 'aphrodite'
 
 import TabNavigation from './TabNavigation.jsx'
 import TabTitle from './TabTitle.jsx'
@@ -23,69 +24,87 @@ export default class Typography extends React.Component {
     return (
       <div style={{textAlign: 'center'}}>
         <h1>Typo!</h1>
-        <VariableHeadline
-          fontSize={this.props.headline1Size}
-          spacingTop={this.props.headline1SpacingTop}
-          spacingBottom={this.props.headline1SpacingTop}
-        >
-          This is a Headline
-        </VariableHeadline>
+        <div className={css(styles.wrapperStyles)}>
+          <div className={css(styles.textStyles)}>
+            <VariableHeadline
+              fontSize={this.props.headline1Size}
+              spacingTop={this.props.headline1SpacingTop}
+              spacingBottom={this.props.headline1SpacingBottom}
+            >
+              This is a Headline
+            </VariableHeadline>
 
-        <VariableText
-          fontSize={this.props.fontSize}
-          lineHeight={this.props.lineHeight}
-          spacingBottom={20}
-        >
-          Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component.
-        </VariableText>
+            <VariableText
+              fontSize={this.props.fontSize}
+              lineHeight={this.props.lineHeight}
+              spacingBottom={20}
+            >
+              Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component.
+            </VariableText>
 
-        <VariableHeadline
-          fontSize={this.props.headline2Size}
-          spacingTop={this.props.headline2SpacingTop}
-          spacingBottom={this.props.headline2SpacingTop}
-        >
-          This is a Headline
-        </VariableHeadline>
+            <VariableHeadline
+              fontSize={this.props.headline2Size}
+              spacingTop={this.props.headline2SpacingTop}
+              spacingBottom={this.props.headline2SpacingBottom}
+            >
+              This is a Headline
+            </VariableHeadline>
 
-        <VariableText
-          fontSize={this.props.fontSize}
-          lineHeight={this.props.lineHeight}
-          spacingBottom={20}
-        >
-          Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component.
-        </VariableText>
+            <VariableText
+              fontSize={this.props.fontSize}
+              lineHeight={this.props.lineHeight}
+              spacingBottom={20}
+            >
+              Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component.
+            </VariableText>
 
-        <VariableHeadline
-          fontSize={this.props.headline3Size}
-          spacingTop={this.props.headline3SpacingTop}
-          spacingBottom={this.props.headline3SpacingTop}
-        >
-          This is a Headline
-        </VariableHeadline>
+            <VariableHeadline
+              fontSize={this.props.headline3Size}
+              spacingTop={this.props.headline3SpacingTop}
+              spacingBottom={this.props.headline3SpacingBottom}
+            >
+              This is a Headline
+            </VariableHeadline>
 
-        <VariableText
-          fontSize={this.props.fontSize}
-          lineHeight={this.props.lineHeight}
-          spacingBottom={20}
-        >
-          Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component.
-        </VariableText>
+            <VariableText
+              fontSize={this.props.fontSize}
+              lineHeight={this.props.lineHeight}
+              spacingBottom={20}
+            >
+              Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component.
+            </VariableText>
+          </div>
 
-        <TabNavigation>
-          <TabTitle>
-            General
-          </TabTitle>
-          <TabTitle>
-            Headlines
-          </TabTitle>
+          <div>
+            <TabNavigation>
+              <TabTitle>
+                General
+              </TabTitle>
+              <TabTitle>
+                Headlines
+              </TabTitle>
 
-          <TabContent>
-            Text Size
-            <SliderInput value={this.props.fontSize} handleChange={this.handleChange} storeKey={'fontSize'}/>
-            <UnitValueDisplay value={this.props.fontSize} unit={'px'} />
-          </TabContent>
-        </TabNavigation>
+              <TabContent>
+                Text Size
+                <SliderInput value={this.props.fontSize} handleChange={this.handleChange} storeKey={'fontSize'}/>
+                <UnitValueDisplay value={this.props.fontSize} unit={'px'} />
+              </TabContent>
+            </TabNavigation>
+          </div>
+        </div>
       </div>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  wrapperStyles:{
+    display: 'flex',
+    flexDirection: 'row'
+  },
+  textStyles: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '75%'
+  }
+})
