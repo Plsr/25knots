@@ -24,8 +24,8 @@ export default class Typography extends React.Component {
 
   render() {
     const textWrapperStyles = {
-      width: this.props.textWidth,
       margin: '0 auto',
+      width: this.props.textWidth,
       backgroundColor: this.props.backgroundColor,
       color: this.props.foregroundColor
     }
@@ -232,11 +232,14 @@ export default class Typography extends React.Component {
                   color={this.props.backgroundColor}
                   handleChange={this.handleChange}
                   storeKey={'backgroundColor'}
+                  title={'Background Color'}
                 />
+                <SpacingStack size={'l'} />
                 <ColorpickerController
                   color={this.props.foregroundColor}
                   handleChange={this.handleChange}
                   storeKey={'foregroundColor'}
+                  title={'Text Color'}
                 />
               </TabContent>
             </TabNavigation>
