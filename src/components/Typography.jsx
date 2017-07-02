@@ -23,13 +23,20 @@ export default class Typography extends React.Component {
   }
 
   render() {
+    const textWrapperStyles = {
+      width: this.props.textWidth,
+      margin: '0 auto',
+      backgroundColor: this.props.backgroundColor,
+      color: this.props.foregroundColor
+    }
+
     return (
       <div style={{textAlign: 'center'}}>
         <h1>Typo!</h1>
         <div className={css(styles.wrapperStyles)}>
           <div className={css(styles.textStyles)}>
             <SpacingInset size={'m'}>
-              <div style={{width: this.props.textWidth, margin: '0 auto'}}>
+              <div style={textWrapperStyles}>
                 <VariableHeadline
                   fontSize={this.props.headline1Size}
                   spacingTop={this.props.headline1SpacingTop}
