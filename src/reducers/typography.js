@@ -13,7 +13,9 @@ const initialState = {
   headline2SpacingBottom: 15,
   headline3Size: 24,
   headline3SpacingTop: 20,
-  headline3SpacingBottom: 10
+  headline3SpacingBottom: 10,
+  backgroundColor: '#ffffff',
+  foregroundColor: '#000000'
 }
 
 const typography = (state = initialState, action) => {

@@ -9,6 +9,7 @@ import VariableText from './VariableText.jsx'
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import SliderController from './SliderController.jsx'
+import ColorpickerController from './ColorpickerController.jsx'
 
 export default class Typography extends React.Component {
   constructor(props) {
@@ -220,7 +221,16 @@ export default class Typography extends React.Component {
               </TabContent>
 
               <TabContent>
-                Ther'll be colors here later
+                <ColorpickerController
+                  color={this.props.backgroundColor}
+                  handleChange={this.handleChange}
+                  storeKey={'backgroundColor'}
+                />
+                <ColorpickerController
+                  color={this.props.foregroundColor}
+                  handleChange={this.handleChange}
+                  storeKey={'foregroundColor'}
+                />
               </TabContent>
             </TabNavigation>
           </div>
