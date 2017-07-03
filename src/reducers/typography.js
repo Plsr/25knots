@@ -1,6 +1,7 @@
 import {SET_VALUE_FOR_KEY} from '../actions'
 
 const initialState = {
+  fontFamily: 'Arial',
   fontSize: 16,
   lineHeight: 140,
   textWidth: 600,

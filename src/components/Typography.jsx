@@ -10,6 +10,8 @@ import SpacingInset from './helpers/spacing/SpacingInset.jsx'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import SliderController from './SliderController.jsx'
 import ColorpickerController from './ColorpickerController.jsx'
+import DropdownController from './DropdownController.jsx'
+import {fontFamilies} from './helpers/constants/fontFamilies.js'
 
 export default class Typography extends React.Component {
   constructor(props) {
@@ -27,7 +29,8 @@ export default class Typography extends React.Component {
       margin: '0 auto',
       width: this.props.textWidth,
       backgroundColor: this.props.backgroundColor,
-      color: this.props.foregroundColor
+      color: this.props.foregroundColor,
+      fontFamily: this.props.fontFamily
     }
 
     return (
@@ -90,6 +93,14 @@ export default class Typography extends React.Component {
               <TabTitle title={'Colors'} />
 
               <TabContent>
+                <DropdownController
+                  title={'Font Family'}
+                  options={fontFamilies}
+                  storeKey={'fontFamily'}
+                  value={this.props.fontFamily}
+                  onChange={this.handleChange}
+                />
+                <SpacingStack size={'l'} />
                 <SliderController
                   title={'Text Size'}
                   value={this.props.fontSize}
