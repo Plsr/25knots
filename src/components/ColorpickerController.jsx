@@ -11,6 +11,7 @@ class ColorpickerController extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.handleClose = this.handleClose.bind(this)
+    this.getColorBasedOnBackground = this.getColorBasedOnBackground.bind(this)
 
     this.state = {
       displayColorPicker: false
@@ -29,15 +30,28 @@ class ColorpickerController extends React.Component {
     this.props.handleChange(this.props.storeKey, color.hex)
   }
 
+  // Determines if the text color should be light or dark based on its background
+  getColorBasedOnBackground(background) {
+    let bright = tinycolor(background).isLight()
+    return bright ? '#333333' : '#ffffff'
+  }
+
   render() {
+    let color = this.props.color
+    
     return (
       <div>
         {this.props.title}
         <div
           onClick={ this.handleClick }
           className={css(styles.PreviewStyles)}
-          style={{backgroundColor: this.props.color}}
-        />
+          style={{
+            backgroundColor: color,
+            color: this.getColorBasedOnBackground(color)
+          }}
+        >
+          {this.props.color}
+        </div>
         { this.state.displayColorPicker ? <div className={css(styles.PopoverStyles)}>
           <div className={css(styles.CoverStyles)} onClick={ this.handleClose }/>
           <ChromePicker
