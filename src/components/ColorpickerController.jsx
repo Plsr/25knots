@@ -20,11 +20,11 @@ class ColorpickerController extends React.Component {
 
   handleClick() {
     this.setState({ displayColorPicker: !this.state.displayColorPicker })
-  };
+  }
 
   handleClose() {
     this.setState({ displayColorPicker: false })
-  };
+  }
 
   handleChange(color) {
     this.props.handleChange(this.props.storeKey, color.hex)
@@ -38,7 +38,7 @@ class ColorpickerController extends React.Component {
 
   render() {
     let color = this.props.color
-    
+
     return (
       <div>
         {this.props.title}

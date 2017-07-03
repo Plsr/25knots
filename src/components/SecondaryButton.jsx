@@ -2,7 +2,6 @@ import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
 import { buttonReset, buttonBaseStyles, buttonInactiveStyles } from '../styles/shared/buttons.js'
-import { fontSizes, fontWeights } from '../styles/base/fonts.js'
 import { baseColors, appColors } from '../styles/base/colors.js'
 import SpacingSquishedInset from './helpers/spacing/SpacingSquishedInset.jsx'
 
@@ -30,7 +29,6 @@ function setStyles(variant, inactive) {
 }
 
 function SecondaryButton(props) {
-  console.log(setStyles(props.variant, props.inactive));
   return(
     <button
       className={setStyles(props.variant, props.inactive)}

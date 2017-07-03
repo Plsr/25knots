@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import {ICONS} from './helpers/constants/icons.js'
 import {baseColors, appColors} from '../styles/base/colors.js'
 import {fontSizes} from '../styles/base/fonts.js'
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'

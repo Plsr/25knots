@@ -1,8 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite'
 
-import { baseColors, appColors } from '../../styles/base/colors.js'
+import { baseColors } from '../../styles/base/colors.js'
 
 function ProgressItem(props) {
   return (

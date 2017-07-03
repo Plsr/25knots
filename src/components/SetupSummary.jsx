@@ -23,7 +23,6 @@ function extractScopeInformation(scopes, options) {
     })
   }
 
-  console.log(extractedScopes);
   return extractedScopes
 }
 
@@ -36,13 +35,13 @@ function buildSummary(scopes, options) {
     summaryElemets.push (
       <SpacingStack size='l' key={i} >
         <div className={css(styles.SummaryItemStyles)}>
-        <SpacingInline size={'l'} >
-          ➜
-        </SpacingInline>
-        <SpacingInline size={'l'} >
-        <Icon icon={currentScope.icon} color={appColors.secondary} size={42} />
-        </SpacingInline>
-        <span>{currentScope.text}</span>
+          <SpacingInline size={'l'} >
+            ➜
+          </SpacingInline>
+          <SpacingInline size={'l'} >
+            <Icon icon={currentScope.icon} color={appColors.secondary} size={42} />
+          </SpacingInline>
+          <span>{currentScope.text}</span>
         </div>
       </SpacingStack>
     )

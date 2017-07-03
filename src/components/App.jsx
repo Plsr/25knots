@@ -1,7 +1,6 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import Intro from './Intro.jsx'
 import Progress from './shared/Progress.jsx'
 import IntroductionHero from './IntroductionHero.jsx'
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'
@@ -9,7 +8,6 @@ import NavigationButton from './NavigationButton.jsx'
 import SetupProgress from './SetupProgress.jsx'
 import SetupSummary from './SetupSummary.jsx'
 import NavigationBackground from './shared/NavigationBackground.jsx'
-import {AppContainer} from '../containers/AppContainer.js'
 
 import {setupOptions} from './helpers/constants/setupOptions.js' // Remove after setupSteps was moved to redux container
 

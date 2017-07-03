@@ -1,11 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite'
 
 import ProgressItem from './ProgressItem.jsx'
 import NavigationBackground from './NavigationBackground.jsx'
-import { spacing } from '../../styles/base/spacing'
-import { baseColors } from '../../styles/base/colors'
 
 function Progress() {
   return (

@@ -2,7 +2,6 @@ import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 import { Link } from 'react-router-dom'
 
-import { fontFamily, fontSizes, fontWeights } from '../styles/base/fonts.js'
 import { baseColors, appColors } from '../styles/base/colors.js'
 import { buttonReset, buttonBaseStyles, buttonInactiveStyles } from '../styles/shared/buttons.js'
 import SpacingSquishedInset from './helpers/spacing/SpacingSquishedInset.jsx'
@@ -24,7 +23,7 @@ class NavigationButton extends React.Component {
   }
   handleClick(e){
     if(this.props.inactive) {
-      e.preventDefault();
+      e.preventDefault()
     }
   }
 

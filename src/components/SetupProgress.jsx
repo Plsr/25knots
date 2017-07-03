@@ -1,10 +1,7 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import {ICONS} from './helpers/constants/icons.js'
-import {baseColors} from '../styles/base/colors.js'
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import IconButton from './IconButton.jsx'
 import SecondaryButton from './SecondaryButton.jsx'
 import BorderedBox from './BorderedBox.jsx'
@@ -71,8 +68,8 @@ class SetupProgress extends React.Component {
           setupOptions.push(currentOption)
       }
     } else {
-      for (var i = 0; i < this.props.setupOptions.length; i++) {
-        let currentOption = this.props.setupOptions[i]
+      for (var j = 0; j < this.props.setupOptions.length; j++) {
+        let currentOption = this.props.setupOptions[j]
 
         // An element should only be displayed, if its scope matches on of the global scopes
         if (this.props.scopes.indexOf(currentOption.shouldDisplayForScope) > -1)

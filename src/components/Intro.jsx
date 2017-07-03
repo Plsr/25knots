@@ -1,7 +1,5 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom'
-
-import Typography from './Typography.jsx'
 
 export default class Intro extends React.Component {
   render() {
