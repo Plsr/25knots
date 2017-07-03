@@ -20,9 +20,6 @@ class ColorControls extends React.Component {
   // Check contrast of the two currently picked colors
   // based on WCAG 2.0 G18
   // https://www.w3.org/TR/2016/NOTE-WCAG20-TECHS-20160317/G18
-
-  // TODO: Re-enable esLint
-  /*eslint-disable */
   calculateRatio() {
     // Get currently set colors
     let bgColor = tinycolor(this.props.background).toRgb()
@@ -51,8 +48,6 @@ class ColorControls extends React.Component {
       // Store luminances of foreground and background color
       lumis.push((0.2126 * currColor.r + 0.7152 * currColor.g + 0.0722 * currColor.b) + 0.05)
     }
-
-    console.log(lumis);
 
     let multiplicator
     // Normalize luminances so that the darker one is 1
