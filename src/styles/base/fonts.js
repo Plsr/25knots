@@ -1,5 +1,5 @@
 export const fontFamily = {
-  mainFamily: "'Cabin', sans-serif"
+  mainFamily: '"Cabin", sans-serif'
 }
 
 export const fontSizes = {
