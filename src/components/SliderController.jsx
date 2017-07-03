@@ -6,7 +6,7 @@ import UnitValueDisplay from './UnitValueDisplay.jsx'
 
 
 function SliderController(props) {
-  return(
+  return (
     <div>
       <span className={css(styles.titleStyles)}>{props.title}</span>
       <span>{props.error}</span>

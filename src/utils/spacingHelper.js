@@ -10,12 +10,12 @@ import { spacing } from '../styles/base/spacing'
  *
  */
 export function getSize(size) {
-  if(size === undefined)
+  if (size === undefined)
     throw new Error('Spacing components need an explicit size')
 
   let pixelSize = spacing[size]
 
-  if(pixelSize === undefined)
+  if (pixelSize === undefined)
     throw new Error('The provided size for the spacing component is not valid.')
 
   return pixelSize

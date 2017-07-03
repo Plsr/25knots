@@ -6,7 +6,7 @@ import { appColors } from '../styles/base/colors.js'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 
 function Headline1(props) {
-  return(
+  return (
     <SpacingStack size='l'>
       <h1 className={css(styles.Healine1Styles)}>{ props.content }</h1>
     </SpacingStack>

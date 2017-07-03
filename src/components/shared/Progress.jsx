@@ -18,7 +18,7 @@ function Progress() {
   )
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
   ListStyles: {
     display: 'flex',
     justifyContent: 'space-between',

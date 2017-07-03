@@ -27,7 +27,7 @@ class IconButton extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <button
         onMouseOver={this.toggleHoverState}
         onMouseOut={this.toggleHoverState}

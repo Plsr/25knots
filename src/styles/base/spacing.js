@@ -6,5 +6,5 @@ export const spacing = {
   m: `${spacingFactor}px`,  // 16px
   l: `${spacingFactor * 2}px`,  // 32px
   xl: `${spacingFactor * 4}px`,  // 64px
-  xxl: `${spacingFactor * 8}px`,  // 128px
+  xxl: `${spacingFactor * 8}px`  // 128px
 }

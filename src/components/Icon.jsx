@@ -14,7 +14,7 @@ function Icon(props) {
   // If no color is given, default to black
   let color = props.color || baseColors.black
 
-  return(
+  return (
     <svg width={size} height={size} viewBox="0 0 1024 1024">
       <path style={{fill: color}} d={props.icon}></path>
     </svg>

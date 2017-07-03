@@ -22,7 +22,7 @@ class NavigationButton extends React.Component {
     this.handleClick = this.handleClick.bind(this)
   }
   handleClick(e){
-    if(this.props.inactive) {
+    if (this.props.inactive) {
       e.preventDefault()
     }
   }

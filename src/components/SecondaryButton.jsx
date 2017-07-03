@@ -7,7 +7,7 @@ import SpacingSquishedInset from './helpers/spacing/SpacingSquishedInset.jsx'
 
 function setStyles(variant, inactive) {
   if (variant == 'outline') {
-    return(
+    return (
       css(
         styles.buttonReset,
         styles.buttonBaseStyles,
@@ -17,7 +17,7 @@ function setStyles(variant, inactive) {
     )
 
   } else {
-    return(
+    return (
       css(
         styles.buttonReset,
         styles.buttonBaseStyles,
@@ -29,7 +29,7 @@ function setStyles(variant, inactive) {
 }
 
 function SecondaryButton(props) {
-  return(
+  return (
     <button
       className={setStyles(props.variant, props.inactive)}
       onClick={props.inactive ? '' : props.onClick}

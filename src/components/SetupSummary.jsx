@@ -15,7 +15,7 @@ function extractScopeInformation(scopes, options) {
     let currentOption = options[i]
 
     scopes.forEach(function(scope) {
-      if(currentOption.value == scope)
+      if (currentOption.value == scope)
         extractedScopes.push({
           text: currentOption.text,
           icon: currentOption.icon
@@ -32,7 +32,7 @@ function buildSummary(scopes, options) {
 
   for (var i = 0; i < extractedScopes.length; i++) {
     let currentScope = extractedScopes[i]
-    summaryElemets.push (
+    summaryElemets.push(
       <SpacingStack size='l' key={i} >
         <div className={css(styles.SummaryItemStyles)}>
           <SpacingInline size={'l'} >

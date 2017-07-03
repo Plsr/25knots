@@ -1,7 +1,7 @@
 import React from 'react'
 
 function SliderInput(props) {
-  return(
+  return (
     <input
       type="range"
       min={props.min}

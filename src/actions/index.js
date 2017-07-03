@@ -13,7 +13,7 @@ export const nextSetupStep = () => {
 }
 
 export const setScope = scope => {
-  return{
+  return {
     type: SET_SCOPE,
     scope
   }

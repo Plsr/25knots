@@ -34,6 +34,37 @@
     "semi": [
       "error",
       "never"
-    ]
+    ],
+    "block-spacing": "warn",
+    "camelcase": "warn",
+    "brace-style": "warn",
+    "comma-dangle": [
+      "warn",
+      "never"
+    ],
+    "comma-spacing": [
+      "warn", {
+        "before": false,
+        "after": true
+      }
+    ],
+    "comma-style": [
+      "warn",
+      "last"
+    ],
+    "eol-last": [
+      "warn",
+      "always"
+    ],
+    "func-call-spacing": [
+      "warn",
+      "never"
+    ],
+    "func-style": [
+      "warn",
+      "declaration",
+      { "allowArrowFunctions": true }
+    ],
+    "keyword-spacing": "warn"
   }
 }

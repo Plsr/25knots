@@ -6,7 +6,7 @@ import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import {appColors} from '../styles/base/colors.js'
 
 function TabTitle(props) {
-  return(
+  return (
     <div
       onClick={() => props.onClick(props.id)}
       className={css(styles.TabStyles)}

@@ -1,7 +1,7 @@
 import React from 'react'
 
 function UnitValueDisplay(props) {
-  return(
+  return (
     <div>
       <span>{props.value}</span>
       <span>{props.unit}</span>

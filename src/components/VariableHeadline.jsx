@@ -17,7 +17,7 @@ export default class VariableHeadline extends React.Component {
       display: 'block'
     }
 
-    return(
+    return (
       <span style={styles}>
         {this.text}
       </span>

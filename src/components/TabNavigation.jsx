@@ -71,7 +71,7 @@ export default class TabNavigation extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <div className={css(styles.wrapperStyles)}>
         <div className={css(styles.TabListStyles)}>
           {this.renderTabs()}

@@ -19,8 +19,8 @@ export default class App extends React.Component {
   }
 
   renderSetupStep() {
-    if(this.props.setupFinished) {
-      return(
+    if (this.props.setupFinished) {
+      return (
         <SetupSummary
           setupOptions={setupOptions}
           scopes={this.props.scopes}
@@ -28,7 +28,7 @@ export default class App extends React.Component {
         />
       )
     } else {
-      return(
+      return (
         <SetupProgress
           scopes={this.props.scopes}
           setupStep={this.props.setupStep}

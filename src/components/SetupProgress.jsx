@@ -16,7 +16,7 @@ class SetupProgress extends React.Component {
     this.generateContent = this.generateContent.bind(this)
 
     this.state = {
-      activeOption: false,
+      activeOption: false
     }
   }
 
@@ -30,7 +30,7 @@ class SetupProgress extends React.Component {
     this.props.setScope(this.state.activeOption)
 
     // If the current setup step is the last, also set the setup state to finished
-    if(this.props.setupStep == this.props.setupSteps) {
+    if (this.props.setupStep == this.props.setupSteps) {
       this.props.setSetupToFinished()
     }
 
@@ -60,7 +60,7 @@ class SetupProgress extends React.Component {
      * Else, got through all options and determine for every one,
      * if it should be displayed
      */
-    if(this.props.setupStep == 1) {
+    if (this.props.setupStep == 1) {
       for (var i = 0; i < this.props.setupOptions.length; i++) {
         let currentOption = this.props.setupOptions[i]
 
@@ -111,7 +111,7 @@ class SetupProgress extends React.Component {
   }
 
   render() {
-    return(
+    return (
       <BorderedBox>
         <SpacingInset size='l'>
           <span>This will later be some explanation</span>

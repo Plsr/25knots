@@ -4,7 +4,7 @@ import {StyleSheet, css} from 'aphrodite'
 import {baseColors} from '../styles/base/colors.js'
 
 function BorderedBox(props) {
-  return(
+  return (
     <div className={css(styles.boxStyles)} >
       {props.children}
     </div>

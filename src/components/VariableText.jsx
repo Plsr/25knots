@@ -10,7 +10,7 @@ export default class VariableText extends React.Component {
   }
 
   render(){
-    return(
+    return (
       <p style={setStyles(this.props)}>{this.text}</p>
     )
   }

@@ -5,7 +5,7 @@ import Headline1 from './Headline1.jsx'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 
 function IntroductionHero() {
-  return(
+  return (
     <SpacingStack size='xxl'>
       <div className={css(styles.ContainerStyles)}>
         <Headline1 content='25knots' />
