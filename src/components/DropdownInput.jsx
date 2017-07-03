@@ -3,7 +3,7 @@ import React from 'react'
 function DropdownInput(props) {
   return (
     <select>
-      {setOptionTags(props)}
+      {setOptionTags(props.options)}
     </select>
   )
 }
@@ -18,7 +18,7 @@ function setOptionTags(options) {
         value={currentOption}
         key={i}
       >
-        currentOption
+        {currentOption}
       </option>
     )
   }
