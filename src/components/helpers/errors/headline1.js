@@ -1,5 +1,9 @@
 function calculateHeadline1Errors(headlineValues, bodyTextValues) {
-  let errors = []
+  let errors = {
+    size: [],
+    spacingTop: [],
+    spacingBottom: []
+  }
   let bodyFontSize = bodyTextValues.fontSize
   let bodyFontConstant = 0
   let bodyLineHeight = (bodyTextValues.lineHeight * bodyTextValues.fontSize) / 100
@@ -14,22 +18,22 @@ function calculateHeadline1Errors(headlineValues, bodyTextValues) {
   let sizeConstraint = bodyFontSize * (1.68 + bodyFontConstant)
 
   if (h1Size < sizeConstraint * 0.8) {
-    errors.push('Headline 1 ist im Verhältnis zum Text sehr klein')
+    errors.size.push('Headline 1 ist im Verhältnis zum Text sehr klein')
   }
   if (h1Size > sizeConstraint * 1.2) {
-    errors.push('Headline 1 ist im Verhältnis zum Text sehr groß')
+    errors.size.push('Headline 1 ist im Verhältnis zum Text sehr groß')
   }
   if (marginBottom > (bodyLineHeight * 1.7)) {
-    errors.push('Headline 1 hat einen sehr großen Abstand nach unten')
+    errors.spacingBottom.push('Headline 1 hat einen sehr großen Abstand nach unten')
   }
   if (marginBottom < bodyLineHeight) {
-    errors.push('Headline 1 hat einen sehr kleinen Abstand nach unten')
+    errors.spacingBottom.push('Headline 1 hat einen sehr kleinen Abstand nach unten')
   }
   if (marginTop > (bodyLineHeight * 2.7)) {
-    errors.push('Headline 1 hat einen sehr großen Abstand nach oben')
+    errors.spacingTop.push('Headline 1 hat einen sehr großen Abstand nach oben')
   }
   if (marginTop < (bodyLineHeight * 2)) {
-    errors.push('Headline 1 hat einen sehr kleinen Abstand nach oben')
+    errors.spacingTop.push('Headline 1 hat einen sehr kleinen Abstand nach oben')
   }
 
   return errors

@@ -26,6 +26,7 @@ class HeadlineController extends React.Component {
           unit={'px'}
           handleChange={this.handleChange}
           storeKey={'size'}
+          errorMessages={this.props.componentErrors.size}
         />
         <SpacingStack size={'l'} />
         <SliderController
@@ -36,6 +37,7 @@ class HeadlineController extends React.Component {
           unit={'px'}
           handleChange={this.handleChange}
           storeKey={'spacingTop'}
+          errorMessages={this.props.componentErrors.spacingTop}
         />
         <SpacingStack size={'l'} />
         <SliderController
@@ -46,8 +48,8 @@ class HeadlineController extends React.Component {
           unit={'px'}
           handleChange={this.handleChange}
           storeKey={'spacingBottom'}
+          errorMessages={this.props.componentErrors.spacingBottom}
         />
-        {this.props.componentErrors.map(error => <p>{error}</p>)}
       </div>
     )
   }

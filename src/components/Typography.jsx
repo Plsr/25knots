@@ -11,7 +11,7 @@ import GeneralControls from './GeneralControls.jsx'
 import HeadlineControls from './HeadlineControls.jsx'
 import ColorControls from './ColorControls.jsx'
 
-import calculateHeadline1Errors from './helpers/errors/headline1.js'
+import calculateApplicationErrors from './helpers/errors'
 
 export default class Typography extends React.Component {
   constructor(props) {
@@ -25,10 +25,12 @@ export default class Typography extends React.Component {
   }
 
   calculateErrors() {
-    return calculateHeadline1Errors(this.props.headline1, this.props.general)
+    return calculateApplicationErrors(this.props)
   }
 
   render() {
+    const errors = this.calculateErrors()
+    console.log(errors) // eslint-disable-line no-console
     const textWrapperStyles = {
       margin: '0 auto',
       width: this.props.general.textWidth,
@@ -109,7 +111,7 @@ export default class Typography extends React.Component {
                   onChange={this.props.setValueInArea}
                   area={'headline1'}
                   title={'Headline 1'}
-                  componentErrors={this.calculateErrors()}
+                  componentErrors={errors.headline1}
                   {...this.props.headline1}
                 />
               </TabContent>
