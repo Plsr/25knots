@@ -7,6 +7,7 @@ export const RESET_SETUP = 'RESET_SETUP'
 export const SET_VALUE_FOR_KEY = 'SET_VALUE_FOR_KEY'
 export const SET_GENERAL_VALUE_FOR_KEY = 'SET_GENERAL_VALUE_FOR_KEY'
 export const SET_VALUE_IN_AREA = 'SET_VALUE_IN_AREA'
+export const SET_ERRORS = 'SET_ERRORS'
 
 export const nextSetupStep = () => {
   return {
@@ -61,5 +62,12 @@ export const setValueInArea = (area, key, value) => {
     area,
     key,
     value
+  }
+}
+
+export const setErrors = (errorsPresent) => {
+  return {
+    type: SET_ERRORS,
+    errorsPresent
   }
 }

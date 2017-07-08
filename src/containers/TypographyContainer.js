@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setValueForKey, setGeneralValueForKey, setValueInArea } from '../actions'
+import { setValueForKey, setGeneralValueForKey, setValueInArea, setErrors } from '../actions'
 import Typography from '../components/Typography.jsx'
 
 const mapStateToProps = (state, ownProps) => {
@@ -20,6 +20,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setValueInArea: (area, value, key) => {
       dispatch(setValueInArea(area, value, key))
+    },
+    setErrors: (errors) => {
+      dispatch(setErrors(errors))
     }
   }
 }

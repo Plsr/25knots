@@ -11,6 +11,8 @@ import GeneralControls from './GeneralControls.jsx'
 import HeadlineControls from './HeadlineControls.jsx'
 import ColorControls from './ColorControls.jsx'
 
+import calculateHeadline1Errors from './helpers/errors/headline1.js'
+
 export default class Typography extends React.Component {
   constructor(props) {
     super(props)
@@ -20,6 +22,10 @@ export default class Typography extends React.Component {
 
   handleChange(key, value) {
     this.props.setValueForKey(key, value)
+  }
+
+  calculateErrors() {
+    return calculateHeadline1Errors(this.props.headline1, this.props.general)
   }
 
   render() {
@@ -103,6 +109,7 @@ export default class Typography extends React.Component {
                   onChange={this.props.setValueInArea}
                   area={'headline1'}
                   title={'Headline 1'}
+                  componentErrors={this.calculateErrors()}
                   {...this.props.headline1}
                 />
               </TabContent>

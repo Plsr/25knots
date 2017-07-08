@@ -1,4 +1,4 @@
-import {SET_VALUE_FOR_KEY, SET_GENERAL_VALUE_FOR_KEY, SET_VALUE_IN_AREA} from '../actions'
+import {SET_VALUE_FOR_KEY, SET_GENERAL_VALUE_FOR_KEY, SET_VALUE_IN_AREA, SET_ERRORS} from '../actions'
 
 const initialState = {
   general: {
@@ -6,12 +6,7 @@ const initialState = {
     fontSize: 16,
     lineHeight: 140,
     textWidth: 600,
-    textSpacing: 20,
-    errors: {
-      size: [
-        'Test'
-      ]
-    }
+    textSpacing: 20
   },
   headline1: {
     size: 48,
@@ -23,18 +18,12 @@ const initialState = {
   headline2: {
     size: 36,
     spacingTop: 30,
-    spacingBottom: 15,
-    errors: {
-
-    }
+    spacingBottom: 15
   },
   headline3: {
     size: 24,
     spacingTop: 20,
-    spacingBottom: 10,
-    errors: {
-
-    }
+    spacingBottom: 10
   },
   colors: {
     background: '#ffffff',
@@ -44,7 +33,8 @@ const initialState = {
       AA: true,
       A: true
     }
-  }
+  },
+  errorsPresent: false
 }
 
 const typography = (state = initialState, action) => {
@@ -66,6 +56,11 @@ const typography = (state = initialState, action) => {
           ...state[action.area],
           [action.key]: action.value
         }
+      })
+    case SET_ERRORS:
+      console.log('set errors called') // eslint-disable-line no-console
+      return Object.assign({}, state, {
+        errorsPresent: action.errorsPresent
       })
     default:
       return state

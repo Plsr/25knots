@@ -15,6 +15,7 @@ class HeadlineController extends React.Component {
   }
 
   render() {
+    console.log(this.props.componentErrors) //eslint-disable-line no-console
     return (
       <div>
         <SliderController
@@ -46,6 +47,7 @@ class HeadlineController extends React.Component {
           handleChange={this.handleChange}
           storeKey={'spacingBottom'}
         />
+        {this.props.componentErrors.map(error => <p>{error}</p>)}
       </div>
     )
   }
