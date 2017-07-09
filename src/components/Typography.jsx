@@ -121,6 +121,7 @@ export default class Typography extends React.Component {
                   onChange={this.props.setValueInArea}
                   area={'headline2'}
                   title={'Headline 2'}
+                  componentErrors={errors.headline2}
                   {...this.props.headline2}
                 />
               </TabContent>
@@ -130,6 +131,7 @@ export default class Typography extends React.Component {
                   onChange={this.props.setValueInArea}
                   area={'headline3'}
                   title={'Headline 3'}
+                  componentErrors={errors.headline3}
                   {...this.props.headline3}
                 />
               </TabContent>
