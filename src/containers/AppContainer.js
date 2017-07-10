@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     scopes: setupState.scopes,
     ...ownProps
   }
-}
+}:
 
 const mapDispatchToProps = (dispatch) => {
   return {
