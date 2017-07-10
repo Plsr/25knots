@@ -1,8 +1,7 @@
 node_js:
   - "8.1.1"
 before_install:
-  - npm install
-  - bower install
+  - yarn install
 before_script:
   - yarn run lint
 notifications:
