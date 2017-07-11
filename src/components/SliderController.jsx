@@ -3,7 +3,7 @@ import {StyleSheet, css} from 'aphrodite'
 
 import SliderInput from './SliderInput.jsx'
 import UnitValueDisplay from './UnitValueDisplay.jsx'
-import ErrorContainer from './ErrorContainer.jsx'
+import Callout from './Callout.jsx'
 
 
 function SliderController(props) {
@@ -30,9 +30,9 @@ function renderErrorMessages(messages) {
 
     for (var i = 0; i < messages.length; i++) {
       renderedMessages.push(
-        <ErrorContainer key={i}>
+        <Callout key={i} variant='warning'>
           {messages[i]}
-        </ErrorContainer>
+        </Callout>
       )
     }
 
