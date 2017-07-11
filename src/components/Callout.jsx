@@ -24,6 +24,7 @@ function Callout(props) {
   )
 }
 
+// Simple switch case to determine which styles to use
 function setStylesForVariant(variant) {
   switch (variant) {
     case 'warning':
