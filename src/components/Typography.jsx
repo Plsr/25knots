@@ -10,6 +10,7 @@ import SpacingInset from './helpers/spacing/SpacingInset.jsx'
 import GeneralControls from './GeneralControls.jsx'
 import HeadlineControls from './HeadlineControls.jsx'
 import ColorControls from './ColorControls.jsx'
+import TextWidthCalculator from './TextWidthCalculator.jsx'
 
 import calculateApplicationErrors from './helpers/errors'
 
@@ -17,20 +18,30 @@ export default class Typography extends React.Component {
   constructor(props) {
     super(props)
 
+    this.bodyWidthConstraints = {
+      min: 200,
+      max: 400
+    }
     this.handleChange = this.handleChange.bind(this)
+    this.updateBodyWidthConstraints = this.updateBodyWidthConstraints.bind(this)
   }
 
   handleChange(key, value) {
     this.props.setValueForKey(key, value)
   }
 
+  updateBodyWidthConstraints(min, max) {
+    this.bodyWidthConstraints.min = min
+    this.bodyWidthConstraints.max = max
+  }
+
   calculateErrors() {
-    return calculateApplicationErrors(this.props)
+    console.log(this.bodyWidthConstraints) //eslint-disable-line no-console
+    return calculateApplicationErrors(this.props, this.bodyWidthConstraints)
   }
 
   render() {
     const errors = this.calculateErrors()
-    console.log(errors) // eslint-disable-line no-console
     const textWrapperStyles = {
       margin: '0 auto',
       width: this.props.general.textWidth,
@@ -86,6 +97,11 @@ export default class Typography extends React.Component {
                   lineHeight={this.props.general.lineHeight}
                   spacingBottom={0}
                 />
+                <TextWidthCalculator
+                  fontSize={this.props.general.fontSize}
+                  fontFamily={this.props.general.fontFamily}
+                  onChange={this.updateBodyWidthConstraints}
+                />
               </div>
             </SpacingInset>
           </div>
@@ -103,6 +119,7 @@ export default class Typography extends React.Component {
                   onChange={this.props.setValueInArea}
                   area={'general'}
                   {...this.props.general}
+                  componentErrors={errors.general}
                 />
               </TabContent>
 

@@ -35,6 +35,7 @@ class GeneralControls extends React.Component {
           unit={'px'}
           handleChange={this.handleChange}
           storeKey={'fontSize'}
+          errorMessages={this.props.componentErrors.size}
         />
         <SpacingStack size={'l'} />
         <SliderController
@@ -45,6 +46,7 @@ class GeneralControls extends React.Component {
           unit={'%'}
           handleChange={this.handleChange}
           storeKey={'lineHeight'}
+          errorMessages={this.props.componentErrors.lineHeight}
         />
         <SpacingStack size={'l'} />
         <SliderController
@@ -55,6 +57,7 @@ class GeneralControls extends React.Component {
           unit={'px'}
           handleChange={this.handleChange}
           storeKey={'textWidth'}
+          errorMessages={this.props.componentErrors.width}
         />
         <SpacingStack size={'l'} />
         <SliderController
@@ -65,6 +68,7 @@ class GeneralControls extends React.Component {
           unit={'px'}
           handleChange={this.handleChange}
           storeKey={'textSpacing'}
+          errorMessages={this.props.componentErrors.spacing}
         />
       </div>
     )

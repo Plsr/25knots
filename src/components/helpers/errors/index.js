@@ -1,9 +1,10 @@
 import calculateHeadlineErrors from './headline.js'
+import calculateGeneralErrors from './bodyText.js'
 
 import {HEADLINE_1_MULTIPLIERS, HEADLINE_2_MULTIPLIERS, HEADLINE_3_MULTIPLIERS} from '../constants/headlineConstraints.js'
 import {getClosestValueFromScale, getPreviousSize} from '../functions/typographicScale.js'
 
-function calculateApplicationErrors(typographyValues) {
+function calculateApplicationErrors(typographyValues, bodyWidthConstraints) {
   // General
   let bodyFontSize = typographyValues.general.fontSize
   let lineHeight = (bodyFontSize * typographyValues.general.lineHeight) / 100
@@ -28,7 +29,8 @@ function calculateApplicationErrors(typographyValues) {
   let errors = {
     headline1: calculateHeadlineErrors(typographyValues.headline1, lineHeight, headline1SizeContraint, HEADLINE_1_MULTIPLIERS),
     headline2: calculateHeadlineErrors(typographyValues.headline2, lineHeight, headline2SizeContraint, HEADLINE_2_MULTIPLIERS),
-    headline3: calculateHeadlineErrors(typographyValues.headline3, lineHeight, headline3SizeContraint, HEADLINE_3_MULTIPLIERS)
+    headline3: calculateHeadlineErrors(typographyValues.headline3, lineHeight, headline3SizeContraint, HEADLINE_3_MULTIPLIERS),
+    general: calculateGeneralErrors(typographyValues.general, bodyFontSize, bodyWidthConstraints)
   }
 
   return errors
