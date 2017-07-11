@@ -5,6 +5,7 @@ import Icon from './Icon.jsx'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import SpacingStrechedInset from './helpers/spacing/SpacingStrechedInset.jsx'
 import {appColors, baseColors} from '../styles/base/colors.js'
+import {ICONS} from './helpers/constants/icons.js'
 
 class TabTitle extends React.Component {
   constructor(props) {
@@ -37,6 +38,9 @@ class TabTitle extends React.Component {
           this.state.hover && styles.activeStyles
         )}
       >
+        <div className={css(styles.warningStyles)}>
+          <Icon icon={ICONS.WARNING} size={15} color={baseColors.warning}/>
+        </div>
         <SpacingStrechedInset size={'m'} >
           <Icon icon={this.props.icon} color={this.computeIconColor()} />
           <SpacingStack size='s' />
@@ -50,6 +54,7 @@ class TabTitle extends React.Component {
 const styles = StyleSheet.create({
   TabStyles: {
     display: 'flex',
+    position: 'relative',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -65,6 +70,11 @@ const styles = StyleSheet.create({
   activeStyles: {
     backgroundColor: appColors.secondary,
     color: baseColors.white
+  },
+  warningStyles: {
+    position: 'absolute',
+    left: '5px',
+    top: '5px'
   }
 })
 

@@ -57,7 +57,7 @@ export default class Typography extends React.Component {
         width: '75%'
       },
       textWrapperStyles: {
-        width: this.props.general.textWidth,
+        width: this.props.general.textWidth + 'px',
         color: this.props.colors.foreground,
         fontFamily: this.props.general.fontFamily
       }
