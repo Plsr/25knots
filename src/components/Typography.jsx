@@ -44,20 +44,31 @@ export default class Typography extends React.Component {
 
   render() {
     const errors = this.calculateErrors()
-    const textWrapperStyles = {
-      margin: '0 auto',
-      width: this.props.general.textWidth,
-      backgroundColor: this.props.colors.background,
-      color: this.props.colors.foreground,
-      fontFamily: this.props.general.fontFamily
-    }
+    const styles = StyleSheet.create({
+      wrapperStyles:{
+        display: 'flex',
+        backgroundColor: this.props.colors.background,
+        flexDirection: 'row'
+      },
+      textStyles: {
+        display: 'flex',
+        flexDirection: 'column',
+        textAlign: 'left',
+        width: '75%'
+      },
+      textWrapperStyles: {
+        width: this.props.general.textWidth,
+        color: this.props.colors.foreground,
+        fontFamily: this.props.general.fontFamily
+      }
+    })
 
     return (
       <div style={{textAlign: 'center'}}>
         <div className={css(styles.wrapperStyles)}>
           <div className={css(styles.textStyles)}>
             <SpacingInset size={'m'}>
-              <div style={textWrapperStyles}>
+              <div className={css(styles.textWrapperStyles)}>
                 <VariableHeadline
                   fontSize={this.props.headline1.size}
                   spacingTop={this.props.headline1.spacingTop}
@@ -169,16 +180,3 @@ export default class Typography extends React.Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  wrapperStyles:{
-    display: 'flex',
-    flexDirection: 'row'
-  },
-  textStyles: {
-    display: 'flex',
-    flexDirection: 'column',
-    textAlign: 'left',
-    width: '75%'
-  }
-})
