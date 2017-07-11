@@ -36,7 +36,6 @@ export default class Typography extends React.Component {
   }
 
   calculateErrors() {
-    console.log(this.bodyWidthConstraints) //eslint-disable-line no-console
     return calculateApplicationErrors(this.props, this.bodyWidthConstraints)
   }
 
