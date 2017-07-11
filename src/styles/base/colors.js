@@ -5,7 +5,13 @@ export const baseColors = {
   lighterMidGrey: '#CCCCCC',
   midGrey: '#999999',
   darkGrey: '#BBBBBB',
-  black: '#333333'
+  black: '#333333',
+  warning: '#ffea68',
+  warningDarkened: '#e5c91b',
+  error: '#d80000',
+  errorDarkened: '#7a0000',
+  success: '#33b500',
+  sucessDarkened: '#217700'
 }
 
 export const appColors = {
