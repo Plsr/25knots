@@ -4,13 +4,14 @@ import {StyleSheet, css} from 'aphrodite'
 import SliderInput from './SliderInput.jsx'
 import UnitValueDisplay from './UnitValueDisplay.jsx'
 import Callout from './Callout.jsx'
+import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 
 
 function SliderController(props) {
   return (
     <div>
       <span className={css(styles.titleStyles)}>{props.title}</span>
-      <span>{props.error}</span>
+      <SpacingStack size={'s'} />
       <SliderInput
         value={props.value}
         handleChange={props.handleChange}
@@ -18,7 +19,9 @@ function SliderController(props) {
         min={props.min}
         max={props.max}
       />
+      <SpacingStack size={'xs'} />
       <UnitValueDisplay value={props.value} unit={props.unit} />
+      <SpacingStack size={'m'} />
       {renderErrorMessages(props.errorMessages)}
     </div>
   )

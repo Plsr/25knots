@@ -62,11 +62,13 @@ const styles = StyleSheet.create({
   baseStyles: {
     borderWidth: '1px',
     borderStyle: 'solid',
-    borderRadius: '4px'
+    borderRadius: '4px',
+    fontSize: '14px'
   },
   warningStyles: {
     backgroundColor: baseColors.warning,
-    borderColor: baseColors.warningDarkened
+    borderColor: baseColors.warningDarkened,
+    color: baseColors.black
   },
   errorStyles: {
     backgroundColor: baseColors.error,
