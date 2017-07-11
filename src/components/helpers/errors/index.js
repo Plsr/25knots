@@ -1,5 +1,5 @@
 import calculateHeadlineErrors from './headline.js'
-import calculateGeneralErrors from './bodyText.js'
+import calculateGeneralErrors from './general.js'
 import calcualateContrast from './contrast.js'
 
 import {HEADLINE_1_MULTIPLIERS, HEADLINE_2_MULTIPLIERS, HEADLINE_3_MULTIPLIERS} from '../constants/headlineConstraints.js'
@@ -31,7 +31,7 @@ function calculateApplicationErrors(typographyValues, bodyWidthConstraints) {
     headline1: calculateHeadlineErrors(typographyValues.headline1, lineHeight, headline1SizeContraint, HEADLINE_1_MULTIPLIERS),
     headline2: calculateHeadlineErrors(typographyValues.headline2, lineHeight, headline2SizeContraint, HEADLINE_2_MULTIPLIERS),
     headline3: calculateHeadlineErrors(typographyValues.headline3, lineHeight, headline3SizeContraint, HEADLINE_3_MULTIPLIERS),
-    general: calculateGeneralErrors(typographyValues.general, bodyFontSize, bodyWidthConstraints),
+    general: calculateGeneralErrors(typographyValues, bodyFontSize, bodyWidthConstraints),
     colors: calcualateContrast(typographyValues.colors.foreground, typographyValues.colors.background)
   }
 

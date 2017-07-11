@@ -1,13 +1,19 @@
-function calculateGeneralErrors(bodyTextValues, fontSize, bodyWidthConstraints) {
+function calculateGeneralErrors(typographyValues, fontSize, bodyWidthConstraints) {
   let errors = {
     size: [],
     lineHeight: [],
     width: [],
-    spacing: []
+    spacing: [],
+    headlines: []
   }
 
-  let bodyWidth = bodyTextValues.textWidth
-  let lineHeight = bodyTextValues.lineHeight
+  let bodyWidth = typographyValues.general.textWidth
+  let lineHeight = typographyValues.general.lineHeight
+  let headlineSizes = [
+    typographyValues.headline1.size,
+    typographyValues.headline2.size,
+    typographyValues.headline3.size
+  ]
 
   if (fontSize < 9) {
     errors.size.push('Die Textgröße ist sehr klein und könnte schwer lesbar sein')
@@ -27,7 +33,17 @@ function calculateGeneralErrors(bodyTextValues, fontSize, bodyWidthConstraints) 
   if (bodyWidth > bodyWidthConstraints.max) {
     errors.width.push('Der Text ist sehr breit und könnte dadurch schwerer lesbar sein')
   }
+  if (headlineSizes[1] > headlineSizes[0]) {
+    errors.headlines.push('Headline 2 should not be bigger than headline 1')
+  }
+  if (headlineSizes[2] > headlineSizes[1]) {
+    errors.headlines.push('Headline 3 should not be bigger than headline 2')
+  }
+  if (headlineSizes[2] > headlineSizes[0]) {
+    errors.headlines.push('Headline 3 should not be bigger than headline 1')
+  }
   return errors
 }
+
 
 export default calculateGeneralErrors

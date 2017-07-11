@@ -4,19 +4,38 @@ import DropdownController from './DropdownController.jsx'
 import {fontFamilies} from './helpers/constants/fontFamilies.js'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import SliderController from './SliderController.jsx'
+import Callout from './Callout.jsx'
 
 class GeneralControls extends React.Component {
   constructor(props) {
     super(props)
 
     this.handleChange = this.handleChange.bind(this)
+    this.displayGeneralErrors = this.displayGeneralErrors.bind(this)
   }
 
   handleChange(key, value) {
     this.props.onChange(this.props.area, key, value)
   }
 
+  displayGeneralErrors(errors) {
+    let generalErrors = []
+
+    for (var i = 0; i < errors.length; i++) {
+      generalErrors.push(
+        <SpacingStack key={i} size={'l'}>
+          <Callout variant={'warning'} >
+            {errors[i]}
+          </Callout>
+        </SpacingStack>
+      )
+    }
+
+    return generalErrors
+  }
+
   render() {
+    console.log(this.props.componentErrors) // eslint-disable-line no-console
     return (
       <div>
         <DropdownController
@@ -70,6 +89,14 @@ class GeneralControls extends React.Component {
           storeKey={'textSpacing'}
           errorMessages={this.props.componentErrors.spacing}
         />
+        {this.props.componentErrors.headlines.length > 0 &&
+          <div>
+            <SpacingStack size={'xl'} />
+            <hr />
+            <SpacingStack size={'xl'} />
+            {this.displayGeneralErrors(this.props.componentErrors.headlines)}
+          </div>
+        }
       </div>
     )
   }
