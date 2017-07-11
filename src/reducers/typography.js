@@ -27,12 +27,7 @@ const initialState = {
   },
   colors: {
     background: '#ffffff',
-    foreground: '#000000',
-    contrastPassing: {
-      AAA: true,
-      AA: true,
-      A: true
-    }
+    foreground: '#000000'
   },
   errorsPresent: false
 }

@@ -156,6 +156,7 @@ export default class Typography extends React.Component {
                 <ColorControls
                   onChange={this.props.setValueInArea}
                   area={'colors'}
+                  componentErrors={errors.colors}
                   {...this.props.colors}
                 />
               </TabContent>
