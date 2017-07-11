@@ -1,6 +1,8 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
+import {ICONS} from './helpers/constants/icons.js'
+
 import TabNavigation from './TabNavigation.jsx'
 import TabTitle from './TabTitle.jsx'
 import TabContent from './TabContent.jsx'
@@ -18,6 +20,7 @@ export default class Typography extends React.Component {
   constructor(props) {
     super(props)
 
+    // TODO: Set reasonable base constraints
     this.bodyWidthConstraints = {
       min: 200,
       max: 400
@@ -51,7 +54,6 @@ export default class Typography extends React.Component {
 
     return (
       <div style={{textAlign: 'center'}}>
-        <h1>Typo!</h1>
         <div className={css(styles.wrapperStyles)}>
           <div className={css(styles.textStyles)}>
             <SpacingInset size={'m'}>
@@ -107,11 +109,11 @@ export default class Typography extends React.Component {
 
           <div>
             <TabNavigation>
-              <TabTitle title={'General'} />
-              <TabTitle title={'Headline 1'} />
-              <TabTitle title={'Headline 2'} />
-              <TabTitle title={'Headline 3'} />
-              <TabTitle title={'Colors'} />
+              <TabTitle title={'General'} icon={ICONS.TEXT} />
+              <TabTitle title={'Headline 1'} icon={ICONS.HEADLINE1} />
+              <TabTitle title={'Headline 2'} icon={ICONS.HEADLINE2} />
+              <TabTitle title={'Headline 3'} icon={ICONS.HEADLINE3} />
+              <TabTitle title={'Colors'} icon={ICONS.COLOR}/>
 
               <TabContent>
                 <GeneralControls
