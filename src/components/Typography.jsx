@@ -176,6 +176,7 @@ const styles = StyleSheet.create({
   textStyles: {
     display: 'flex',
     flexDirection: 'column',
+    textAlign: 'left',
     width: '75%'
   }
 })
