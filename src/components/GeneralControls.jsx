@@ -1,7 +1,7 @@
 import React from 'react'
 
 import DropdownController from './DropdownController.jsx'
-import {fontFamilies} from './helpers/constants/fontFamilies.js'
+import {FONTS} from './helpers/constants/fonts.js'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import SliderController from './SliderController.jsx'
 import Callout from './Callout.jsx'
@@ -12,6 +12,7 @@ class GeneralControls extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.displayGeneralErrors = this.displayGeneralErrors.bind(this)
+    this.determineFontFamilies = this.determineFontFamilies.bind(this)
   }
 
   handleChange(key, value) {
@@ -34,7 +35,13 @@ class GeneralControls extends React.Component {
     return generalErrors
   }
 
+  determineFontFamilies() {
+    let scope = this.props.scopes[1]
+    return FONTS[scope]
+  }
+
   render() {
+    let fontFamilies = this.determineFontFamilies()
     return (
       <div>
         <DropdownController
@@ -42,6 +49,7 @@ class GeneralControls extends React.Component {
           options={fontFamilies}
           storeKey={'fontFamily'}
           value={this.props.fontFamily}
+          defaultValue={fontFamilies[0]}
           onChange={this.handleChange}
         />
         <SpacingStack size={'l'} />

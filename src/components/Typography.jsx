@@ -66,6 +66,7 @@ export default class Typography extends React.Component {
       }
     })
 
+    console.log(this.props) //eslint-disable-line no-console
     return (
       <div style={{textAlign: 'center'}}>
         <div className={css(styles.wrapperStyles)}>
@@ -134,6 +135,7 @@ export default class Typography extends React.Component {
                   onChange={this.props.setValueInArea}
                   area={'general'}
                   {...this.props.general}
+                  scopes={this.props.scopes}
                   componentErrors={errors.general}
                 />
               </TabContent>
