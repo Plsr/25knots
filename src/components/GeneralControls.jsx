@@ -35,7 +35,6 @@ class GeneralControls extends React.Component {
   }
 
   render() {
-    console.log(this.props.componentErrors) // eslint-disable-line no-console
     return (
       <div>
         <DropdownController

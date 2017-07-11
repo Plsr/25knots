@@ -60,7 +60,8 @@ export default function calcualateContrast(foreground, background) {
   let contrastPassing = {
     AAA: ratio >= 7,
     AA: ratio >= 4.5,
-    A: ratio >= 3
+    A: ratio >= 3,
+    present: ratio < 3
   }
 
   return contrastPassing

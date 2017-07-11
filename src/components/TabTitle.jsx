@@ -38,9 +38,11 @@ class TabTitle extends React.Component {
           this.state.hover && styles.activeStyles
         )}
       >
-        <div className={css(styles.warningStyles)}>
-          <Icon icon={ICONS.WARNING} size={15} color={baseColors.warning}/>
-        </div>
+        {this.props.errorsPresent &&
+          <div className={css(styles.warningStyles)}>
+            <Icon icon={ICONS.WARNING} size={15} color={baseColors.warning}/>
+          </div>
+        }
         <SpacingStrechedInset size={'m'} >
           <Icon icon={this.props.icon} color={this.computeIconColor()} />
           <SpacingStack size='s' />

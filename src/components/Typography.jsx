@@ -39,7 +39,10 @@ export default class Typography extends React.Component {
   }
 
   calculateErrors() {
-    return calculateApplicationErrors(this.props, this.bodyWidthConstraints)
+    let errors = calculateApplicationErrors(this.props, this.bodyWidthConstraints)
+    console.log(errors) // eslint-disable-line no-console
+
+    return errors
   }
 
   render() {
@@ -120,11 +123,11 @@ export default class Typography extends React.Component {
 
           <div>
             <TabNavigation>
-              <TabTitle title={'General'} icon={ICONS.TEXT} />
-              <TabTitle title={'Headline 1'} icon={ICONS.HEADLINE1} />
-              <TabTitle title={'Headline 2'} icon={ICONS.HEADLINE2} />
-              <TabTitle title={'Headline 3'} icon={ICONS.HEADLINE3} />
-              <TabTitle title={'Colors'} icon={ICONS.COLOR}/>
+              <TabTitle title={'General'} icon={ICONS.TEXT} errorsPresent={errors.general.present} />
+              <TabTitle title={'Headline 1'} icon={ICONS.HEADLINE1} errorsPresent={errors.headline1.present} />
+              <TabTitle title={'Headline 2'} icon={ICONS.HEADLINE2} errorsPresent={errors.headline2.present} />
+              <TabTitle title={'Headline 3'} icon={ICONS.HEADLINE3} errorsPresent={errors.headline3.present} />
+              <TabTitle title={'Colors'} icon={ICONS.COLOR} errorsPresent={errors.colors.present}/>
 
               <TabContent>
                 <GeneralControls
