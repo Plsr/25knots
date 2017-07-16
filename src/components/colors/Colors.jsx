@@ -1,10 +1,18 @@
 import React from 'react'
 
 import DropdownController from '../DropdownController.jsx'
+import { ChromePicker } from 'react-color'
+import ColorDisplay from './ColorDisplay.jsx'
 
 import {COLORS} from '../helpers/constants/colors.js'
 
 class Colors extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.handleDropdownChange = this.handleDropdownChange.bind(this)
+    this.handleColorChange = this.handleColorChange.bind(this)
+  }
 
   /**
    * Constructs the options array for the color adjectives
@@ -14,7 +22,7 @@ class Colors extends React.Component {
    */
   constructColorOptions() {
     let colors = []
-    
+
     for (var color in COLORS) {
       if (COLORS.hasOwnProperty(color)) {
         colors.push(color)
@@ -24,6 +32,19 @@ class Colors extends React.Component {
     return colors
   }
 
+  /**
+   * Gets the corresponding color for the selected adjective in the dropdown
+   * and writes it to the state
+   */
+  handleDropdownChange(key, value) {
+    let selectedColor = COLORS[value].color
+    this.props.setValueForKey(key, selectedColor)
+  }
+
+  handleColorChange(value) {
+    this.props.setValueForKey('baseColor', value.hex)
+  }
+
   render() {
     return (
       <div>
@@ -31,8 +52,14 @@ class Colors extends React.Component {
         <DropdownController
           title='Choose colors by adjectives'
           options={this.constructColorOptions()}
-          value={this.constructColorOptions()[0]}
+          storeKey='baseColor'
+          onChange={this.handleDropdownChange}
         />
+        <ChromePicker
+          color={this.props.baseColor}
+          onChange={this.handleColorChange}
+        />
+        <ColorDisplay hexVal={this.props.baseColor}/>
       </div>
     )
   }

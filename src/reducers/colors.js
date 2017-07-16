@@ -1,7 +1,9 @@
 import {SET_VALUE_FOR_KEY} from '../actions'
 
-const initialState = {
+import {COLORS} from '../components/helpers/constants/colors.js'
 
+const initialState = {
+  baseColor: COLORS[Object.keys(COLORS)[0]].color
 }
 
 const typography = (state = initialState, action) => {
