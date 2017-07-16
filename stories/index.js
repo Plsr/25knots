@@ -1,10 +1,11 @@
-import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import React from 'react'
+import { storiesOf, action, linkTo } from '@kadira/storybook'
+import { MemoryRouter } from 'react-router'
 
 import {ICONS} from '../src/components/helpers/constants/icons.js'
 import { appColors } from '../src/styles/base/colors.js'
 
-import NavigationButton from '../src/components/NavigationButton.jsx'
+import NavigationButton from '../src/components/shared/NavigationButton.jsx'
 import SecondaryButton from '../src/components/SecondaryButton.jsx'
 import IconButton from '../src/components/IconButton.jsx'
 import Icon from '../src/components/Icon.jsx'
@@ -13,6 +14,7 @@ import TabTitle from '../src/components/TabTitle.jsx'
 import TabContent from '../src/components/TabContent.jsx'
 import UnitValueDisplay from '../src/components/UnitValueDisplay.jsx'
 import SliderInput from '../src/components/SliderInput.jsx'
+import BottomNavigation from '../src/components/shared/BottomNavigation.jsx'
 
 storiesOf('Buttons', module)
   .add('Regular App Navigation Button', () => (
@@ -63,4 +65,12 @@ storiesOf('UnitValueDisplay', module)
 storiesOf('SliderInput', module)
   .add('SliderInput', () => (
     <SliderInput value={34} min={0} max={100} />
+  ))
+
+storiesOf('BottomNavigation', module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={['/']}>{story()}</MemoryRouter>
+  ))
+  .add('BottomNavigation', () => (
+    <BottomNavigation to='/test' inactive={true} />
   ))
