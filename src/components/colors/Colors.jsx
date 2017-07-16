@@ -3,6 +3,7 @@ import React from 'react'
 import DropdownController from '../DropdownController.jsx'
 import { ChromePicker } from 'react-color'
 import ColorDisplay from './ColorDisplay.jsx'
+import ColorSelector from './ColorSelector.jsx'
 
 import {COLORS, MATERIAL_COLORS} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
@@ -16,7 +17,9 @@ class Colors extends React.Component {
 
     this.handleDropdownChange = this.handleDropdownChange.bind(this)
     this.handleColorChange = this.handleColorChange.bind(this)
+    this.handleColorSelectorClick = this.handleColorSelectorClick.bind(this)
     this.getColorsetForScope = this.getColorsetForScope.bind(this)
+    this.displayColorpickerForScope = this.displayColorpickerForScope.bind(this)
   }
 
   /**
@@ -25,12 +28,24 @@ class Colors extends React.Component {
    * For now, just takes a static colors object, but later on will
    * Distinguish which colors to use by scope.
    */
-  constructColorOptions() {
+  constructAdjectiveOptions() {
     let colors = []
 
     for (var color in this.colorSet) {
       if (this.colorSet.hasOwnProperty(color)) {
         colors.push(color)
+      }
+    }
+
+    return colors
+  }
+
+  constructColorOptions() {
+    let colors = []
+
+    for (var color in this.colorSet) {
+      if (this.colorSet.hasOwnProperty(color)) {
+        colors.push(this.colorSet[color].color)
       }
     }
 
@@ -47,6 +62,27 @@ class Colors extends React.Component {
     }
   }
 
+  // Display Colorpicker for the currently set scope
+  displayColorpickerForScope() {
+    switch (this.props.scopes[1]) {
+      case SCOPES.ANDROID:
+        return (
+          <ColorSelector
+            options={this.constructColorOptions()}
+            active={this.props.baseColor}
+            onClick={this.handleColorSelectorClick}
+          />
+        )
+      default:
+        return (
+          <ChromePicker
+            color={this.props.baseColor}
+            onChange={this.handleColorChange}
+          />
+        )
+    }
+  }
+
   /**
    * Gets the corresponding color for the selected adjective in the dropdown
    * and writes it to the state
@@ -60,20 +96,21 @@ class Colors extends React.Component {
     this.props.setValueForKey('baseColor', value.hex)
   }
 
+  handleColorSelectorClick(value) {
+    this.props.setValueForKey('baseColor', value)
+  }
+
   render() {
     return (
       <div>
         <h1>Colors!</h1>
         <DropdownController
           title='Choose colors by adjectives'
-          options={this.constructColorOptions()}
+          options={this.constructAdjectiveOptions()}
           storeKey='baseColor'
           onChange={this.handleDropdownChange}
         />
-        <ChromePicker
-          color={this.props.baseColor}
-          onChange={this.handleColorChange}
-        />
+        {this.displayColorpickerForScope()}
         <ColorDisplay hexVal={this.props.baseColor}/>
       </div>
     )
