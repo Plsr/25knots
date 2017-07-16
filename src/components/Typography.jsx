@@ -13,6 +13,7 @@ import GeneralControls from './GeneralControls.jsx'
 import HeadlineControls from './HeadlineControls.jsx'
 import ColorControls from './ColorControls.jsx'
 import TextWidthCalculator from './TextWidthCalculator.jsx'
+import Progress from './shared/Progress.jsx'
 
 import calculateApplicationErrors from './helpers/errors'
 
@@ -66,119 +67,121 @@ export default class Typography extends React.Component {
       }
     })
 
-    console.log(this.props) //eslint-disable-line no-console
     return (
-      <div style={{textAlign: 'center'}}>
-        <div className={css(styles.wrapperStyles)}>
-          <div className={css(styles.textStyles)}>
-            <SpacingInset size={'m'}>
-              <div className={css(styles.textWrapperStyles)}>
-                <VariableHeadline
-                  fontSize={this.props.headline1.size}
-                  spacingTop={this.props.headline1.spacingTop}
-                  spacingBottom={this.props.headline1.spacingBottom}
-                />
+      <div>
+        <Progress />
+        <div style={{textAlign: 'center'}}>
+          <div className={css(styles.wrapperStyles)}>
+            <div className={css(styles.textStyles)}>
+              <SpacingInset size={'m'}>
+                <div className={css(styles.textWrapperStyles)}>
+                  <VariableHeadline
+                    fontSize={this.props.headline1.size}
+                    spacingTop={this.props.headline1.spacingTop}
+                    spacingBottom={this.props.headline1.spacingBottom}
+                  />
 
-                <VariableText
-                  fontSize={this.props.general.fontSize}
-                  lineHeight={this.props.general.lineHeight}
-                  spacingBottom={0}
-                />
+                  <VariableText
+                    fontSize={this.props.general.fontSize}
+                    lineHeight={this.props.general.lineHeight}
+                    spacingBottom={0}
+                  />
 
-                <VariableHeadline
-                  fontSize={this.props.headline2.size}
-                  spacingTop={this.props.headline2.spacingTop}
-                  spacingBottom={this.props.headline2.spacingBottom}
-                />
+                  <VariableHeadline
+                    fontSize={this.props.headline2.size}
+                    spacingTop={this.props.headline2.spacingTop}
+                    spacingBottom={this.props.headline2.spacingBottom}
+                  />
 
-                <VariableText
-                  fontSize={this.props.general.fontSize}
-                  lineHeight={this.props.general.lineHeight}
-                  spacingBottom={0}
-                />
+                  <VariableText
+                    fontSize={this.props.general.fontSize}
+                    lineHeight={this.props.general.lineHeight}
+                    spacingBottom={0}
+                  />
 
-                <VariableHeadline
-                  fontSize={this.props.headline3.size}
-                  spacingTop={this.props.headline3.spacingTop}
-                  spacingBottom={this.props.headline3.spacingBottom}
-                />
+                  <VariableHeadline
+                    fontSize={this.props.headline3.size}
+                    spacingTop={this.props.headline3.spacingTop}
+                    spacingBottom={this.props.headline3.spacingBottom}
+                  />
 
-                <VariableText
-                  fontSize={this.props.general.fontSize}
-                  lineHeight={this.props.general.lineHeight}
-                  spacingBottom={this.props.general.textSpacing}
-                />
-                <VariableText
-                  fontSize={this.props.general.fontSize}
-                  lineHeight={this.props.general.lineHeight}
-                  spacingBottom={0}
-                />
-                <TextWidthCalculator
-                  fontSize={this.props.general.fontSize}
-                  fontFamily={this.props.general.fontFamily}
-                  onChange={this.updateBodyWidthConstraints}
-                />
-              </div>
-            </SpacingInset>
-          </div>
+                  <VariableText
+                    fontSize={this.props.general.fontSize}
+                    lineHeight={this.props.general.lineHeight}
+                    spacingBottom={this.props.general.textSpacing}
+                  />
+                  <VariableText
+                    fontSize={this.props.general.fontSize}
+                    lineHeight={this.props.general.lineHeight}
+                    spacingBottom={0}
+                  />
+                  <TextWidthCalculator
+                    fontSize={this.props.general.fontSize}
+                    fontFamily={this.props.general.fontFamily}
+                    onChange={this.updateBodyWidthConstraints}
+                  />
+                </div>
+              </SpacingInset>
+            </div>
 
-          <div>
-            <TabNavigation>
-              <TabTitle title={'General'} icon={ICONS.TEXT} errorsPresent={errors.general.present} />
-              <TabTitle title={'Headline 1'} icon={ICONS.HEADLINE1} errorsPresent={errors.headline1.present} />
-              <TabTitle title={'Headline 2'} icon={ICONS.HEADLINE2} errorsPresent={errors.headline2.present} />
-              <TabTitle title={'Headline 3'} icon={ICONS.HEADLINE3} errorsPresent={errors.headline3.present} />
-              <TabTitle title={'Colors'} icon={ICONS.COLOR} errorsPresent={errors.colors.present}/>
+            <div>
+              <TabNavigation>
+                <TabTitle title={'General'} icon={ICONS.TEXT} errorsPresent={errors.general.present} />
+                <TabTitle title={'Headline 1'} icon={ICONS.HEADLINE1} errorsPresent={errors.headline1.present} />
+                <TabTitle title={'Headline 2'} icon={ICONS.HEADLINE2} errorsPresent={errors.headline2.present} />
+                <TabTitle title={'Headline 3'} icon={ICONS.HEADLINE3} errorsPresent={errors.headline3.present} />
+                <TabTitle title={'Colors'} icon={ICONS.COLOR} errorsPresent={errors.colors.present}/>
 
-              <TabContent>
-                <GeneralControls
-                  onChange={this.props.setValueInArea}
-                  area={'general'}
-                  {...this.props.general}
-                  scopes={this.props.scopes}
-                  componentErrors={errors.general}
-                />
-              </TabContent>
+                <TabContent>
+                  <GeneralControls
+                    onChange={this.props.setValueInArea}
+                    area={'general'}
+                    {...this.props.general}
+                    scopes={this.props.scopes}
+                    componentErrors={errors.general}
+                  />
+                </TabContent>
 
-              <TabContent>
-                <HeadlineControls
-                  onChange={this.props.setValueInArea}
-                  area={'headline1'}
-                  title={'Headline 1'}
-                  componentErrors={errors.headline1}
-                  {...this.props.headline1}
-                />
-              </TabContent>
+                <TabContent>
+                  <HeadlineControls
+                    onChange={this.props.setValueInArea}
+                    area={'headline1'}
+                    title={'Headline 1'}
+                    componentErrors={errors.headline1}
+                    {...this.props.headline1}
+                  />
+                </TabContent>
 
-              <TabContent>
-                <HeadlineControls
-                  onChange={this.props.setValueInArea}
-                  area={'headline2'}
-                  title={'Headline 2'}
-                  componentErrors={errors.headline2}
-                  {...this.props.headline2}
-                />
-              </TabContent>
+                <TabContent>
+                  <HeadlineControls
+                    onChange={this.props.setValueInArea}
+                    area={'headline2'}
+                    title={'Headline 2'}
+                    componentErrors={errors.headline2}
+                    {...this.props.headline2}
+                  />
+                </TabContent>
 
-              <TabContent>
-                <HeadlineControls
-                  onChange={this.props.setValueInArea}
-                  area={'headline3'}
-                  title={'Headline 3'}
-                  componentErrors={errors.headline3}
-                  {...this.props.headline3}
-                />
-              </TabContent>
+                <TabContent>
+                  <HeadlineControls
+                    onChange={this.props.setValueInArea}
+                    area={'headline3'}
+                    title={'Headline 3'}
+                    componentErrors={errors.headline3}
+                    {...this.props.headline3}
+                  />
+                </TabContent>
 
-              <TabContent>
-                <ColorControls
-                  onChange={this.props.setValueInArea}
-                  area={'colors'}
-                  componentErrors={errors.colors}
-                  {...this.props.colors}
-                />
-              </TabContent>
-            </TabNavigation>
+                <TabContent>
+                  <ColorControls
+                    onChange={this.props.setValueInArea}
+                    area={'colors'}
+                    componentErrors={errors.colors}
+                    {...this.props.colors}
+                  />
+                </TabContent>
+              </TabNavigation>
+            </div>
           </div>
         </div>
       </div>
