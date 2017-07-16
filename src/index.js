@@ -12,6 +12,7 @@ import './styles/normalize.css'
 import AppContainer from './containers/AppContainer.js'
 import TypographyContainer from './containers/TypographyContainer.js'
 import Intro from './components/Intro.jsx'
+import Colors from './components/colors/Colors.jsx'
 
 let store = createStore(
   ApplicationState,
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Route exact path="/" component={AppContainer}/>
         <Route path="/intro" component={Intro}/>
         <Route path="/typography" component={TypographyContainer}/>
+        <Route path="/colors" component={Colors}/>
       </Switch>
     </Router>
   </Provider>,

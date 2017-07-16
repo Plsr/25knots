@@ -2,9 +2,9 @@ import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 import { Link } from 'react-router-dom'
 
-import { baseColors, appColors } from '../styles/base/colors.js'
-import { buttonReset, buttonBaseStyles, buttonInactiveStyles } from '../styles/shared/buttons.js'
-import SpacingSquishedInset from './helpers/spacing/SpacingSquishedInset.jsx'
+import { baseColors, appColors } from '../../styles/base/colors.js'
+import { buttonReset, buttonBaseStyles, buttonInactiveStyles } from '../../styles/shared/buttons.js'
+import SpacingSquishedInset from '../helpers/spacing/SpacingSquishedInset.jsx'
 
 /**
  * This Button is used to navigate the user through the app,

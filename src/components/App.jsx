@@ -1,13 +1,11 @@
 import React from 'react'
-import {StyleSheet, css} from 'aphrodite'
 
 import Progress from './shared/Progress.jsx'
 import IntroductionHero from './IntroductionHero.jsx'
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'
-import NavigationButton from './NavigationButton.jsx'
 import SetupProgress from './SetupProgress.jsx'
 import SetupSummary from './SetupSummary.jsx'
-import NavigationBackground from './shared/NavigationBackground.jsx'
+import BottomNavigation from './shared/BottomNavigation.jsx'
 
 import {setupOptions} from './helpers/constants/setupOptions.js' // Remove after setupSteps was moved to redux container
 
@@ -50,21 +48,8 @@ export default class App extends React.Component {
           <IntroductionHero />
           {this.renderSetupStep()}
         </SpacingInset>
-        <NavigationBackground>
-          <div className={css(styles.alignRight)}>
-            <NavigationButton to='/typography' inactive={!this.props.setupFinished}>
-              Next Section
-            </NavigationButton>
-          </div>
-        </NavigationBackground>
+        <BottomNavigation to='/typography' inactive={!this.props.setupFinished} title='Next Section' />
       </div>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  alignRight: {
-    display: 'flex',
-    justifyContent: 'flex-end'
-  }
-})

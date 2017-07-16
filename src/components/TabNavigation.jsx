@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
   },
   TabListStyles: {
     height: '100vh',
-    maxWidth: '90px',
+    width: '80px',
     backgroundColor: baseColors.ultraLightGrey
   }
 })

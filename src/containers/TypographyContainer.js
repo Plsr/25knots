@@ -4,8 +4,13 @@ import Typography from '../components/Typography.jsx'
 
 const mapStateToProps = (state, ownProps) => {
   let typographyState = state.typography
+  let scopes = state.setup.scopes
+  
   return {
     ...typographyState,
+    scopes: [
+      ...scopes
+    ],
     ...ownProps
   }
 }

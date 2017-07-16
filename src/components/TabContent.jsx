@@ -1,6 +1,7 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
+import {baseColors} from '../styles/base/colors.js'
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'
 
 function TabContent(props) {
@@ -15,7 +16,9 @@ function TabContent(props) {
 
 const styles = StyleSheet.create({
   contentStyles: {
-    width: '300px'
+    width: '250px',
+    color: baseColors.white,
+    backgroundColor: baseColors.almostBlack
   }
 })
 

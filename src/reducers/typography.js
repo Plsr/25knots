@@ -53,7 +53,6 @@ const typography = (state = initialState, action) => {
         }
       })
     case SET_ERRORS:
-      console.log('set errors called') // eslint-disable-line no-console
       return Object.assign({}, state, {
         errorsPresent: action.errorsPresent
       })
