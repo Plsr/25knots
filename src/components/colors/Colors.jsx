@@ -4,14 +4,19 @@ import DropdownController from '../DropdownController.jsx'
 import { ChromePicker } from 'react-color'
 import ColorDisplay from './ColorDisplay.jsx'
 
-import {COLORS} from '../helpers/constants/colors.js'
+import {COLORS, MATERIAL_COLORS} from '../helpers/constants/colors.js'
+import {SCOPES} from '../helpers/constants/scopes.js'
 
 class Colors extends React.Component {
   constructor(props) {
     super(props)
 
+    // Set the colorset to be used
+    this.colorSet = this.getColorsetForScope()
+
     this.handleDropdownChange = this.handleDropdownChange.bind(this)
     this.handleColorChange = this.handleColorChange.bind(this)
+    this.getColorsetForScope = this.getColorsetForScope.bind(this)
   }
 
   /**
@@ -23,8 +28,8 @@ class Colors extends React.Component {
   constructColorOptions() {
     let colors = []
 
-    for (var color in COLORS) {
-      if (COLORS.hasOwnProperty(color)) {
+    for (var color in this.colorSet) {
+      if (this.colorSet.hasOwnProperty(color)) {
         colors.push(color)
       }
     }
@@ -32,12 +37,22 @@ class Colors extends React.Component {
     return colors
   }
 
+  // Get the colors for the currently set scope
+  getColorsetForScope() {
+    switch (this.props.scopes[1]) {
+      case SCOPES.ANDROID:
+        return MATERIAL_COLORS
+      default:
+        return COLORS
+    }
+  }
+
   /**
    * Gets the corresponding color for the selected adjective in the dropdown
    * and writes it to the state
    */
   handleDropdownChange(key, value) {
-    let selectedColor = COLORS[value].color
+    let selectedColor = this.colorSet[value].color
     this.props.setValueForKey(key, selectedColor)
   }
 
