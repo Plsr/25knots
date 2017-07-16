@@ -14,6 +14,7 @@ import HeadlineControls from './HeadlineControls.jsx'
 import ColorControls from './ColorControls.jsx'
 import TextWidthCalculator from './TextWidthCalculator.jsx'
 import Progress from './shared/Progress.jsx'
+import BottomNavigation from './shared/BottomNavigation.jsx'
 
 import calculateApplicationErrors from './helpers/errors'
 
@@ -184,6 +185,11 @@ export default class Typography extends React.Component {
             </div>
           </div>
         </div>
+        <BottomNavigation
+          to='/colors'
+          inactive={false}
+          title='Next Section'
+        />
       </div>
     )
   }
