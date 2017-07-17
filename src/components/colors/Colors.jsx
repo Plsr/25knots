@@ -1,7 +1,7 @@
 import React from 'react'
 
 import BaseColorController from './BaseColorController.jsx'
-import AccentColorController from './AccentColorController.jsx'
+import AccentColorController from './AndroidAccentColorController.jsx'
 
 import {COLORS, MATERIAL_COLORS, IOS_COLORS, MATERIAL_COLOR_SHADES} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'

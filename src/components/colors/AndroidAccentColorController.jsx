@@ -5,7 +5,7 @@ import SecondaryButton from '../shared/SecondaryButton.jsx'
 import ColorSelector from './ColorSelector.jsx'
 import ColorDisplayWrapper from './ColorDisplayWrapper.jsx'
 
-class AccentColorController extends React.Component {
+class AndroidAccentColorController extends React.Component {
   constructAccentColors() {
     let colorSet = this.props.colorSet
     let colors = []
@@ -101,4 +101,4 @@ class AccentColorController extends React.Component {
   }
 }
 
-export default AccentColorController
+export default AndroidAccentColorController
