@@ -1,143 +1,209 @@
-export const COLORS = {
-  energetic: {
-    color: 'red'
+export const COLORS = [
+  {
+    color: 'red',
+    adjective: 'energetic'
   },
-  exciting: {
-    color: 'red'
+  {
+    color: 'red',
+    adjective: 'exciting'
   },
-  romantic: {
-    color: 'red'
+  {
+    color: 'red',
+    adjective: 'romantic'
   },
-  loving: {
-    color: 'pink'
+  {
+    color: 'pink',
+    adjective: 'loving'
   },
-  calm: {
-    color: 'blue'
+  {
+    color: 'blue',
+    adjective: 'calm'
   },
-  wise: {
-    color: 'blue'
+  {
+    color: 'blue',
+    adjective: 'wise'
   },
-  loyal: {
-    color: 'blue'
+  {
+    color: 'blue',
+    adjective: 'loyal'
   },
-  focussed: {
-    color: 'blue'
+  {
+    color: 'blue',
+    adjective: 'focussed'
   },
-  natural: {
-    color: 'green'
+  {
+    color: 'green',
+    adjective: 'natural'
   },
-  wealthy: {
-    color: 'green'
+  {
+    color: 'green',
+    adjective: 'wealthy'
   },
-  conservative: {
-    color: 'green'
+  {
+    color: 'green',
+    adjective: 'conservative'
   },
-  masculine: {
-    color: 'green'
+  {
+    color: 'green',
+    adjective: 'masculine'
   },
-  harmonious: {
-    color: 'green'
+  {
+    color: 'green',
+    adjective: 'harmonious'
   },
-  cheerful: {
-    color: 'yellow'
+  {
+    color: 'yellow',
+    adjective: 'cheerful'
   },
-  bright: {
-    color: 'yellow'
+  {
+    color: 'yellow',
+    adjective: 'bright'
   },
-  sunny: {
-    color: 'yellow'
+  {
+    color: 'yellow',
+    adjective: 'sunny'
   },
-  optimistic: {
-    color: 'yellow'
+  {
+    color: 'yellow',
+    adjective: 'optimistic'
   },
-  creative: {
-    color: 'yellow'
+  {
+    color: 'yellow',
+    adjective: 'creative'
   },
-  funny: {
-    color: 'orange'
+  {
+    color: 'orange',
+    adjective: 'funny'
   },
-  happy:{
-    color: 'orange'
+  {
+    color: 'orange',
+    adjective: 'happy'
   },
-  ambitious: {
-    color: 'orange'
+  {
+    color: 'orange',
+    adjective: 'ambitious'
   },
-  royal: {
-    color: 'purple'
+  {
+    color: 'purple',
+    adjective: 'royal'
   },
-  misterious: {
-    color: 'purple'
+  {
+    color: 'purple',
+    adjective: 'misterious'
   },
-  respectful: {
-    color: 'purple'
+  {
+    color: 'purple',
+    adjective: 'respectful'
   },
-  reliable: {
-    color: 'brown'
+  {
+    color: 'brown',
+    adjective: 'reliable'
   },
-  stable: {
-    color: 'brown'
+  {
+    color: 'brown',
+    adjective: 'stable'
   },
-  organic: {
-    color: 'brown'
+  {
+    color: 'brown',
+    adjective: 'organic'
   }
-}
+]
 
-export const MATERIAL_COLORS = {
-  red: {
-    color: '#F44336'
+
+export const MATERIAL_COLORS = [
+  {
+    color: '#F44336',
+    adjective: 'energetic',
+    displayName: 'red'
   },
-  pink: {
-    color: '#E91E63'
+  {
+    color: '#E91E63',
+    adjective: 'loving',
+    displayName: 'pink'
   },
-  purple: {
-    color: '#9C27B0'
+  {
+    color: '#9C27B0',
+    adjective: 'royal',
+    displayName: 'purple'
   },
-  deepPurple: {
-    color: '#673AB7'
+  {
+    color: '#673AB7',
+    adjective: 'misterious',
+    displayName: 'deepPurple'
   },
-  indigo: {
-    color: '#3F51B5'
+  {
+    color: '#3F51B5',
+    adjective: 'wise',
+    displayName: 'indigo'
   },
-  blue: {
-    color: '#2196F3'
+  {
+    color: '#2196F3',
+    adjective: 'calm',
+    displayName: 'blue'
   },
-  lightBlue: {
-    color: '#03A9F4'
+  {
+    color: '#03A9F4',
+    adjective: 'loyal',
+    displayName: 'lightBlue'
   },
-  cyan: {
-    color: '#00BCD4'
+  {
+    color: '#00BCD4',
+    adjective: 'focussed',
+    displayName: 'cyan'
   },
-  teal: {
-    color: '#009688'
+  {
+    color: '#009688',
+    adjective: 'harmonious',
+    displayName: 'teal'
   },
-  green: {
-    color: '#4CAF50'
+  {
+    color: '#4CAF50',
+    adjective: 'conservative',
+    displayName: 'green'
   },
-  lightGreen: {
-    color: '#8BC34A'
+  {
+    color: '#8BC34A',
+    adjective: 'wealthy',
+    displayName: 'lightGreen'
   },
-  lime: {
-    color: '#CDDC39'
+  {
+    color: '#CDDC39',
+    adjective: 'bright',
+    displayName: 'lime'
   },
-  yellow: {
-    color: '#FFEB3B'
+  {
+    color: '#FFEB3B',
+    adjective: 'cheerful',
+    displayName: 'yellow'
   },
-  amber: {
-    color: '#FFC107'
+  {
+    color: '#FFC107',
+    adjective: 'optimistic',
+    displayName: 'amber'
   },
-  orange: {
-    color: '#FF9800'
+  {
+    color: '#FF9800',
+    adjective: 'happy',
+    displayName: 'orange'
   },
-  deepOrange: {
-    color: '#FF5722'
+  {
+    color: '#FF5722',
+    adjective: 'ambitious',
+    displayName: 'deepOrange'
   },
-  brown: {
-    color: '#795548'
+  {
+    color: '#795548',
+    adjective: 'reliable',
+    displayName: 'brown'
   },
-  grey: {
-    color: '#9E9E9E'
+  {
+    color: '#9E9E9E',
+    adjective: 'neutral',
+    displayName: 'grey'
   },
-  blueGrey: {
-    color: '#607D8B'
+  {
+    color: '#607D8B',
+    adjective: 'thoughtful',
+    displayName: 'blueGrey'
   }
-}
+]

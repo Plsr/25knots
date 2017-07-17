@@ -16,37 +16,26 @@ class Colors extends React.Component {
     this.colorSet = this.getColorsetForScope()
 
     this.handleDropdownChange = this.handleDropdownChange.bind(this)
-    this.handleColorChange = this.handleColorChange.bind(this)
+    this.handleColorPickerChange = this.handleColorPickerChange.bind(this)
     this.handleColorSelectorClick = this.handleColorSelectorClick.bind(this)
     this.getColorsetForScope = this.getColorsetForScope.bind(this)
     this.displayColorpickerForScope = this.displayColorpickerForScope.bind(this)
   }
 
   /**
-   * Constructs the options array for the color adjectives
-   * dropdown.
-   * For now, just takes a static colors object, but later on will
-   * Distinguish which colors to use by scope.
+   * Constructs a data set from the current colorSet for
+   * a given key.
+   * A color object as defined in /helpers/constants/colors.js
+   * must always have an adjective and a color attribute. It can
+   * also have an optional displayName.
+   *
    */
-  constructAdjectiveOptions() {
+  constructDatasetForKey(key) {
     let colors = []
 
-    for (var color in this.colorSet) {
-      if (this.colorSet.hasOwnProperty(color)) {
-        colors.push(color)
-      }
-    }
-
-    return colors
-  }
-
-  constructColorOptions() {
-    let colors = []
-
-    for (var color in this.colorSet) {
-      if (this.colorSet.hasOwnProperty(color)) {
-        colors.push(this.colorSet[color].color)
-      }
+    for (var i = 0; i < this.colorSet.length; i++) {
+      let currColorObj = this.colorSet[i]
+      colors.push(currColorObj[key])
     }
 
     return colors
@@ -68,7 +57,7 @@ class Colors extends React.Component {
       case SCOPES.ANDROID:
         return (
           <ColorSelector
-            options={this.constructColorOptions()}
+            options={this.constructDatasetForKey('color')}
             active={this.props.baseColor}
             onClick={this.handleColorSelectorClick}
           />
@@ -77,7 +66,7 @@ class Colors extends React.Component {
         return (
           <ChromePicker
             color={this.props.baseColor}
-            onChange={this.handleColorChange}
+            onChange={this.handleColorPickerChange}
           />
         )
     }
@@ -88,11 +77,20 @@ class Colors extends React.Component {
    * and writes it to the state
    */
   handleDropdownChange(key, value) {
-    let selectedColor = this.colorSet[value].color
-    this.props.setValueForKey(key, selectedColor)
+    for (var i = 0; i < this.colorSet.length; i++) {
+      let currColor = this.colorSet[i]
+      if (currColor.adjective === value) {
+        this.props.setValueForKey(key, currColor.color)
+      }
+    }
   }
 
-  handleColorChange(value) {
+  /**
+   * Explicitly handles the change of the <ChromePicker> Component as
+   * that component returns a color object with color representations
+   * for the different color models. We want to optain the hex value here.
+   */
+  handleColorPickerChange(value) {
     this.props.setValueForKey('baseColor', value.hex)
   }
 
@@ -106,7 +104,7 @@ class Colors extends React.Component {
         <h1>Colors!</h1>
         <DropdownController
           title='Choose colors by adjectives'
-          options={this.constructAdjectiveOptions()}
+          options={this.constructDatasetForKey('adjective')}
           storeKey='baseColor'
           onChange={this.handleDropdownChange}
         />
