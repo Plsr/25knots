@@ -6,7 +6,7 @@ import BorderedBox from './BorderedBox.jsx'
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import SpacingInline from './helpers/spacing/SpacingInline.jsx'
-import SecondaryButton from './SecondaryButton.jsx'
+import SecondaryButton from './shared/SecondaryButton.jsx'
 import Icon from './Icon.jsx'
 
 function extractScopeInformation(scopes, options) {
