@@ -8,8 +8,8 @@ function ColorDisplay(props) {
       display: 'inline-block'
     },
     colorCircleStyles: {
-      width: '100px',
-      height: '100px',
+      width: props.size || '100px',
+      height: props.size || '100px',
       borderRadius: '50%',
       backgroundColor: props.hexVal,
       display: 'flex',
@@ -20,7 +20,7 @@ function ColorDisplay(props) {
       border: '5px solid blue'
     }
   })
-  
+
   return (
     <div className={css(styles.wrapperStyles)}>
       <div

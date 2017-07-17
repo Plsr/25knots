@@ -3,6 +3,7 @@ import React from 'react'
 import ColorDisplay from './ColorDisplay.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
 import ColorSelector from './ColorSelector.jsx'
+import ColorDisplayWrapper from './ColorDisplayWrapper.jsx'
 
 class AccentColorController extends React.Component {
   constructAccentColors() {
@@ -12,7 +13,7 @@ class AccentColorController extends React.Component {
     for (var i = 0; i < colorSet.length; i++) {
       let currColorObj = colorSet[i]
       if (currColorObj[500] !== this.props.baseColor) {
-        if (currColorObj.a200 !== undefined) {
+        if (currColorObj.a400 !== undefined) {
           colors.push(currColorObj.a400)
         }
       }
@@ -20,19 +21,55 @@ class AccentColorController extends React.Component {
     return colors
   }
 
-  getBaseColorObject() {
+  getColorObjectForShade(shade) {
     let colorSet = this.props.colorSet
 
     for (var i = 0; i < colorSet.length; i++) {
       let currColorObj = colorSet[i]
-      if (currColorObj[500] == this.props.baseColor) {
+      for (var currShade in currColorObj) {
+        if (currColorObj.hasOwnProperty(currShade)) {
+          if (currColorObj[currShade] == shade) {
+            return currColorObj
+          }
+        }
+      }
+      if (currColorObj[500] == shade) {
         return currColorObj
       }
     }
   }
 
+  constructAccentColorOptions() {
+    if (this.props.accentColor === undefined) {
+      return
+    }
+
+    let accentColorObject = this.getColorObjectForShade(this.props.accentColor)
+
+    return (
+      {
+        a100: {
+          name: 'a100',
+          color: accentColorObject.a100
+        },
+        a200: {
+          name: 'a200',
+          color: accentColorObject.a200
+        },
+        a400: {
+          name: 'a400',
+          color: accentColorObject.a400
+        },
+        a700: {
+          name: 'a700',
+          color: accentColorObject.a700
+        }
+      }
+    )
+  }
+
   render() {
-    let baseColorObject = this.getBaseColorObject()
+    let baseColorObject = this.getColorObjectForShade(this.props.baseColor)
 
     return (
       <div>
@@ -46,10 +83,13 @@ class AccentColorController extends React.Component {
           onClick={this.props.colorSelectorClick}
         />
         <h3>Your Color Scheme</h3>
+
         <ColorDisplay hexVal={this.props.baseColor}/>
         <ColorDisplay hexVal={baseColorObject[300]}/>
         <ColorDisplay hexVal={baseColorObject[700]}/>
-        <ColorDisplay hexVal={this.props.accentColor}/>
+        <ColorDisplayWrapper color={this.props.accentColor} options={this.constructAccentColorOptions()} onOptionClick={this.props.colorSelectorClick}/>
+        <ColorDisplay hexVal='#000000'/>
+        <ColorDisplay hexVal='#FFFFFF'/>
         <SecondaryButton
           onClick={this.props.onButtonClick}
           variant={'outline'}
