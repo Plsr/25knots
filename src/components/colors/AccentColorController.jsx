@@ -8,7 +8,6 @@ class AccentColorController extends React.Component {
   constructAccentColors() {
     let colorSet = this.props.colorSet
     let colors = []
-    console.log(colorSet) //eslint-disable-line
 
     for (var i = 0; i < colorSet.length; i++) {
       let currColorObj = colorSet[i]
@@ -21,7 +20,20 @@ class AccentColorController extends React.Component {
     return colors
   }
 
+  getBaseColorObject() {
+    let colorSet = this.props.colorSet
+
+    for (var i = 0; i < colorSet.length; i++) {
+      let currColorObj = colorSet[i]
+      if (currColorObj[500] == this.props.baseColor) {
+        return currColorObj
+      }
+    }
+  }
+
   render() {
+    let baseColorObject = this.getBaseColorObject()
+
     return (
       <div>
         <h1>Accent Color</h1>
@@ -35,6 +47,8 @@ class AccentColorController extends React.Component {
         />
         <h3>Your Color Scheme</h3>
         <ColorDisplay hexVal={this.props.baseColor}/>
+        <ColorDisplay hexVal={baseColorObject[300]}/>
+        <ColorDisplay hexVal={baseColorObject[700]}/>
         <ColorDisplay hexVal={this.props.accentColor}/>
         <SecondaryButton
           onClick={this.props.onButtonClick}

@@ -112,42 +112,42 @@ export const COLORS = [
 
 export const MATERIAL_COLORS = [
   {
-    color: '#F44336',
+    color: '#f44336',
     adjective: 'energetic',
     displayName: 'red'
   },
   {
-    color: '#E91E63',
+    color: '#e91e63',
     adjective: 'loving',
     displayName: 'pink'
   },
   {
-    color: '#9C27B0',
+    color: '#9c27b0',
     adjective: 'royal',
     displayName: 'purple'
   },
   {
-    color: '#673AB7',
+    color: '#673ab7',
     adjective: 'misterious',
     displayName: 'deepPurple'
   },
   {
-    color: '#3F51B5',
+    color: '#3f51b5',
     adjective: 'wise',
     displayName: 'indigo'
   },
   {
-    color: '#2196F3',
+    color: '#2196f3',
     adjective: 'calm',
     displayName: 'blue'
   },
   {
-    color: '#03A9F4',
+    color: '#03a9f4',
     adjective: 'loyal',
     displayName: 'lightBlue'
   },
   {
-    color: '#00BCD4',
+    color: '#00bcd4',
     adjective: 'focussed',
     displayName: 'cyan'
   },
@@ -157,37 +157,37 @@ export const MATERIAL_COLORS = [
     displayName: 'teal'
   },
   {
-    color: '#4CAF50',
+    color: '#4caf50',
     adjective: 'conservative',
     displayName: 'green'
   },
   {
-    color: '#8BC34A',
+    color: '#8bc34a',
     adjective: 'wealthy',
     displayName: 'lightGreen'
   },
   {
-    color: '#CDDC39',
+    color: '#cddc39',
     adjective: 'bright',
     displayName: 'lime'
   },
   {
-    color: '#FFEB3B',
+    color: '#ffeb3b',
     adjective: 'cheerful',
     displayName: 'yellow'
   },
   {
-    color: '#FFC107',
+    color: '#ffc107',
     adjective: 'optimistic',
     displayName: 'amber'
   },
   {
-    color: '#FF9800',
+    color: '#ff9800',
     adjective: 'happy',
     displayName: 'orange'
   },
   {
-    color: '#FF5722',
+    color: '#ff5722',
     adjective: 'ambitious',
     displayName: 'deepOrange'
   },
@@ -197,12 +197,12 @@ export const MATERIAL_COLORS = [
     displayName: 'brown'
   },
   {
-    color: '#9E9E9E',
+    color: '#9e9e9e',
     adjective: 'neutral',
     displayName: 'grey'
   },
   {
-    color: '#607D8B',
+    color: '#607d8b',
     adjective: 'thoughtful',
     displayName: 'blueGrey'
   }
