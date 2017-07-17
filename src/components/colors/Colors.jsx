@@ -3,7 +3,7 @@ import React from 'react'
 import BaseColorController from './BaseColorController.jsx'
 import AccentColorController from './AccentColorController.jsx'
 
-import {COLORS, MATERIAL_COLORS, IOS_COLORS} from '../helpers/constants/colors.js'
+import {COLORS, MATERIAL_COLORS, IOS_COLORS, MATERIAL_COLOR_SHADES} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
 
 class Colors extends React.Component {
@@ -14,8 +14,9 @@ class Colors extends React.Component {
     this.colorSet = this.getColorsetForScope()
 
     this.handleDropdownChange = this.handleDropdownChange.bind(this)
+    this.handleBaseColorPickerChange = this.handleBaseColorPickerChange.bind(this)
     this.handleColorPickerChange = this.handleColorPickerChange.bind(this)
-    this.handleColorSelectorClick = this.handleColorSelectorClick.bind(this)
+    this.handleAccentColorSelectorClick = this.handleAccentColorSelectorClick.bind(this)
     this.getColorsetForScope = this.getColorsetForScope.bind(this)
   }
 
@@ -53,8 +54,11 @@ class Colors extends React.Component {
     this.props.setValueForKey('baseColor', value.hex)
   }
 
-  handleColorSelectorClick(value) {
+  handleBaseColorPickerChange(value) {
     this.props.setValueForKey('baseColor', value)
+  }
+  handleAccentColorSelectorClick(value) {
+    this.props.setValueForKey('accentColor', value)
   }
 
   // Display controller for the current step
@@ -66,14 +70,20 @@ class Colors extends React.Component {
           colorSet={this.colorSet}
           color={this.props.baseColor}
           dropdownChange={this.handleDropdownChange}
-          colorSelectorClick={this.handleColorSelectorClick}
+          colorSelectorClick={this.handleBaseColorPickerChange}
           colorPickerChange={this.handleColorPickerChange}
           onButtonClick={this.props.nextSetupStep}
         />
       )
     } else {
       return (
-        <AccentColorController />
+        <AccentColorController
+          baseColor={this.props.baseColor}
+          accentColor={this.props.accentColor}
+          onButtonClick={this.props.previousSetupStep}
+          colorSet={MATERIAL_COLOR_SHADES}
+          colorSelectorClick={this.handleAccentColorSelectorClick}
+        />
       )
     }
   }

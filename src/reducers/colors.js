@@ -1,4 +1,4 @@
-import {SET_VALUE_FOR_KEY, NEXT_SETUP_STEP} from '../actions'
+import {SET_VALUE_FOR_KEY, NEXT_SETUP_STEP, PREVIOUS_SETUP_STEP} from '../actions'
 
 import {COLORS} from '../components/helpers/constants/colors.js'
 
@@ -17,6 +17,10 @@ const typography = (state = initialState, action) => {
     case NEXT_SETUP_STEP:
       return Object.assign({}, state, {
         step: state.step + 1
+      })
+    case PREVIOUS_SETUP_STEP:
+      return Object.assign({}, state, {
+        step: state.step - 1
       })
     default:
       return state
