@@ -5,7 +5,7 @@ import { ChromePicker } from 'react-color'
 import ColorDisplay from './ColorDisplay.jsx'
 import ColorSelector from './ColorSelector.jsx'
 
-import {COLORS, MATERIAL_COLORS} from '../helpers/constants/colors.js'
+import {COLORS, MATERIAL_COLORS, IOS_COLORS} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
 
 class Colors extends React.Component {
@@ -46,6 +46,8 @@ class Colors extends React.Component {
     switch (this.props.scopes[1]) {
       case SCOPES.ANDROID:
         return MATERIAL_COLORS
+      case SCOPES.IOS:
+        return IOS_COLORS
       default:
         return COLORS
     }
@@ -53,22 +55,21 @@ class Colors extends React.Component {
 
   // Display Colorpicker for the currently set scope
   displayColorpickerForScope() {
-    switch (this.props.scopes[1]) {
-      case SCOPES.ANDROID:
-        return (
-          <ColorSelector
-            options={this.constructDatasetForKey('color')}
-            active={this.props.baseColor}
-            onClick={this.handleColorSelectorClick}
-          />
-        )
-      default:
-        return (
-          <ChromePicker
-            color={this.props.baseColor}
-            onChange={this.handleColorPickerChange}
-          />
-        )
+    if (this.props.scopes[1] == SCOPES.ANDROID || this.props.scopes[1] == SCOPES.IOS) {
+      return (
+        <ColorSelector
+          options={this.constructDatasetForKey('color')}
+          active={this.props.baseColor}
+          onClick={this.handleColorSelectorClick}
+        />
+      )
+    } else {
+      return (
+        <ChromePicker
+          color={this.props.baseColor}
+          onChange={this.handleColorPickerChange}
+        />
+      )
     }
   }
 

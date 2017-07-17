@@ -207,3 +207,46 @@ export const MATERIAL_COLORS = [
     displayName: 'blueGrey'
   }
 ]
+
+export const IOS_COLORS = [
+  {
+    color: '#ff3b30',
+    adjective: 'energetic',
+    displayName: 'red'
+  },
+  {
+    color: '#ff9500',
+    adjective: 'happy',
+    displayName: 'orange'
+  },
+  {
+    color: '#ffcc00',
+    adjective: 'cheerful',
+    displayName: 'yellow'
+  },
+  {
+    color: '#4cd964',
+    adjective: 'conservative',
+    displayName: 'green'
+  },
+  {
+    color: '#5ac8fa',
+    adjective: 'loyal',
+    displayName: 'teal blue'
+  },
+  {
+    color: '#007aff',
+    adjective: 'calm',
+    displayName: 'blue'
+  },
+  {
+    color: '#5856d6',
+    adjective: 'royal',
+    displayName: 'purple'
+  },
+  {
+    color: '#ff2d55',
+    adjective: 'loving',
+    displayName: 'pink'
+  }
+]
