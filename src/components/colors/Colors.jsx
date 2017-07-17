@@ -1,7 +1,8 @@
 import React from 'react'
 
 import BaseColorController from './BaseColorController.jsx'
-import AccentColorController from './AndroidAccentColorController.jsx'
+import AndroidAccentColorController from './AndroidAccentColorController.jsx'
+import GeneralAccentColorController from './GeneralAccentColorController.jsx'
 
 import {COLORS, MATERIAL_COLORS, IOS_COLORS, MATERIAL_COLOR_SHADES} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
@@ -76,15 +77,28 @@ class Colors extends React.Component {
         />
       )
     } else {
-      return (
-        <AccentColorController
-          baseColor={this.props.baseColor}
-          accentColor={this.props.accentColor}
-          onButtonClick={this.props.previousSetupStep}
-          colorSet={MATERIAL_COLOR_SHADES}
-          colorSelectorClick={this.handleAccentColorSelectorClick}
-        />
-      )
+      if (this.props.scopes[1] === SCOPES.ANDROID) {
+        return (
+          <AndroidAccentColorController
+            baseColor={this.props.baseColor}
+            accentColor={this.props.accentColor}
+            onButtonClick={this.props.previousSetupStep}
+            colorSet={MATERIAL_COLOR_SHADES}
+            colorSelectorClick={this.handleAccentColorSelectorClick}
+          />
+        )
+      } else {
+        return (
+          <GeneralAccentColorController
+            baseColor={this.props.baseColor}
+            accentColor={this.props.accentColor}
+            onButtonClick={this.props.previousSetupStep}
+            colorSet={MATERIAL_COLOR_SHADES}
+            colorSelectorClick={this.handleAccentColorSelectorClick}
+          />
+        )
+      }
+
     }
   }
 
