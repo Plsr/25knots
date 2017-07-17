@@ -61,7 +61,7 @@ class BaseColorController extends React.Component {
         />
         {this.displayColorpickerForScope(this.props.scope)}
         <ColorDisplay hexVal={this.props.color}/>
-        <SecondaryButton>
+        <SecondaryButton onClick={this.props.onButtonClick}>
           Next Step
         </SecondaryButton>
       </div>

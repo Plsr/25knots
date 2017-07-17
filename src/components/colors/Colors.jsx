@@ -1,6 +1,7 @@
 import React from 'react'
 
 import BaseColorController from './BaseColorController.jsx'
+import AccentColorController from './AccentColorController.jsx'
 
 import {COLORS, MATERIAL_COLORS, IOS_COLORS} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
@@ -56,16 +57,32 @@ class Colors extends React.Component {
     this.props.setValueForKey('baseColor', value)
   }
 
+  // Display controller for the current step
+  displayControllerForScope() {
+    if (this.props.step === 1) {
+      return (
+        <BaseColorController
+          scope={this.props.scopes[1]}
+          colorSet={this.colorSet}
+          color={this.props.baseColor}
+          dropdownChange={this.handleDropdownChange}
+          colorSelectorClick={this.handleColorSelectorClick}
+          colorPickerChange={this.handleColorPickerChange}
+          onButtonClick={this.props.nextSetupStep}
+        />
+      )
+    } else {
+      return (
+        <AccentColorController />
+      )
+    }
+  }
+
   render() {
     return (
-      <BaseColorController
-        scope={this.props.scopes[1]}
-        colorSet={this.colorSet}
-        color={this.props.baseColor}
-        dropdownChange={this.handleDropdownChange}
-        colorSelectorClick={this.handleColorSelectorClick}
-        colorPickerChange={this.handleColorPickerChange}
-      />
+      <div>
+        {this.displayControllerForScope()}
+      </div>
     )
   }
 }
