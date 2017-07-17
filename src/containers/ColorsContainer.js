@@ -4,10 +4,8 @@ import Colors from '../components/colors/Colors.jsx'
 
 const mapStateToProps = (state, ownProps) => {
   let colorState = state.colors
+  let scopes = state.setup.scopes
 
-  // TODO: Use correct scopes again later
-  //let scopes = state.setup.scopes
-  let scopes = ['asd', 'ANDROID']
 
   return {
     ...colorState,
