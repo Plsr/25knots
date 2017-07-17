@@ -4,6 +4,7 @@ import DropdownController from '../DropdownController.jsx'
 import { ChromePicker } from 'react-color'
 import ColorDisplay from './ColorDisplay.jsx'
 import ColorSelector from './ColorSelector.jsx'
+import SecondaryButton from '../shared/SecondaryButton.jsx'
 
 import {COLORS, MATERIAL_COLORS, IOS_COLORS} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
@@ -111,6 +112,9 @@ class Colors extends React.Component {
         />
         {this.displayColorpickerForScope()}
         <ColorDisplay hexVal={this.props.baseColor}/>
+        <SecondaryButton>
+          Next Step
+        </SecondaryButton>
       </div>
     )
   }
