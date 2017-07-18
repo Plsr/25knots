@@ -4,8 +4,30 @@ import {convertToHsl, calculateCompelemntary, claculateHueInDirection, convertTo
 
 import ColorDisplay from './ColorDisplay.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
+import DropdownController from '../DropdownController.jsx'
+
+const CONTRAST_OPTIONS = {
+  complementary: 'Complementary',
+  triad: 'Triad',
+  monochromatic: 'Monochromatic'
+}
 
 class GeneralAccentColorController extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      contrastToShow: CONTRAST_OPTIONS.complementary
+    }
+
+    this.updateContrastToShow = this.updateContrastToShow.bind(this)
+  }
+
+  updateContrastToShow(key, value) {
+    this.setState({
+      contrastToShow: value
+    })
+  }
 
   checkForSimilarColors(colors, candidate) {
     let similarValues = false
@@ -74,35 +96,76 @@ class GeneralAccentColorController extends React.Component {
     return colors
   }
 
-  render() {
+  renderContrast() {
     let hslColor = convertToHsl(this.props.baseColor)
-    let complementary = calculateCompelemntary(hslColor)
-    let triad1 = claculateHueInDirection(hslColor, 30, DIRECTIONS.CLOCKWISE)
-    let triad2 = claculateHueInDirection(hslColor, 30, DIRECTIONS.COUNTER_CLOCKWISE)
-    let monochromColors = this.calculateMonochromaticColors(3)
 
-    console.log(hslColor); //eslint-disable-line
-    console.log(complementary); //eslint-disable-line
-    console.log(triad1); //eslint-disable-line
-    console.log(triad2); //eslint-disable-line
-    for (var i = 0; i < monochromColors.length; i++) {
-      console.log(monochromColors[i]) //eslint-disable-line
+    switch (this.state.contrastToShow) {
+      case CONTRAST_OPTIONS.complementary: {
+        let complementary = calculateCompelemntary(hslColor)
+        return (
+          <div>
+            <h3>Complementary Contrast</h3>
+            <ColorDisplay hexVal={convertToHex(complementary)}/>
+          </div>
+        )
+      }
+      case CONTRAST_OPTIONS.triad: {
+        let triad1 = claculateHueInDirection(hslColor, 30, DIRECTIONS.CLOCKWISE)
+        let triad2 = claculateHueInDirection(hslColor, 30, DIRECTIONS.COUNTER_CLOCKWISE)
+        return (
+          <div>
+            <h3>Triad Contrast</h3>
+            <ColorDisplay hexVal={convertToHex(triad1)}/>
+            <ColorDisplay hexVal={convertToHex(triad2)}/>
+          </div>
+        )
+      }
+      case CONTRAST_OPTIONS.monochromatic: {
+        let monoColors = this.calculateMonochromaticColors(3)
+        let displays = []
+
+        for (var i = 0; i < monoColors.length; i++) {
+          displays.push(
+            <ColorDisplay hexVal={convertToHex(monoColors[i])}/>
+          )
+        }
+        return (
+          <div>
+            <h3>Monochromatic Contrast</h3>
+            {displays}
+          </div>
+        )
+      }
+      default:
+
+    }
+  }
+
+  getContrastStrings() {
+    let contrastStrings = []
+
+    for (var contrast in CONTRAST_OPTIONS) {
+      if (CONTRAST_OPTIONS.hasOwnProperty(contrast)) {
+        contrastStrings.push(CONTRAST_OPTIONS[contrast])
+      }
     }
 
+    return contrastStrings
+  }
+
+  render() {
     return (
       <div>
         <h1>Accent Color</h1>
         <h3>Base Color</h3>
         <ColorDisplay hexVal={this.props.baseColor}/>
-        <h3>Complenentary Color</h3>
-        <ColorDisplay hexVal={convertToHex(complementary)}/>
-        <h3>Triad Contrast</h3>
-        <ColorDisplay hexVal={convertToHex(triad1)}/>
-        <ColorDisplay hexVal={convertToHex(triad2)}/>
-        <h3>Triad Contrast</h3>
-        <ColorDisplay hexVal={convertToHex(monochromColors[0])}/>
-        <ColorDisplay hexVal={convertToHex(monochromColors[1])}/>
-        <ColorDisplay hexVal={convertToHex(monochromColors[2])}/>
+        <h3>Pick a contrast type</h3>
+        <DropdownController
+          title='Choose a contrast type'
+          options={this.getContrastStrings()}
+          onChange={this.updateContrastToShow}
+        />
+        {this.renderContrast()}
 
         <h3>Your Color Scheme</h3>
 
