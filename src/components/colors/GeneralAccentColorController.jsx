@@ -35,7 +35,7 @@ class GeneralAccentColorController extends React.Component {
       let saturationDifference = Math.abs(colors[j].s - candidate.s)
       let lightnessDifference = Math.abs(colors[j].l - candidate.l)
 
-      if (saturationDifference > 0.1 && lightnessDifference > 0.1) {
+      if (saturationDifference < 0.1 && lightnessDifference < 0.1) {
         similarValues = true
       }
     }
@@ -78,18 +78,17 @@ class GeneralAccentColorController extends React.Component {
       // Figure out if only one or two values should be changed
       // Random: 0 = Lightness, 1 = Saturation, 2 = Both
       let randomOption = Math.floor(Math.random() * 3)
-      currentColor = this.changeValuesOfColor(randomOption, currentColor)
+      let changedColor = this.changeValuesOfColor(randomOption, currentColor)
 
       if (colors.length < 1) {
-        colors.push(currentColor)
+        colors.push(changedColor)
       } else {
-        let similarColors = this.checkForSimilarColors(colors, currentColor)
-
+        let similarColors = this.checkForSimilarColors(colors, changedColor)
         while (similarColors) {
-          currentColor = this.changeValuesOfColor(randomOption, currentColor)
-          similarColors = this.checkForSimilarColors(colors, currentColor)
+          changedColor = this.changeValuesOfColor(randomOption, changedColor)
+          similarColors = this.checkForSimilarColors(colors, changedColor)
         }
-        colors.push(currentColor)
+        colors.push(changedColor)
       }
     }
 
