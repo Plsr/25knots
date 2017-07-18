@@ -3,7 +3,7 @@ import {StyleSheet, css} from 'aphrodite'
 
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'
 import IconButton from './IconButton.jsx'
-import SecondaryButton from './SecondaryButton.jsx'
+import SecondaryButton from './shared/SecondaryButton.jsx'
 import BorderedBox from './BorderedBox.jsx'
 
 class SetupProgress extends React.Component {

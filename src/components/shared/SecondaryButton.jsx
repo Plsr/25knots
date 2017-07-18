@@ -1,9 +1,9 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import { buttonReset, buttonBaseStyles, buttonInactiveStyles } from '../styles/shared/buttons.js'
-import { baseColors, appColors } from '../styles/base/colors.js'
-import SpacingSquishedInset from './helpers/spacing/SpacingSquishedInset.jsx'
+import { buttonReset, buttonBaseStyles, buttonInactiveStyles } from '../../styles/shared/buttons.js'
+import { baseColors, appColors } from '../../styles/base/colors.js'
+import SpacingSquishedInset from '../helpers/spacing/SpacingSquishedInset.jsx'
 
 function setStyles(variant, inactive) {
   if (variant == 'outline') {
