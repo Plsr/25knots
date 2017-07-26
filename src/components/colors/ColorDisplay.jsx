@@ -1,17 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { StyleSheet, css } from 'aphrodite'
 
-function ColorDisplay(props) {
+const ColorDisplay = ({size, active, onClick, hexVal, colorName, saturation}) => {
 
   const styles = StyleSheet.create({
     wrapperStyles: {
       display: 'inline-block'
     },
     colorCircleStyles: {
-      width: props.size || '100px',
-      height: props.size || '100px',
+      width: size,
+      height: size,
       borderRadius: '50%',
-      backgroundColor: props.hexVal,
+      backgroundColor: hexVal,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center'
@@ -27,16 +28,31 @@ function ColorDisplay(props) {
         className={
           css(
             styles.colorCircleStyles,
-            props.active && styles.activeStyles
+            active && styles.activeStyles
           )
         }
-        onClick={props.onClick}
+        onClick={onClick}
       >
-        {props.hexVal}
+        {hexVal}
       </div>
-      {props.colorName}
-      {props.saturation}
+      {colorName}
+      {saturation}
     </div>
   )
 }
+
+ColorDisplay.defaultProps = {
+  size: '100px',
+  active: false
+}
+
+ColorDisplay.proptypes = {
+  size: PropTypes.string,
+  active: PropTypes.boolean,
+  onClick: PropTypes.func,
+  hexVal: PropTypes.string,
+  colorName: PropTypes.string,
+  satureation: PropTypes.number
+}
+
 export default ColorDisplay
