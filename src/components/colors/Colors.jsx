@@ -4,42 +4,17 @@ import BaseColorController from './BaseColorController.jsx'
 import AndroidAccentColorController from './AndroidAccentColorController.jsx'
 import GeneralAccentColorController from './GeneralAccentColorController.jsx'
 
-import {COLORS, MATERIAL_COLORS, IOS_COLORS, MATERIAL_COLOR_SHADES} from '../helpers/constants/colors.js'
+import { MATERIAL_COLOR_SHADES } from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
 
 class Colors extends React.Component {
-  constructor(props) {
-    super(props)
-
-    // Set the colorset to be used
-    this.colorSet = this.getColorsetForScope()
-
-    this.handleDropdownChange = this.handleDropdownChange.bind(this)
-    this.handleBaseColorPickerChange = this.handleBaseColorPickerChange.bind(this)
-    this.handleColorPickerChange = this.handleColorPickerChange.bind(this)
-    this.handleAccentColorSelectorClick = this.handleAccentColorSelectorClick.bind(this)
-    this.getColorsetForScope = this.getColorsetForScope.bind(this)
-  }
-
-  // Get the colors for the currently set scope
-  getColorsetForScope() {
-    switch (this.props.scopes[1]) {
-      case SCOPES.ANDROID:
-        return MATERIAL_COLORS
-      case SCOPES.IOS:
-        return IOS_COLORS
-      default:
-        return COLORS
-    }
-  }
-
   /**
    * Gets the corresponding color for the selected adjective in the dropdown
-   * and writes it to the state
+   * and dispatches an action
    */
   handleDropdownChange(key, value) {
-    for (var i = 0; i < this.colorSet.length; i++) {
-      let currColor = this.colorSet[i]
+    for (var i = 0; i < this.props.colorSet.length; i++) {
+      let currColor = this.props.colorSet[i]
       if (currColor.adjective === value) {
         this.props.setValueForKey(key, currColor.color)
       }
@@ -68,7 +43,7 @@ class Colors extends React.Component {
       return (
         <BaseColorController
           scope={this.props.scopes[1]}
-          colorSet={this.colorSet}
+          colorSet={this.props.colorSet}
           color={this.props.baseColor}
           dropdownChange={this.handleDropdownChange}
           colorSelectorClick={this.handleBaseColorPickerChange}
