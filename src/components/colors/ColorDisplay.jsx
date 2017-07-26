@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, css } from 'aphrodite'
 
+
 const ColorDisplay = ({size, active, onClick, hexVal, colorName, saturation}) => {
 
   const styles = StyleSheet.create({
@@ -46,13 +47,13 @@ ColorDisplay.defaultProps = {
   active: false
 }
 
-ColorDisplay.proptypes = {
+ColorDisplay.propTypes = {
   size: PropTypes.string,
-  active: PropTypes.boolean,
+  active: PropTypes.bool,
   onClick: PropTypes.func,
-  hexVal: PropTypes.string,
-  colorName: PropTypes.string,
-  satureation: PropTypes.number
+  hexVal: PropTypes.string.isRequired,
+  colorName: PropTypes.string.isRequired,
+  saturation: PropTypes.number
 }
 
 export default ColorDisplay

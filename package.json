@@ -8,8 +8,8 @@
     "node": "7.8.0"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "production": "NODE_ENV=production node server.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server",
+    "production": "cross-env NODE_ENV=production node server.js",
     "build": "webpack --config webpack.config.js",
     "postinstall": "webpack -p",
     "storybook": "start-storybook -p 6006",
@@ -23,6 +23,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
     "express": "^4.15.3",
     "path": "^0.12.7",
