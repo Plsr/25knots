@@ -4,10 +4,19 @@ import BaseColorController from './BaseColorController.jsx'
 import AndroidAccentColorController from './AndroidAccentColorController.jsx'
 import GeneralAccentColorController from './GeneralAccentColorController.jsx'
 
-import { MATERIAL_COLOR_SHADES } from '../helpers/constants/colors.js'
+import {MATERIAL_COLOR_SHADES} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
 
 class Colors extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.handleColorPickerChange = this.handleColorPickerChange.bind(this)
+    this.handleBaseColorPickerChange = this.handleBaseColorPickerChange.bind(this)
+    this.handleAccentColorSelectorClick = this.handleAccentColorSelectorClick.bind(this)
+  }
+
+
   /**
    * Gets the corresponding color for the selected adjective in the dropdown
    * and dispatches an action
