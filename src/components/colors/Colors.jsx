@@ -3,6 +3,7 @@ import React from 'react'
 import BaseColorController from './BaseColorController.jsx'
 import AndroidAccentColorController from './AndroidAccentColorController.jsx'
 import GeneralAccentColorController from './GeneralAccentColorController.jsx'
+import ColorSummary from './ColorSummary.jsx'
 
 import {MATERIAL_COLOR_SHADES} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
@@ -14,6 +15,9 @@ class Colors extends React.Component {
     this.handleColorPickerChange = this.handleColorPickerChange.bind(this)
     this.handleBaseColorPickerChange = this.handleBaseColorPickerChange.bind(this)
     this.handleAccentColorSelectorClick = this.handleAccentColorSelectorClick.bind(this)
+    this.determineNextStep = this.determineNextStep.bind(this)
+    this.handleContrastChange = this.handleContrastChange.bind(this)
+    this.handleNextButtonClick = this.handleNextButtonClick.bind(this)
   }
 
 
@@ -42,47 +46,78 @@ class Colors extends React.Component {
   handleBaseColorPickerChange(value) {
     this.props.setValueForKey('baseColor', value)
   }
+
   handleAccentColorSelectorClick(value) {
     this.props.setValueForKey('accentColor', value)
   }
 
+  handleContrastChange(contrastType, colors) {
+    this.props.setColorContrast(contrastType, colors)
+  }
+
+  handleNextButtonClick(contrastType, colors) {
+    this.props.setColorContrast(contrastType, colors)
+    this.props.nextSetupStep()
+  }
+
+  determineNextStep() {
+    if (this.props.scopes[1] === SCOPES.IOS) {
+      this.props.finishColorWizard()
+    } else {
+      this.props.nextSetupStep()
+    }
+  }
+
   // Display controller for the current step
   displayControllerForScope() {
-    if (this.props.step === 1) {
-      return (
-        <BaseColorController
-          scope={this.props.scopes[1]}
-          colorSet={this.props.colorSet}
-          color={this.props.baseColor}
-          dropdownChange={this.handleDropdownChange}
-          colorSelectorClick={this.handleBaseColorPickerChange}
-          colorPickerChange={this.handleColorPickerChange}
-          onButtonClick={this.props.nextSetupStep}
-        />
-      )
-    } else {
-      if (this.props.scopes[1] === SCOPES.ANDROID) {
+    switch (this.props.step) {
+      case 1:
         return (
-          <AndroidAccentColorController
-            baseColor={this.props.baseColor}
-            accentColor={this.props.accentColor}
-            onButtonClick={this.props.previousSetupStep}
-            colorSet={MATERIAL_COLOR_SHADES}
-            colorSelectorClick={this.handleAccentColorSelectorClick}
+          <BaseColorController
+            scope={this.props.scopes[1]}
+            colorSet={this.props.colorSet}
+            color={this.props.baseColor}
+            dropdownChange={this.handleDropdownChange}
+            colorSelectorClick={this.handleBaseColorPickerChange}
+            colorPickerChange={this.handleColorPickerChange}
+            onButtonClick={this.determineNextStep}
           />
         )
-      } else {
+      case 2:
+        if (this.props.scopes[1] === SCOPES.ANDROID) {
+          return (
+            <AndroidAccentColorController
+              baseColor={this.props.baseColor}
+              accentColor={this.props.accentColor}
+              onBackButtonClick={this.props.previousSetupStep}
+              onNextButtonClick={this.handleNextButtonClick}
+              colorSet={MATERIAL_COLOR_SHADES}
+              colorSelectorClick={this.handleAccentColorSelectorClick}
+            />
+          )
+        } else {
+          return (
+            <GeneralAccentColorController
+              baseColor={this.props.baseColor}
+              accentColor={this.props.accentColor}
+              onBackButtonClick={this.props.previousSetupStep}
+              onNextButtonClick={this.handleNextButtonClick}
+              onContrastChange={this.handleContrastChange}
+              colorSet={MATERIAL_COLOR_SHADES}
+              colorSelectorClick={this.handleAccentColorSelectorClick}
+            />
+          )
+        }
+      case 3:
         return (
-          <GeneralAccentColorController
+          <ColorSummary
+            onBackButtonClick={this.props.previousSetupStep}
             baseColor={this.props.baseColor}
-            accentColor={this.props.accentColor}
-            onButtonClick={this.props.previousSetupStep}
-            colorSet={MATERIAL_COLOR_SHADES}
-            colorSelectorClick={this.handleAccentColorSelectorClick}
+            accentColors={this.props.contrast.colors}
+            black='#333333'
+            white='#ffffff'
           />
         )
-      }
-
     }
   }
 

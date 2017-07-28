@@ -8,6 +8,8 @@ export const SET_VALUE_FOR_KEY = 'SET_VALUE_FOR_KEY'
 export const SET_GENERAL_VALUE_FOR_KEY = 'SET_GENERAL_VALUE_FOR_KEY'
 export const SET_VALUE_IN_AREA = 'SET_VALUE_IN_AREA'
 export const SET_ERRORS = 'SET_ERRORS'
+export const FINISH_COLOR_WIZARD = 'FINISH_COLOR_WIZARD'
+export const SET_COLOR_CONTRAST = 'SET_COLOR_CONTRAST'
 
 export const nextSetupStep = () => {
   return {
@@ -69,5 +71,19 @@ export const setErrors = (errorsPresent) => {
   return {
     type: SET_ERRORS,
     errorsPresent
+  }
+}
+
+export const finishColorWizard = () => {
+  return {
+    type: FINISH_COLOR_WIZARD
+  }
+}
+
+export const setColorContrast = (contrastType, colors) => {
+  return {
+    type: SET_COLOR_CONTRAST,
+    contrastType,
+    colors
   }
 }

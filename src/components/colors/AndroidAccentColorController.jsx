@@ -91,10 +91,15 @@ class AndroidAccentColorController extends React.Component {
         <ColorDisplay hexVal='#000000'/>
         <ColorDisplay hexVal='#FFFFFF'/>
         <SecondaryButton
-          onClick={this.props.onButtonClick}
+          onClick={this.props.onBackButtonClick}
           variant={'outline'}
         >
           Back
+        </SecondaryButton>
+        <SecondaryButton
+          onClick={this.props.onNextButtonClick}
+        >
+          Next
         </SecondaryButton>
       </div>
     )

@@ -17,10 +17,14 @@ class GeneralAccentColorController extends React.Component {
     super(props)
 
     this.state = {
-      contrastToShow: CONTRAST_OPTIONS.complementary
+      contrastToShow: CONTRAST_OPTIONS.complementary,
+      colors: [
+        convertToHex(calculateCompelemntary(convertToHsl(this.props.baseColor)))
+      ]
     }
 
     this.updateContrastToShow = this.updateContrastToShow.bind(this)
+    this.calculateColors = this.calculateColors.bind(this)
   }
 
   updateContrastToShow(key, value) {
@@ -95,10 +99,11 @@ class GeneralAccentColorController extends React.Component {
     return colors
   }
 
-  renderContrast() {
+  // FIXME: Legacy soon?
+  renderContrast(key, value) {
     let hslColor = convertToHsl(this.props.baseColor)
 
-    switch (this.state.contrastToShow) {
+    switch (value) {
       case CONTRAST_OPTIONS.complementary: {
         let complementary = calculateCompelemntary(hslColor)
         return (
@@ -140,6 +145,47 @@ class GeneralAccentColorController extends React.Component {
     }
   }
 
+  calculateColors(key, value) {
+    let hslColor = convertToHsl(this.props.baseColor)
+    let colors = []
+
+    switch (value) {
+      case CONTRAST_OPTIONS.complementary: {
+        let complementary = calculateCompelemntary(hslColor)
+        colors.push(
+          convertToHex(complementary)
+        )
+        break
+      }
+      case CONTRAST_OPTIONS.triad: {
+        let triad1 = claculateHueInDirection(hslColor, 30, DIRECTIONS.CLOCKWISE)
+        let triad2 = claculateHueInDirection(hslColor, 30, DIRECTIONS.COUNTER_CLOCKWISE)
+        colors.push(
+          convertToHex(triad1),
+          convertToHex(triad2)
+        )
+        break
+      }
+      case CONTRAST_OPTIONS.monochromatic: {
+        let monoColors = this.calculateMonochromaticColors(3)
+
+        for (var i = 0; i < monoColors.length; i++) {
+          colors.push(
+            convertToHex(monoColors[i])
+          )
+        }
+      }
+        break
+      default:
+
+    }
+
+    this.setState({
+      contrastToShow: CONTRAST_OPTIONS.complementary,
+      colors: colors
+    })
+  }
+
   getContrastStrings() {
     let contrastStrings = []
 
@@ -152,7 +198,23 @@ class GeneralAccentColorController extends React.Component {
     return contrastStrings
   }
 
+  displayColors() {
+    let colors = []
+
+    for (var i = 0; i < this.state.colors.length; i++) {
+      colors.push(
+        <ColorDisplay
+          hexVal={this.state.colors[i]}
+        />
+      )
+    }
+
+    return colors
+  }
+
+
   render() {
+    console.log(this.state); // eslint-disable-line
     return (
       <div>
         <h1>Accent Color</h1>
@@ -162,9 +224,10 @@ class GeneralAccentColorController extends React.Component {
         <DropdownController
           title='Choose a contrast type'
           options={this.getContrastStrings()}
-          onChange={this.updateContrastToShow}
+          onChange={this.calculateColors}
         />
-        {this.renderContrast()}
+
+        {this.displayColors()}
 
         <h3>Your Color Scheme</h3>
 
@@ -172,10 +235,18 @@ class GeneralAccentColorController extends React.Component {
         <ColorDisplay hexVal='#000000'/>
         <ColorDisplay hexVal='#FFFFFF'/>
         <SecondaryButton
-          onClick={this.props.onButtonClick}
+          onClick={this.props.onBackButtonClick}
           variant={'outline'}
         >
           Back
+        </SecondaryButton>
+        <SecondaryButton
+          onClick={() => {
+            console.log(this.state.contrastToShow, this.state.colors); // eslint-disable-line
+            this.props.onNextButtonClick(this.state.contrastToShow, this.state.colors)
+          }}
+        >
+          Next
         </SecondaryButton>
       </div>
     )
