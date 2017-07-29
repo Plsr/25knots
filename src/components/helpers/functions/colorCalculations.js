@@ -17,6 +17,74 @@ export function convertToHex(hslObject) {
   return '#' + color.toHex()
 }
 
+// TODO: Documentation
+export function calculateMonochromaticColors(amount, baseColor) {
+
+  let colors = []
+
+  for (var i = 0; i < amount; i++) {
+    let currentColor = Object.assign({}, baseColor)
+    // Figure out if only one or two values should be changed
+    // Random: 0 = Lightness, 1 = Saturation, 2 = Both
+    let randomOption = Math.floor(Math.random() * 3)
+    let changedColor = changeValuesOfColor(randomOption, currentColor)
+
+    if (colors.length < 1) {
+      colors.push(changedColor)
+    } else {
+      let similarColors = checkForSimilarColors(colors, changedColor)
+      while (similarColors) {
+        changedColor = changeValuesOfColor(randomOption, changedColor)
+        similarColors = checkForSimilarColors(colors, changedColor)
+      }
+      colors.push(changedColor)
+    }
+  }
+
+  return colors
+}
+
+// TODO: Documentation
+function changeValuesOfColor(values, color) {
+  let manipulatedColor = Object.assign({}, color)
+  // Switch case
+  // Do the changes that need to be DropdownController
+  switch (values) {
+    case 0:
+      // change lightness
+      manipulatedColor.l = Math.random().toFixed(2)
+      break
+    case 1:
+      // change Saturation
+      manipulatedColor.s = Math.random().toFixed(2)
+      break
+    case 2:
+      // change lightning and saturation
+      manipulatedColor.l = Math.random().toFixed(2)
+      manipulatedColor.s = Math.random().toFixed(2)
+      break
+    default:
+      throw new 'Oops, seems like the randomizer messed something up.'
+  }
+
+  return manipulatedColor
+}
+
+// TODO: Documentation
+function checkForSimilarColors(colors, candidate) {
+  let similarValues = false
+  for (var j = 0; j < colors.length; j++) {
+    let saturationDifference = Math.abs(colors[j].s - candidate.s)
+    let lightnessDifference = Math.abs(colors[j].l - candidate.l)
+
+    if (saturationDifference < 0.1 && lightnessDifference < 0.1) {
+      similarValues = true
+    }
+  }
+
+  return similarValues
+}
+
 /**
  * Calculates the complementary color of a given color.
  * The given color needs to be in the hsl color system for the calculation to work.
