@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setValueForKey, nextSetupStep, previousSetupStep, finishColorWizard, setColorContrast } from '../actions'
+import { setValueForKey, nextColorWizardStep, previousColorWizardStep, finishColorWizard, setColorContrast, firstColorWizardStep } from '../actions'
 import Colors from '../components/colors/Colors.jsx'
 
 import {COLORS, MATERIAL_COLORS, IOS_COLORS} from '../components/helpers/constants/colors.js'
@@ -26,13 +26,16 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(setValueForKey(value, key))
     },
     nextSetupStep: () => {
-      dispatch(nextSetupStep())
+      dispatch(nextColorWizardStep())
     },
     previousSetupStep: () => {
-      dispatch(previousSetupStep())
+      dispatch(previousColorWizardStep())
     },
     finishColorWizard: () => {
       dispatch(finishColorWizard())
+    },
+    firstColorWizardStep: () => {
+      dispatch(firstColorWizardStep())
     },
     setColorContrast: (contrastType, colors) => {
       dispatch(setColorContrast(contrastType, colors))

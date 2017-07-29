@@ -16,6 +16,7 @@ class Colors extends React.Component {
     this.handleBaseColorPickerChange = this.handleBaseColorPickerChange.bind(this)
     this.handleAccentColorSelectorClick = this.handleAccentColorSelectorClick.bind(this)
     this.determineNextStep = this.determineNextStep.bind(this)
+    this.determinePreviousStep = this.determinePreviousStep.bind(this)
     this.handleContrastChange = this.handleContrastChange.bind(this)
     this.handleNextButtonClick = this.handleNextButtonClick.bind(this)
   }
@@ -68,6 +69,14 @@ class Colors extends React.Component {
     }
   }
 
+  determinePreviousStep() {
+    if (this.props.scopes[1] === SCOPES.IOS) {
+      this.props.firstColorWizardStep()
+    } else {
+      this.props.previousSetupStep()
+    }
+  }
+
   // Display controller for the current step
   displayControllerForScope() {
     switch (this.props.step) {
@@ -111,7 +120,7 @@ class Colors extends React.Component {
       case 3:
         return (
           <ColorSummary
-            onBackButtonClick={this.props.previousSetupStep}
+            onBackButtonClick={this.determinePreviousStep}
             baseColor={this.props.baseColor}
             accentColors={this.props.contrast.colors}
             black='#333333'

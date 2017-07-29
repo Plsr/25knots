@@ -8,6 +8,9 @@ export const SET_VALUE_FOR_KEY = 'SET_VALUE_FOR_KEY'
 export const SET_GENERAL_VALUE_FOR_KEY = 'SET_GENERAL_VALUE_FOR_KEY'
 export const SET_VALUE_IN_AREA = 'SET_VALUE_IN_AREA'
 export const SET_ERRORS = 'SET_ERRORS'
+export const NEXT_COLOR_WIZARD_STEP = 'NEXT_COLOR_WIZARD_STEP'
+export const PREVIOUS_COLOR_WIZARD_STEP = 'PREVIOUS_COLOR_WIZARD_STEP'
+export const FIRST_COLOR_WIZARD_STEP = 'FIRST_COLOR_WIZARD_STEP'
 export const FINISH_COLOR_WIZARD = 'FINISH_COLOR_WIZARD'
 export const SET_COLOR_CONTRAST = 'SET_COLOR_CONTRAST'
 
@@ -73,6 +76,25 @@ export const setErrors = (errorsPresent) => {
     errorsPresent
   }
 }
+
+export const nextColorWizardStep = () => {
+  return {
+    type: NEXT_COLOR_WIZARD_STEP
+  }
+}
+
+export const previousColorWizardStep = () => {
+  return {
+    type: PREVIOUS_COLOR_WIZARD_STEP
+  }
+}
+
+export const firstColorWizardStep = () => {
+  return {
+    type: FIRST_COLOR_WIZARD_STEP
+  }
+}
+
 
 export const finishColorWizard = () => {
   return {
