@@ -12,6 +12,7 @@ export const NEXT_COLOR_WIZARD_STEP = 'NEXT_COLOR_WIZARD_STEP'
 export const PREVIOUS_COLOR_WIZARD_STEP = 'PREVIOUS_COLOR_WIZARD_STEP'
 export const FIRST_COLOR_WIZARD_STEP = 'FIRST_COLOR_WIZARD_STEP'
 export const FINISH_COLOR_WIZARD = 'FINISH_COLOR_WIZARD'
+export const SET_BASE_COLORS = 'SET_BASE_COLORS'
 export const SET_COLOR_CONTRAST = 'SET_COLOR_CONTRAST'
 
 export const nextSetupStep = () => {
@@ -106,6 +107,13 @@ export const setColorContrast = (contrastType, colors) => {
   return {
     type: SET_COLOR_CONTRAST,
     contrastType,
+    colors
+  }
+}
+
+export const setBaseColors = (colors) => {
+  return {
+    type: SET_BASE_COLORS,
     colors
   }
 }

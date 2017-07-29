@@ -15,14 +15,14 @@ class BaseColorController extends React.Component {
       return (
         <ColorSelector
           options={this.constructDatasetForKey('color')}
-          active={this.props.color}
+          active={this.props.colors[0]}
           onClick={this.props.colorSelectorClick}
         />
       )
     } else {
       return (
         <ChromePicker
-          color={this.props.color}
+          color={this.props.colors[0]}
           onChange={this.props.colorPickerChange}
         />
       )
@@ -48,6 +48,18 @@ class BaseColorController extends React.Component {
     return colors
   }
 
+  displayBaseColors() {
+    let baseColors = []
+
+    for (var i = 0; i < this.props.colors.length; i++) {
+      baseColors.push(
+        <ColorDisplay hexVal={this.props.colors[i]}/>
+      )
+    }
+
+    return baseColors
+  }
+
 
   render() {
     return (
@@ -60,7 +72,7 @@ class BaseColorController extends React.Component {
           onChange={this.props.dropdownChange}
         />
         {this.displayColorpickerForScope(this.props.scope)}
-        <ColorDisplay hexVal={this.props.color}/>
+        {this.displayBaseColors()}
         <SecondaryButton onClick={this.props.onButtonClick}>
           Next Step
         </SecondaryButton>

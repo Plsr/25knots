@@ -1,10 +1,12 @@
-import { SET_VALUE_FOR_KEY, NEXT_COLOR_WIZARD_STEP, PREVIOUS_COLOR_WIZARD_STEP, FINISH_COLOR_WIZARD, SET_COLOR_CONTRAST, FIRST_COLOR_WIZARD_STEP } from '../actions'
+import { SET_VALUE_FOR_KEY, NEXT_COLOR_WIZARD_STEP, PREVIOUS_COLOR_WIZARD_STEP, FINISH_COLOR_WIZARD, SET_COLOR_CONTRAST, FIRST_COLOR_WIZARD_STEP, SET_BASE_COLORS } from '../actions'
 
 import {COLORS} from '../components/helpers/constants/colors.js'
 
 const initialState = {
   step: 1,
-  baseColor: COLORS[Object.keys(COLORS)[0]].color,
+  baseColors: [
+    COLORS[Object.keys(COLORS)[0]].color
+  ],
   contrast: {
     colors: []
   }
@@ -32,6 +34,12 @@ const typography = (state = initialState, action) => {
     case FIRST_COLOR_WIZARD_STEP:
       return Object.assign({}, state, {
         step: 1
+      })
+    case SET_BASE_COLORS:
+      return Object.assign({}, state, {
+        baseColors: [
+          ...action.colors
+        ]
       })
     case SET_COLOR_CONTRAST:
       return Object.assign({}, state, {

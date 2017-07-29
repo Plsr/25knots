@@ -31,7 +31,7 @@ class Colors extends React.Component {
     for (var i = 0; i < this.props.colorSet.length; i++) {
       let currColor = this.props.colorSet[i]
       if (currColor.adjective === value) {
-        this.props.setValueForKey(key, currColor.color)
+        this.props.setBaseColors([currColor.color])
       }
     }
   }
@@ -42,11 +42,11 @@ class Colors extends React.Component {
    * for the different color models. We want to optain the hex value here.
    */
   handleColorPickerChange(value) {
-    this.props.setValueForKey('baseColor', value.hex)
+    this.props.setBaseColors([value.hex])
   }
 
   handleBaseColorPickerChange(value) {
-    this.props.setValueForKey('baseColor', value)
+    this.props.setBaseColors([value])
   }
 
   handleAccentColorSelectorClick(value) {
@@ -86,7 +86,7 @@ class Colors extends React.Component {
           <BaseColorController
             scope={this.props.scopes[1]}
             colorSet={this.props.colorSet}
-            color={this.props.baseColor}
+            colors={this.props.baseColors}
             dropdownChange={this.handleDropdownChange}
             colorSelectorClick={this.handleBaseColorPickerChange}
             colorPickerChange={this.handleColorPickerChange}
@@ -108,7 +108,7 @@ class Colors extends React.Component {
         } else {
           return (
             <GeneralAccentColorController
-              baseColor={this.props.baseColor}
+              baseColors={this.props.baseColors}
               accent={this.props.accent}
               onBackButtonClick={this.props.previousSetupStep}
               onNextButtonClick={this.handleNextButtonClick}
