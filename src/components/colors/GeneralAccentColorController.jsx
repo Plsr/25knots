@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { convertToHsl, calculateComplementary, calculateMonochromaticColors, calculateTriadContrast } from '../helpers/functions/colorCalculations.js'
+import { calculateComplementary, calculateMonochromaticColors, calculateTriadContrast } from '../helpers/functions/colorCalculations.js'
 
 import ColorDisplay from './ColorDisplay.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
@@ -12,14 +12,11 @@ const CONTRAST_OPTIONS = {
   monochromatic: 'Monochromatic'
 }
 
-// TODO: There should be a single method to calculate triadic colors
-// TODO: Conversion to hex should be done inside the color functions, not in the component
 class GeneralAccentColorController extends React.Component {
   constructor(props) {
     super(props)
 
-    let hslColor = convertToHsl(this.props.baseColor)
-    let complementaryColors = [ calculateComplementary(hslColor) ]
+    let complementaryColors = [ calculateComplementary(this.props.baseColor) ]
     let triadColors = calculateTriadContrast(this.props.baseColor)
     let monochromaticColors = calculateMonochromaticColors(3, this.props.baseColor)
 
