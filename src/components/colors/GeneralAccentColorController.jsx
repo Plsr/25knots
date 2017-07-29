@@ -85,11 +85,6 @@ class GeneralAccentColorController extends React.Component {
 
         {this.displayColors()}
 
-        <h3>Your Color Scheme</h3>
-
-        <ColorDisplay hexVal={this.props.baseColor}/>
-        <ColorDisplay hexVal='#000000'/>
-        <ColorDisplay hexVal='#FFFFFF'/>
         <SecondaryButton
           onClick={this.props.onBackButtonClick}
           variant={'outline'}
