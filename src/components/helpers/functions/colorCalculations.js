@@ -20,24 +20,25 @@ export function convertToHex(hslObject) {
 // TODO: Documentation
 export function calculateMonochromaticColors(amount, baseColor) {
 
+  let hslColor = convertToHsl(baseColor)
   let colors = []
 
   for (var i = 0; i < amount; i++) {
-    let currentColor = Object.assign({}, baseColor)
+    let currentColor = Object.assign({}, hslColor)
     // Figure out if only one or two values should be changed
     // Random: 0 = Lightness, 1 = Saturation, 2 = Both
     let randomOption = Math.floor(Math.random() * 3)
     let changedColor = changeValuesOfColor(randomOption, currentColor)
 
     if (colors.length < 1) {
-      colors.push(changedColor)
+      colors.push(convertToHex(changedColor))
     } else {
       let similarColors = checkForSimilarColors(colors, changedColor)
       while (similarColors) {
         changedColor = changeValuesOfColor(randomOption, changedColor)
         similarColors = checkForSimilarColors(colors, changedColor)
       }
-      colors.push(changedColor)
+      colors.push(convertToHex(changedColor))
     }
   }
 

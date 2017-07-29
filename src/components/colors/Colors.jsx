@@ -99,7 +99,7 @@ class Colors extends React.Component {
           return (
             <GeneralAccentColorController
               baseColor={this.props.baseColor}
-              accentColor={this.props.accentColor}
+              accent={this.props.accent}
               onBackButtonClick={this.props.previousSetupStep}
               onNextButtonClick={this.handleNextButtonClick}
               onContrastChange={this.handleContrastChange}
