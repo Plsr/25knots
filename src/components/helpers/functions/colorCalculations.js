@@ -19,6 +19,16 @@ export function convertToHex(hslObject) {
   return '#' + color.toHex()
 }
 
+export function isLight(hexValue) {
+  let color = tinycolor(hexValue)
+  return color.isLight()
+}
+
+export function getBrightness(hexValue) {
+  let color = tinycolor(hexValue)
+  return color.getBrightness()
+}
+
 // TODO: Documentation
 export function getMaterialColorObjectForShade(shade) {
   let colorSet = MATERIAL_COLOR_SHADES

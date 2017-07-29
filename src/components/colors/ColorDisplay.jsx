@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, css } from 'aphrodite'
 
+import { isLight, getBrightness } from '../helpers/functions/colorCalculations.js'
+
 
 const ColorDisplay = ({size, active, onClick, hexVal, colorName, saturation}) => {
 
@@ -12,6 +14,8 @@ const ColorDisplay = ({size, active, onClick, hexVal, colorName, saturation}) =>
     colorCircleStyles: {
       width: size,
       height: size,
+      color: isLight(hexVal) ? '#333333' : '#ffffff',
+      border: (getBrightness(hexVal) > 230) ? '1px solid #333333' : 'none',
       borderRadius: '50%',
       backgroundColor: hexVal,
       display: 'flex',
