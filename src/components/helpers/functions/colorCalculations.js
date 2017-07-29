@@ -95,8 +95,9 @@ function checkForSimilarColors(colors, candidate) {
  * @param baseColor: color in the hsl system
  * @returns complementary color in the hsl system
  */
-export function calculateCompelemntary(baseColor) {
-  let complementary = Object.assign({}, baseColor)
+export function calculateComplementary(baseColor) {
+  let hslColor = convertToHsl(baseColor)
+  let complementary = Object.assign({}, hslColor)
   let hue = complementary.h
 
   hue += 180
@@ -105,7 +106,17 @@ export function calculateCompelemntary(baseColor) {
   }
 
   complementary.h = hue
-  return complementary
+  return convertToHex(complementary)
+}
+
+export function calculateTriadContrast(baseColor) {
+  let triadColors = [
+    calculateHueInDirection(baseColor, 30, DIRECTIONS.CLOCKWISE),
+    calculateHueInDirection(baseColor, 30, DIRECTIONS.COUNTER_CLOCKWISE)
+  ]
+
+  return triadColors
+
 }
 
 /**
@@ -119,8 +130,9 @@ export function calculateCompelemntary(baseColor) {
  * @param direction: Direction in which the change should be appllied
  * @returns color with shifted hue value in the hsl system
  */
-export function claculateHueInDirection(baseColor, amount, direction) {
-  let manipulatedColor = Object.assign({}, baseColor)
+export function calculateHueInDirection(baseColor, amount, direction) {
+  let hslColor = convertToHsl(baseColor)
+  let manipulatedColor = Object.assign({}, hslColor)
   let hue = manipulatedColor.h
   let degrees = amount
 
@@ -139,14 +151,14 @@ export function claculateHueInDirection(baseColor, amount, direction) {
         hue -= 360
       }
       manipulatedColor.h = hue
-      return manipulatedColor
+      return convertToHex(manipulatedColor)
     case DIRECTIONS.COUNTER_CLOCKWISE:
       hue -= degrees
       if (hue < 0) {
         hue += 360
       }
       manipulatedColor.h = hue
-      return manipulatedColor
+      return convertToHex(manipulatedColor)
     default:
       throw 'Direction not supported. Please use one of the Directions defined in the DIRECTIONS constant'
   }

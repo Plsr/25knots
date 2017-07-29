@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {convertToHsl, calculateCompelemntary, claculateHueInDirection, convertToHex, calculateMonochromaticColors, DIRECTIONS} from '../helpers/functions/colorCalculations.js'
+import { convertToHsl, calculateComplementary, calculateMonochromaticColors, calculateTriadContrast } from '../helpers/functions/colorCalculations.js'
 
 import ColorDisplay from './ColorDisplay.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
@@ -19,11 +19,8 @@ class GeneralAccentColorController extends React.Component {
     super(props)
 
     let hslColor = convertToHsl(this.props.baseColor)
-    let complementaryColors = [convertToHex(calculateCompelemntary(hslColor))]
-    let triadColors = [
-      convertToHex(claculateHueInDirection(hslColor, 30, DIRECTIONS.CLOCKWISE)),
-      convertToHex(claculateHueInDirection(hslColor, 30, DIRECTIONS.COUNTER_CLOCKWISE))
-    ]
+    let complementaryColors = [ calculateComplementary(hslColor) ]
+    let triadColors = calculateTriadContrast(this.props.baseColor)
     let monochromaticColors = calculateMonochromaticColors(3, this.props.baseColor)
 
     this.accentColors = {}
