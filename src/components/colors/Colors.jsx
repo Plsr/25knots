@@ -15,6 +15,7 @@ class Colors extends React.Component {
     this.handleColorPickerChange = this.handleColorPickerChange.bind(this)
     this.handleBaseColorPickerChange = this.handleBaseColorPickerChange.bind(this)
     this.handleAccentColorSelectorClick = this.handleAccentColorSelectorClick.bind(this)
+    this.handleDropdownChange = this.handleDropdownChange.bind(this)
     this.determineNextStep = this.determineNextStep.bind(this)
     this.determinePreviousStep = this.determinePreviousStep.bind(this)
     this.handleContrastChange = this.handleContrastChange.bind(this)

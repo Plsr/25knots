@@ -3,9 +3,21 @@ import React from 'react'
 import ColorDisplay from './ColorDisplay.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
 import ColorSelector from './ColorSelector.jsx'
-import ColorDisplayWrapper from './ColorDisplayWrapper.jsx'
+import DropdownController from '../DropdownController.jsx'
 
 class AndroidAccentColorController extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      accentShadeToShow: 'a400'
+    }
+
+    this.updateAccentShadeToShow = this.updateAccentShadeToShow.bind(this)
+    this.handleColorSelectorClick = this.handleColorSelectorClick.bind(this)
+  }
+
+
   constructAccentColors() {
     let colorSet = this.props.colorSet
     let colors = []
@@ -13,8 +25,8 @@ class AndroidAccentColorController extends React.Component {
     for (var i = 0; i < colorSet.length; i++) {
       let currColorObj = colorSet[i]
       if (currColorObj[500] !== this.props.baseColor) {
-        if (currColorObj.a400 !== undefined) {
-          colors.push(currColorObj.a400)
+        if (currColorObj[this.state.accentShadeToShow] !== undefined) {
+          colors.push(currColorObj[this.state.accentShadeToShow])
         }
       }
     }
@@ -68,8 +80,20 @@ class AndroidAccentColorController extends React.Component {
     )
   }
 
+  updateAccentShadeToShow(key, value) {
+    this.setState({
+      accentShadeToShow: value
+    })
+  }
+
+  handleColorSelectorClick(color) {
+    this.setState({
+      selectedColor: color
+    })
+  }
+
   render() {
-    let baseColorObject = this.getColorObjectForShade(this.props.baseColor)
+    let contrastShades = ['a100', 'a200', 'a400', 'a700']
 
     return (
       <div>
@@ -77,19 +101,17 @@ class AndroidAccentColorController extends React.Component {
         <h3>Base Color</h3>
         <ColorDisplay hexVal={this.props.baseColor}/>
         <h3>Choose Accent Color</h3>
+        <DropdownController
+          title='Choose a contrast shade'
+          options={contrastShades}
+          value={this.state.accentShadeToShow}
+          onChange={this.updateAccentShadeToShow}
+        />
         <ColorSelector
           options={this.constructAccentColors()}
-          active={this.props.accentColor}
-          onClick={this.props.colorSelectorClick}
+          active={this.state.selectedColor}
+          onClick={this.handleColorSelectorClick}
         />
-        <h3>Your Color Scheme</h3>
-
-        <ColorDisplay hexVal={this.props.baseColor}/>
-        <ColorDisplay hexVal={baseColorObject[300]}/>
-        <ColorDisplay hexVal={baseColorObject[700]}/>
-        <ColorDisplayWrapper color={this.props.accentColor} options={this.constructAccentColorOptions()} onOptionClick={this.props.colorSelectorClick}/>
-        <ColorDisplay hexVal='#000000'/>
-        <ColorDisplay hexVal='#FFFFFF'/>
         <SecondaryButton
           onClick={this.props.onBackButtonClick}
           variant={'outline'}
@@ -97,7 +119,10 @@ class AndroidAccentColorController extends React.Component {
           Back
         </SecondaryButton>
         <SecondaryButton
-          onClick={this.props.onNextButtonClick}
+          inactive={this.state.selectedColor === undefined}
+          onClick={() => {
+            this.props.onNextButtonClick(this.state.accentShadeToShow, [ this.state.selectedColor])
+          }}
         >
           Next
         </SecondaryButton>
