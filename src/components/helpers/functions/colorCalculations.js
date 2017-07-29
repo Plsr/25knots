@@ -1,5 +1,7 @@
 import tinycolor from 'react-color/modules/tinycolor2'
 
+import {MATERIAL_COLOR_SHADES} from '../constants/colors.js'
+
 export const DIRECTIONS = {
   CLOCKWISE: 'CLOCKWISE',
   COUNTER_CLOCKWISE: 'COUNTER_CLOCKWISE'
@@ -15,6 +17,25 @@ export function convertToHsl(hexValue) {
 export function convertToHex(hslObject) {
   let color = tinycolor(hslObject)
   return '#' + color.toHex()
+}
+
+// TODO: Documentation
+export function getMaterialColorObjectForShade(shade) {
+  let colorSet = MATERIAL_COLOR_SHADES
+
+  for (var i = 0; i < colorSet.length; i++) {
+    let currColorObj = colorSet[i]
+    for (var currShade in currColorObj) {
+      if (currColorObj.hasOwnProperty(currShade)) {
+        if (currColorObj[currShade] == shade) {
+          return currColorObj
+        }
+      }
+    }
+    if (currColorObj[500] == shade) {
+      return currColorObj
+    }
+  }
 }
 
 // TODO: Documentation

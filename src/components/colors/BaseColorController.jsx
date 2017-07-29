@@ -6,8 +6,65 @@ import ColorSelector from './ColorSelector.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
 import { ChromePicker } from 'react-color'
 import {SCOPES} from '../helpers/constants/scopes.js'
+import { getMaterialColorObjectForShade } from '../helpers/functions/colorCalculations.js'
 
 class BaseColorController extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.handleColorPickerChange = this.handleColorPickerChange.bind(this)
+    this.handleDropdownChange = this.handleDropdownChange.bind(this)
+    this.handleColorSelectorChange = this.handleColorSelectorChange.bind(this)
+    this.handleNextButtonClick = this.handleNextButtonClick.bind(this)
+
+    this.state = {
+      baseColor: this.props.colorSet[0].color
+    }
+  }
+
+  handleColorPickerChange(value) {
+    this.setState({
+      baseColor: value.hex
+    })
+  }
+
+  handleDropdownChange(key, value) {
+    for (var i = 0; i < this.props.colorSet.length; i++) {
+      let currColor = this.props.colorSet[i]
+      if (currColor.adjective === value) {
+        this.setState({
+          baseColor: currColor.color
+        })
+      }
+    }
+  }
+
+  handleColorSelectorChange(value) {
+    if (this.props.scope === SCOPES.ANDROID) {
+      let colorObject = getMaterialColorObjectForShade(value)
+      this.setState({
+        baseColor: value,
+        shades: [
+          colorObject[300],
+          colorObject[700]
+        ]
+      })
+    } else {
+      this.setState({
+        baseColor: value
+      })
+    }
+  }
+
+  handleNextButtonClick() {
+    let colorsArray = [ this.state.baseColor ]
+
+    if (this.state.shades != undefined) {
+      colorsArray = colorsArray.concat(this.state.shades)
+    }
+    this.props.onButtonClick(colorsArray)
+  }
+
 
   // Display Colorpicker for the currently set scope
   displayColorpickerForScope(scope) {
@@ -15,15 +72,15 @@ class BaseColorController extends React.Component {
       return (
         <ColorSelector
           options={this.constructDatasetForKey('color')}
-          active={this.props.colors[0]}
-          onClick={this.props.colorSelectorClick}
+          active={this.state.baseColor}
+          onClick={this.handleColorSelectorChange}
         />
       )
     } else {
       return (
         <ChromePicker
-          color={this.props.colors[0]}
-          onChange={this.props.colorPickerChange}
+          color={this.state.baseColor}
+          onChange={this.handleColorPickerChange}
         />
       )
     }
@@ -48,20 +105,26 @@ class BaseColorController extends React.Component {
     return colors
   }
 
-  displayBaseColors() {
-    let baseColors = []
+  displayColorsForScope(scope) {
+    let colorDisplays = []
 
-    for (var i = 0; i < this.props.colors.length; i++) {
-      baseColors.push(
-        <ColorDisplay hexVal={this.props.colors[i]}/>
-      )
+    colorDisplays.push(
+      <ColorDisplay hexVal={this.state.baseColor} />
+    )
+
+    if (scope === SCOPES.ANDROID && this.state.shades != undefined) {
+      for (var i = 0; i < this.state.shades.length; i++) {
+        colorDisplays.push(
+          <ColorDisplay hexVal={this.state.shades[i]} />
+        )
+      }
     }
 
-    return baseColors
+    return colorDisplays
   }
 
-
   render() {
+    console.log(this.state.baseColor); //eslint-disable-line
     return (
       <div>
         <h1>Colors!</h1>
@@ -69,11 +132,11 @@ class BaseColorController extends React.Component {
           title='Choose colors by adjectives'
           options={this.constructDatasetForKey('adjective')}
           storeKey='baseColor'
-          onChange={this.props.dropdownChange}
+          onChange={this.handleDropdownChange}
         />
         {this.displayColorpickerForScope(this.props.scope)}
-        {this.displayBaseColors()}
-        <SecondaryButton onClick={this.props.onButtonClick}>
+        {this.displayColorsForScope(this.props.scope)}
+        <SecondaryButton onClick={this.handleNextButtonClick}>
           Next Step
         </SecondaryButton>
       </div>

@@ -62,11 +62,13 @@ class Colors extends React.Component {
     this.props.nextSetupStep()
   }
 
-  determineNextStep() {
+  determineNextStep(baseColors) {
     if (this.props.scopes[1] === SCOPES.IOS) {
       this.props.finishColorWizard()
+      this.props.setBaseColors(baseColors)
     } else {
       this.props.nextSetupStep()
+      this.props.setBaseColors(baseColors)
     }
   }
 
@@ -97,7 +99,7 @@ class Colors extends React.Component {
         if (this.props.scopes[1] === SCOPES.ANDROID) {
           return (
             <AndroidAccentColorController
-              baseColor={this.props.baseColor}
+              baseColors={this.props.baseColors}
               accentColor={this.props.accentColor}
               onBackButtonClick={this.props.previousSetupStep}
               onNextButtonClick={this.handleNextButtonClick}
@@ -108,7 +110,7 @@ class Colors extends React.Component {
         } else {
           return (
             <GeneralAccentColorController
-              baseColors={this.props.baseColors}
+              baseColor={this.props.baseColors[0]}
               accent={this.props.accent}
               onBackButtonClick={this.props.previousSetupStep}
               onNextButtonClick={this.handleNextButtonClick}
@@ -122,7 +124,7 @@ class Colors extends React.Component {
         return (
           <ColorSummary
             onBackButtonClick={this.determinePreviousStep}
-            baseColor={this.props.baseColor}
+            baseColors={this.props.baseColors}
             accentColors={this.props.contrast.colors}
             black='#333333'
             white='#ffffff'

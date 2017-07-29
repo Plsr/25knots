@@ -4,6 +4,7 @@ import ColorDisplay from './ColorDisplay.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
 import ColorSelector from './ColorSelector.jsx'
 import DropdownController from '../DropdownController.jsx'
+import { getMaterialColorObjectForShade } from '../helpers/functions/colorCalculations.js'
 
 class AndroidAccentColorController extends React.Component {
   constructor(props) {
@@ -56,7 +57,7 @@ class AndroidAccentColorController extends React.Component {
       return
     }
 
-    let accentColorObject = this.getColorObjectForShade(this.props.accentColor)
+    let accentColorObject = getMaterialColorObjectForShade(this.props.accentColor)
 
     return (
       {
@@ -92,14 +93,26 @@ class AndroidAccentColorController extends React.Component {
     })
   }
 
+  displayBaseColors(baseColors) {
+    let baseColorDisplays = []
+
+    for (var i = 0; i < baseColors.length; i++) {
+      baseColorDisplays.push(
+        <ColorDisplay hexVal={baseColors[i]} />
+      )
+    }
+
+    return baseColorDisplays
+  }
+
   render() {
     let contrastShades = ['a100', 'a200', 'a400', 'a700']
 
     return (
       <div>
         <h1>Accent Color</h1>
-        <h3>Base Color</h3>
-        <ColorDisplay hexVal={this.props.baseColor}/>
+        <h3>Base Colors</h3>
+        {this.displayBaseColors(this.props.baseColors)}
         <h3>Choose Accent Color</h3>
         <DropdownController
           title='Choose a contrast shade'
