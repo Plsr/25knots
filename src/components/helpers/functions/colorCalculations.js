@@ -19,6 +19,11 @@ export function convertToHex(hslObject) {
   return '#' + color.toHex()
 }
 
+export function convertToRgb(hexValue) {
+  let color = tinycolor(hexValue)
+  return color.toRgb()
+}
+
 export function isLight(hexValue) {
   let color = tinycolor(hexValue)
   return color.isLight()
