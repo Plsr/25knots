@@ -3,14 +3,14 @@ import { SET_VALUE_FOR_KEY, NEXT_COLOR_WIZARD_STEP, PREVIOUS_COLOR_WIZARD_STEP, 
 import {COLORS} from '../components/helpers/constants/colors.js'
 
 const initialState = {
-  step: 1,
   baseColors: [
     COLORS[Object.keys(COLORS)[0]].color
   ],
   contrast: {
     colors: []
-  }
-
+  },
+  step: 1,
+  colorWizardFinished: false
 }
 
 const typography = (state = initialState, action) => {
@@ -29,7 +29,8 @@ const typography = (state = initialState, action) => {
       })
     case FINISH_COLOR_WIZARD:
       return Object.assign({}, state, {
-        step: 3
+        step: 3,
+        colorWizardFinished: true
       })
     case FIRST_COLOR_WIZARD_STEP:
       return Object.assign({}, state, {

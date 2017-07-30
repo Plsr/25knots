@@ -4,6 +4,8 @@ import BaseColorController from './BaseColorController.jsx'
 import AndroidAccentColorController from './AndroidAccentColorController.jsx'
 import GeneralAccentColorController from './GeneralAccentColorController.jsx'
 import ColorSummary from './ColorSummary.jsx'
+import Progress from '../shared/Progress.jsx'
+import BottomNavigation from '../shared/BottomNavigation.jsx'
 
 import {MATERIAL_COLOR_SHADES} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
@@ -136,7 +138,13 @@ class Colors extends React.Component {
   render() {
     return (
       <div>
+        <Progress />
         {this.displayControllerForScope()}
+        <BottomNavigation
+          to='/summary'
+          inactive={!this.props.colorWizardFinished}
+          title='Next Section'
+        />
       </div>
     )
   }
