@@ -1,10 +1,16 @@
 import React from 'react'
+import { StyleSheet, css } from 'aphrodite'
 
 import { calculateComplementary, calculateMonochromaticColors, calculateTriadContrast } from '../helpers/functions/colorCalculations.js'
 
 import ColorDisplay from './ColorDisplay.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
-import DropdownController from '../DropdownController.jsx'
+import Headline1 from '../shared/Headline1.jsx'
+import BorderedBox from '../shared/BorderedBox.jsx'
+import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
+import SpacingInline from '../helpers/spacing/SpacingInline.jsx'
+import PlainButton from '../PlainButton.jsx'
 
 const CONTRAST_OPTIONS = {
   complementary: 'Complementary',
@@ -32,7 +38,7 @@ class GeneralAccentColorController extends React.Component {
     this.updateContrastToShow = this.updateContrastToShow.bind(this)
   }
 
-  updateContrastToShow(key, value) {
+  updateContrastToShow(value) {
     this.setState({
       contrastToShow: value
     })
@@ -68,37 +74,105 @@ class GeneralAccentColorController extends React.Component {
     return colorDisplays
   }
 
+  buildContrastOptions(options) {
+    let displayOptions = []
+
+    for (var i = 0; i < options.length; i++) {
+      displayOptions.push(
+        <PlainButton
+          onClick={this.updateContrastToShow}
+          identifier={options[i]}
+          active={this.state.contrastToShow === options[i]}
+        >
+          {options[i]}
+        </PlainButton>
+      )
+
+      if (!(i === options.length)) {
+        displayOptions.push(
+          <SpacingInline size='m' />
+        )
+      }
+    }
+
+    return displayOptions
+  }
+
 
   render() {
-    console.log(this.accentColors); // eslint-disable-line
+    const styles = StyleSheet.create({
+      HeadlineWrapper: {
+        textAlign: 'center'
+      },
+      ColorDisplayStyles: {
+        display: 'flex',
+        justifyContent: 'center',
+        position: 'relative',
+        backgroundColor: this.props.baseColor
+      },
+      ColorFloatStyles: {
+        display: 'flex',
+        position: 'relative',
+        zIndex: '1',
+        flexDirection: 'row',
+        textAlign: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.16)'
+      },
+      SpaceEven: {
+        display: 'flex',
+        justifyContent: 'space-between'
+      }
+    })
+
     return (
       <div>
-        <h1>Accent Color</h1>
-        <h3>Base Color</h3>
-        <ColorDisplay hexVal={this.props.baseColor}/>
-        <h3>Pick a contrast type</h3>
-        <DropdownController
-          title='Choose a contrast type'
-          options={this.getContrastStrings()}
-          onChange={this.updateContrastToShow}
-        />
-
-        {this.displayColors()}
-
-        <SecondaryButton
-          onClick={this.props.onBackButtonClick}
-          variant={'outline'}
-        >
-          Back
-        </SecondaryButton>
-        <SecondaryButton
-          onClick={() => {
-            console.log(this.state.contrastToShow, this.state.colors); // eslint-disable-line
-            this.props.onNextButtonClick(this.state.contrastToShow, this.accentColors[this.state.contrastToShow])
-          }}
-        >
-          Next
-        </SecondaryButton>
+        <SpacingStack size='l' />
+        <div className={css(styles.HeadlineWrapper)}>
+          <Headline1 content='Choose your Accent Color' />
+        </div>
+        <BorderedBox>
+          <SpacingInset size='m'>
+            <p>Pick a contrast type</p>
+            <SpacingStack size='m' />
+            {this.buildContrastOptions(this.getContrastStrings())}
+          </SpacingInset>
+          <SpacingStack size='m' />
+          <div className={css(styles.ColorDisplayStyles)}>
+            <SpacingInset size='l' >
+              <div className={css(styles.ColorFloatStyles)}>
+                <SpacingInset size='l' >
+                  <p>Your Accent Color(s)</p>
+                  <p style={{fontSize: '14px', fontStyle: 'italic'}}>
+                    Your Base Color is placed in the background for you to check
+                  </p>
+                  <SpacingStack size='m' />
+                  {this.displayColors()}
+                </SpacingInset>
+              </div>
+            </SpacingInset>
+          </div>
+          <SpacingInset size='m' >
+            <div className={css(styles.SpaceEven)}>
+              <SecondaryButton
+                onClick={this.props.onBackButtonClick}
+                variant={'outline'}
+              >
+                Back
+              </SecondaryButton>
+              <SecondaryButton
+                onClick={() => {
+                  console.log(this.state.contrastToShow, this.state.colors); // eslint-disable-line
+                  this.props.onNextButtonClick(this.state.contrastToShow, this.accentColors[this.state.contrastToShow])
+                }}
+              >
+                Next
+              </SecondaryButton>
+            </div>
+          </SpacingInset>
+        </BorderedBox>
+        <SpacingStack size='l' />
       </div>
     )
   }

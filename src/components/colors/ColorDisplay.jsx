@@ -20,7 +20,8 @@ const ColorDisplay = ({size, active, onClick, hexVal, colorName, saturation}) =>
       backgroundColor: hexVal,
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      fontSize: '14px'
     },
     activeStyles: {
       border: '5px solid blue'

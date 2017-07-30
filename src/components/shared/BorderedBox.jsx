@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import {baseColors} from '../styles/base/colors.js'
+import {baseColors} from '../../styles/base/colors.js'
 
 function BorderedBox(props) {
   return (

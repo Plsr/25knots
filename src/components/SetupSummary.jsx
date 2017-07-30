@@ -2,7 +2,7 @@ import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
 import {appColors} from '../styles/base/colors.js'
-import BorderedBox from './BorderedBox.jsx'
+import BorderedBox from './shared/BorderedBox.jsx'
 import SpacingInset from './helpers/spacing/SpacingInset.jsx'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import SpacingInline from './helpers/spacing/SpacingInline.jsx'

@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import { fontSizes } from '../styles/base/fonts.js'
-import { appColors } from '../styles/base/colors.js'
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
+import { fontSizes } from '../../styles/base/fonts.js'
+import { appColors } from '../../styles/base/colors.js'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 
 function Headline1(props) {
   return (
