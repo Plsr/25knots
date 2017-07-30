@@ -182,6 +182,7 @@ class AndroidAccentColorController extends React.Component {
 
     return (
       <div>
+        <SpacingStack size='l' />
         <div className={css(styles.HeadlineWrapper)}>
           <Headline1 content='Choose your Accent Color' />
         </div>
