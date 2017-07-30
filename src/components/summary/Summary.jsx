@@ -1,4 +1,5 @@
 import React from 'react'
+import pdfConverter from 'jspdf'
 
 import { extractScopeInformation } from '../helpers/functions/scopes.js'
 import {appColors} from '../../styles/base/colors.js'
@@ -6,8 +7,20 @@ import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SpacingInline from '../helpers/spacing/SpacingInline.jsx'
 import ColorDisplay from '../colors/ColorDisplay.jsx'
 import Icon from '../Icon.jsx'
+import SecondaryButton from '../shared/SecondaryButton.jsx'
 
 class Summary extends React.Component {
+  pdfToHTML(){
+    var pdf = new pdfConverter('p', 'px', 'a4')
+    var source = document.getElementById('print')
+    console.log(source) //eslint-disable-line
+    console.log(pdf) //eslint-disable-line
+
+    pdf.fromHTML(source, 1, 1, {
+      'width': 170
+    })
+    pdf.save('test.pdf')
+  }
 
   buildScopeSummary(scopes) {
     let extractedScopes = extractScopeInformation(scopes)
@@ -61,8 +74,9 @@ class Summary extends React.Component {
 
   render() {
     return (
-      <div>
-        This is your scope
+      <div id='print'>
+        <p>This is your scope</p>
+
         {this.buildScopeSummary(this.props.setup.scopes)}
 
         This is everything from Typography <br />
@@ -110,6 +124,13 @@ class Summary extends React.Component {
         <ColorDisplay
           hexVal={'#ffffff'}
         />
+        <SecondaryButton
+          onClick={() => {
+            this.pdfToHTML()
+          }}
+        >
+          Print
+        </SecondaryButton>
       </div>
     )
   }
