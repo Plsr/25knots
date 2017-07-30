@@ -15,6 +15,7 @@ class ColorSelector extends React.Component {
           key={i}
           active={this.props.active === this.props.options[i]}
           onClick={() => this.props.onClick(currVal)}
+          size={this.props.displaySize}
         />
       )
     }

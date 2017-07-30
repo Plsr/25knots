@@ -6,6 +6,9 @@ import ColorDisplay from './ColorDisplay.jsx'
 import ColorSelector from './ColorSelector.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
 import Headline1 from '../shared/Headline1.jsx'
+import BorderedBox from '../shared/BorderedBox.jsx'
+import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import { ChromePicker } from 'react-color'
 import {SCOPES} from '../helpers/constants/scopes.js'
 import { getMaterialColorObjectForShade } from '../helpers/functions/colorCalculations.js'
@@ -31,14 +34,31 @@ class BaseColorController extends React.Component {
   }
 
   handleDropdownChange(key, value) {
-    for (var i = 0; i < this.props.colorSet.length; i++) {
-      let currColor = this.props.colorSet[i]
-      if (currColor.adjective === value) {
-        this.setState({
-          baseColor: currColor.color
-        })
+    if (this.props.scope === SCOPES.ANDROID) {
+      for (var i = 0; i < this.props.colorSet.length; i++) {
+        let currColor = this.props.colorSet[i]
+        if (currColor.adjective === value) {
+          let colorObject = getMaterialColorObjectForShade(currColor.color)
+          this.setState({
+            baseColor: currColor.color,
+            shades: [
+              colorObject[300],
+              colorObject[700]
+            ]
+          })
+        }
+      }
+    } else {
+      for (var j = 0; j < this.props.colorSet.length; j++) {
+        let currColor = this.props.colorSet[j]
+        if (currColor.adjective === value) {
+          this.setState({
+            baseColor: currColor.color
+          })
+        }
       }
     }
+
   }
 
   handleColorSelectorChange(value) {
@@ -76,6 +96,7 @@ class BaseColorController extends React.Component {
           options={this.constructDatasetForKey('color')}
           active={this.state.baseColor}
           onClick={this.handleColorSelectorChange}
+          displaySize='80px'
         />
       )
     } else {
@@ -129,7 +150,68 @@ class BaseColorController extends React.Component {
     return scope === SCOPES.ANDROID ? 'Choose your Base Color' : 'Choose your Base Colors'
   }
 
+  getColorDisplayContentForScope(scope) {
+    if (scope === SCOPES.ANDROID) {
+      return (
+        <div>
+          <p>Your Colors</p>
+          <p style={{fontSize: '14px', fontStyle: 'italic'}}>
+            Two matching shades from the Material Design Guidelines were selected for you
+          </p>
+        </div>
+      )
+    } else {
+      return (
+        <p>Your Color</p>
+      )
+    }
+  }
+
   render() {
+    const styles = StyleSheet.create({
+      HeadlineWrapper: {
+        textAlign: 'center'
+      },
+      FlexParentStyles: {
+        display: 'flex'
+      },
+      FlexChildrenStyles: {
+        flex: '1 1 0'
+      },
+      ColorDisplayStyles: {
+        display: 'flex',
+        justifyContent: 'center',
+        position: 'relative',
+        backgroundColor: this.state.baseColor,
+        ':before' :{
+          content: "' '", // eslint-disable-line
+          left: 0,
+          height: '100%',
+          width: '33%',
+          position:'absolute',
+          backgroundColor: this.state.shades === undefined ? 'transparent' : this.state.shades[0]
+        },
+        ':after' :{
+          content: "' '", // eslint-disable-line
+          right: 0,
+          height: '100%',
+          width: '33%',
+          position:'absolute',
+          backgroundColor: this.state.shades === undefined ? 'transparent' : this.state.shades[1]
+        }
+      },
+      ColorFloatStyles: {
+        display: 'flex',
+        position: 'relative',
+        zIndex: '1',
+        flexDirection: 'row',
+        textAlign: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.16)'
+      }
+    })
+
     console.log(this.state.baseColor); //eslint-disable-line
     return (
       <div>
@@ -137,27 +219,46 @@ class BaseColorController extends React.Component {
           <Headline1 content={this.getHeadlineStringForScope(this.props.scope)} />
         </div>
 
-        <DropdownController
-          title='Choose colors by adjectives'
-          options={this.constructDatasetForKey('adjective')}
-          storeKey='baseColor'
-          onChange={this.handleDropdownChange}
-        />
-        {this.displayColorpickerForScope(this.props.scope)}
-        {this.displayColorsForScope(this.props.scope)}
-        <SecondaryButton onClick={this.handleNextButtonClick}>
-          Next Step
-        </SecondaryButton>
+        <BorderedBox>
+          <div className={css(styles.FlexParentStyles)} >
+            <div className={css(styles.FlexChildrenStyles)} >
+              <SpacingInset size='m' >
+                <p>By an adjective that represents your project</p>
+                <DropdownController
+                  options={this.constructDatasetForKey('adjective')}
+                  storeKey='baseColor'
+                  onChange={this.handleDropdownChange}
+                />
+              </SpacingInset>
+            </div>
+            <div className={css(styles.FlexChildrenStyles)} >
+              <SpacingInset size='m' >
+                <p>Freely select a color</p>
+                {this.displayColorpickerForScope(this.props.scope)}
+              </SpacingInset>
+            </div>
+          </div>
+          <div className={css(styles.ColorDisplayStyles)}>
+            <SpacingInset size='l' >
+              <div className={css(styles.ColorFloatStyles)}>
+                <SpacingInset size='l' >
+                  {this.getColorDisplayContentForScope(this.props.scope)}
+                  <SpacingStack size='m' />
+                  {this.displayColorsForScope(this.props.scope)}
+                </SpacingInset>
+              </div>
+            </SpacingInset>
+          </div>
+          <SecondaryButton onClick={this.handleNextButtonClick}>
+            Next Step
+          </SecondaryButton>
+        </BorderedBox>
       </div>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  HeadlineWrapper: {
-    textAlign: 'center'
-  }
-})
+
 
 
 export default BaseColorController
