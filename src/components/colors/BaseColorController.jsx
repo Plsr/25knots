@@ -27,6 +27,18 @@ class BaseColorController extends React.Component {
     }
   }
 
+  componentWillMount() {
+    if (this.props.scope === SCOPES.ANDROID) {
+      let colorObject = getMaterialColorObjectForShade(this.state.baseColor)
+      this.setState({
+        shades: [
+          colorObject[300],
+          colorObject[700]
+        ]
+      })
+    }
+  }
+
   handleColorPickerChange(value) {
     this.setState({
       baseColor: value.hex
