@@ -4,6 +4,7 @@ import { extractScopeInformation } from '../helpers/functions/scopes.js'
 import {appColors} from '../../styles/base/colors.js'
 import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SpacingInline from '../helpers/spacing/SpacingInline.jsx'
+import ColorDisplay from '../colors/ColorDisplay.jsx'
 import Icon from '../Icon.jsx'
 
 class Summary extends React.Component {
@@ -31,6 +32,33 @@ class Summary extends React.Component {
 
     return summaryElemets
   }
+
+  constructAccentColors(accentColors) {
+    let accentColorDisplays = []
+
+    for (var i = 0; i < accentColors.length; i++) {
+      accentColorDisplays.push(
+        <ColorDisplay
+          hexVal={accentColors[i]}
+        />
+      )
+    }
+
+    return accentColorDisplays
+  }
+
+  displayBaseColors(baseColors) {
+    let baseColorDisplays = []
+
+    for (var i = 0; i < baseColors.length; i++) {
+      baseColorDisplays.push(
+        <ColorDisplay hexVal={baseColors[i]} />
+      )
+    }
+
+    return baseColorDisplays
+  }
+
   render() {
     return (
       <div>
@@ -71,8 +99,17 @@ class Summary extends React.Component {
               <li>Text Color: {this.props.typography.colors.foreground}</li>
             </ul>
           </li>
-
         </ul>
+
+        Your Colors
+        {this.displayBaseColors(this.props.colors.baseColors)}
+        {this.constructAccentColors(this.props.colors.contrast.colors)}
+        <ColorDisplay
+          hexVal={'#333333'}
+        />
+        <ColorDisplay
+          hexVal={'#ffffff'}
+        />
       </div>
     )
   }
