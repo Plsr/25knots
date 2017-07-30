@@ -10,6 +10,7 @@ import BottomNavigation from '../shared/BottomNavigation.jsx'
 import {MATERIAL_COLOR_SHADES} from '../helpers/constants/colors.js'
 import {SCOPES} from '../helpers/constants/scopes.js'
 
+// TODO: Tidy up, lost of unused code
 class Colors extends React.Component {
   constructor(props) {
     super(props)
@@ -61,7 +62,7 @@ class Colors extends React.Component {
 
   handleNextButtonClick(contrastType, colors) {
     this.props.setColorContrast(contrastType, colors)
-    this.props.nextSetupStep()
+    this.props.finishColorWizard()
   }
 
   determineNextStep(baseColors) {
