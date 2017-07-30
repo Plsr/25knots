@@ -224,6 +224,7 @@ class BaseColorController extends React.Component {
             <div className={css(styles.FlexChildrenStyles)} >
               <SpacingInset size='m' >
                 <p>By an adjective that represents your project</p>
+                <SpacingStack size='m' />
                 <DropdownController
                   options={this.constructDatasetForKey('adjective')}
                   storeKey='baseColor'
@@ -234,10 +235,12 @@ class BaseColorController extends React.Component {
             <div className={css(styles.FlexChildrenStyles)} >
               <SpacingInset size='m' >
                 <p>Freely select a color</p>
+                <SpacingStack size='m' />
                 {this.displayColorpickerForScope(this.props.scope)}
               </SpacingInset>
             </div>
           </div>
+          <SpacingStack size='m' />
           <div className={css(styles.ColorDisplayStyles)}>
             <SpacingInset size='l' >
               <div className={css(styles.ColorFloatStyles)}>
@@ -249,9 +252,11 @@ class BaseColorController extends React.Component {
               </div>
             </SpacingInset>
           </div>
-          <SecondaryButton onClick={this.handleNextButtonClick}>
-            Next Step
-          </SecondaryButton>
+          <SpacingInset size='m' >
+            <SecondaryButton onClick={this.handleNextButtonClick}>
+              Next Step
+            </SecondaryButton>
+          </SpacingInset>
         </BorderedBox>
       </div>
     )
