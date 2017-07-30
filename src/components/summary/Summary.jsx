@@ -8,7 +8,7 @@ import Icon from '../Icon.jsx'
 
 class Summary extends React.Component {
 
-  buildSummary(scopes) {
+  buildScopeSummary(scopes) {
     let extractedScopes = extractScopeInformation(scopes)
     let summaryElemets = []
 
@@ -34,8 +34,45 @@ class Summary extends React.Component {
   render() {
     return (
       <div>
-        I am summary
-        {this.buildSummary(this.props.setup.scopes)}
+        This is your scope
+        {this.buildScopeSummary(this.props.setup.scopes)}
+
+        This is everything from Typography <br />
+        <ul>
+          <li>Font Family: {this.props.typography.general.fontFamily}</li>
+          <li>Font Size: {this.props.typography.general.fontSize}</li>
+          <li>Line Height: {this.props.typography.general.lineHeight}</li>
+          <li>Text Width: {this.props.typography.general.textWidth}</li>
+          <li>Paragraph Spacing: {this.props.typography.general.textSpacing}</li>
+          <li>Headline 1:
+            <ul>
+              <li>Size: {this.props.typography.headline1.size}</li>
+              <li>Spacing Top: {this.props.typography.headline1.spacingTop}</li>
+              <li>Spacing Bottom: {this.props.typography.headline1.spacingBottom}</li>
+            </ul>
+          </li>
+          <li>Headline 2:
+            <ul>
+              <li>Size: {this.props.typography.headline2.size}</li>
+              <li>Spacing Top: {this.props.typography.headline2.spacingTop}</li>
+              <li>Spacing Bottom: {this.props.typography.headline2.spacingBottom}</li>
+            </ul>
+          </li>
+          <li>Headline 3:
+            <ul>
+              <li>Size: {this.props.typography.headline3.size}</li>
+              <li>Spacing Top: {this.props.typography.headline3.spacingTop}</li>
+              <li>Spacing Bottom: {this.props.typography.headline3.spacingBottom}</li>
+            </ul>
+          </li>
+          <li>Colors:
+            <ul>
+              <li>Background Color: {this.props.typography.colors.background}</li>
+              <li>Text Color: {this.props.typography.colors.foreground}</li>
+            </ul>
+          </li>
+
+        </ul>
       </div>
     )
   }
