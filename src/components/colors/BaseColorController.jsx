@@ -1,9 +1,11 @@
 import React from 'react'
+import { StyleSheet, css } from 'aphrodite'
 
 import DropdownController from '../DropdownController.jsx'
 import ColorDisplay from './ColorDisplay.jsx'
 import ColorSelector from './ColorSelector.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
+import Headline1 from '../shared/Headline1.jsx'
 import { ChromePicker } from 'react-color'
 import {SCOPES} from '../helpers/constants/scopes.js'
 import { getMaterialColorObjectForShade } from '../helpers/functions/colorCalculations.js'
@@ -123,11 +125,18 @@ class BaseColorController extends React.Component {
     return colorDisplays
   }
 
+  getHeadlineStringForScope(scope) {
+    return scope === SCOPES.ANDROID ? 'Choose your Base Color' : 'Choose your Base Colors'
+  }
+
   render() {
     console.log(this.state.baseColor); //eslint-disable-line
     return (
       <div>
-        <h1>Colors!</h1>
+        <div className={css(styles.HeadlineWrapper)}>
+          <Headline1 content={this.getHeadlineStringForScope(this.props.scope)} />
+        </div>
+
         <DropdownController
           title='Choose colors by adjectives'
           options={this.constructDatasetForKey('adjective')}
@@ -143,6 +152,12 @@ class BaseColorController extends React.Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  HeadlineWrapper: {
+    textAlign: 'center'
+  }
+})
 
 
 export default BaseColorController
