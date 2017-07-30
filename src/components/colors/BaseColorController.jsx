@@ -209,12 +209,17 @@ class BaseColorController extends React.Component {
         justifyContent: 'center',
         backgroundColor: 'white',
         boxShadow: '0px 0px 10px 0px rgba(0,0,0,0.16)'
+      },
+      AlignContentEnd: {
+        display: 'flex',
+        justifyContent: 'flex-end'
       }
     })
 
     console.log(this.state.baseColor); //eslint-disable-line
     return (
       <div>
+        <SpacingStack size='l' />
         <div className={css(styles.HeadlineWrapper)}>
           <Headline1 content={this.getHeadlineStringForScope(this.props.scope)} />
         </div>
@@ -253,11 +258,14 @@ class BaseColorController extends React.Component {
             </SpacingInset>
           </div>
           <SpacingInset size='m' >
-            <SecondaryButton onClick={this.handleNextButtonClick}>
-              Next Step
-            </SecondaryButton>
+            <div className={css(styles.AlignContentEnd)}>
+              <SecondaryButton onClick={this.handleNextButtonClick}>
+                Next Step
+              </SecondaryButton>
+            </div>
           </SpacingInset>
         </BorderedBox>
+        <SpacingStack size='l' />
       </div>
     )
   }
