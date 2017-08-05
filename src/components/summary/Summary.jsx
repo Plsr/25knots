@@ -122,7 +122,7 @@ You can also save this as a pdf for later use.</p>
           <SpacingInset size='m'>
             <p>You are building the following:</p>
             <SpacingStack size='m' />
-            <div className={css(styles.scopesWrapper)}>
+            <div className={css(styles.flexRow)}>
               {this.buildScopeSummary(this.props.setup.scopes)}
             </div>
           </SpacingInset>
@@ -132,34 +132,53 @@ You can also save this as a pdf for later use.</p>
           <SpacingInset size='m'>
             <p>Typography:</p>
             <SpacingStack size='m' />
-            <TableDisplay
-              title='General'
-              content={this.constructArrayForTable(this.props.typography.general)}
-            />
-            <TableDisplay
-              title='Headline1'
-              content={this.constructArrayForTable(this.props.typography.headline1)}
-            />
-            <TableDisplay
-              title='Headline2'
-              content={this.constructArrayForTable(this.props.typography.headline2)}
-            />
-            <TableDisplay
-              title='Headline3'
-              content={this.constructArrayForTable(this.props.typography.headline3)}
-            />
-
-            <h3>Colors</h3>
-            <table>
-              <tr>
-                <td>Background Color:</td>
-                <td>{this.props.typography.colors.background}</td>
-              </tr>
-              <tr>
-                <td>Text Color:</td>
-                <td>{this.props.typography.colors.foreground}</td>
-              </tr>
-            </table>
+            <div className={css(styles.flexRow)}>
+              <TableDisplay
+                title='General'
+                content={this.constructArrayForTable(this.props.typography.general)}
+              />
+              <SpacingInline size='xl' />
+              <div>
+                <h4>Colors</h4>
+                <table>
+                  <tr>
+                    <td>Background Color:</td>
+                    <td>
+                      <ColorDisplay
+                        hexVal={this.props.typography.colors.background}
+                        size={70}
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Text Color:</td>
+                    <td>
+                      <ColorDisplay
+                        hexVal={this.props.typography.colors.foreground}
+                        size={70}
+                      />
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <SpacingStack size='l' />
+            <div className={css(styles.flexRow)}>
+              <TableDisplay
+                title='Headline1'
+                content={this.constructArrayForTable(this.props.typography.headline1)}
+              />
+              <SpacingInline size='xl' />
+              <TableDisplay
+                title='Headline2'
+                content={this.constructArrayForTable(this.props.typography.headline2)}
+              />
+              <SpacingInline size='xl' />
+              <TableDisplay
+                title='Headline3'
+                content={this.constructArrayForTable(this.props.typography.headline3)}
+              />
+            </div>
           </SpacingInset>
         </BorderedBox>
         <SpacingStack size='l' />
@@ -195,7 +214,7 @@ const styles = StyleSheet.create({
       marginRight: 0
     }
   },
-  scopesWrapper: {
+  flexRow: {
     display: 'flex',
     flexDirection: 'row'
   }
