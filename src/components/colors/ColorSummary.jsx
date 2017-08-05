@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   },
   CenterContent: {
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-around'
   }
 })
 
