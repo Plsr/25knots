@@ -1,4 +1,7 @@
 import React from 'react'
+import { StyleSheet, css } from 'aphrodite'
+
+import { appColors } from '../../styles/base/colors.js'
 
 class TableDisplay extends React.Component {
 
@@ -26,11 +29,17 @@ class TableDisplay extends React.Component {
   render() {
     return (
       <div>
-        <h4>{this.props.title}</h4>
+        <h4 className={css(styles.headlineStyles)}>{this.props.title}</h4>
         {this.buildTable(this.props.content)}
       </div>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  headlineStyles: {
+    color: appColors.secondary
+  }
+})
 
 export default TableDisplay

@@ -102,22 +102,21 @@ class Summary extends React.Component {
       <div>
         <Progress />
         <SpacingStack size='l' />
-        <SpacingStack size='l'>
-          <div className={css(styles.ContainerStyles)}>
-            <Headline1 content='Your Results' />
-            <p>Following, you can find a summary of what you worked out. <br />
+        <div className={css(styles.ContainerStyles)}>
+          <Headline1 content='Your Results' />
+          <p>Following, you can find a summary of what you worked out. <br />
 You can also save this as a pdf for later use.</p>
-            <SpacingStack size='l' />
-            <SecondaryButton
-              onClick={() => {
-                generatePDF(this.props.typography, this.props.colors)
-              }}
-              variant='outline'
-            >
-              Save as PDF
-            </SecondaryButton>
-          </div>
-        </SpacingStack>
+          <SpacingStack size='l' />
+          <SecondaryButton
+            onClick={() => {
+              generatePDF(this.props.typography, this.props.colors)
+            }}
+            variant='outline'
+          >
+            Save as PDF
+          </SecondaryButton>
+        </div>
+        <SpacingStack size='l' />
         <BorderedBox>
           <SpacingInset size='m'>
             <p>You are building the following:</p>
@@ -139,7 +138,7 @@ You can also save this as a pdf for later use.</p>
               />
               <SpacingInline size='xl' />
               <div>
-                <h4>Colors</h4>
+                <h4 className={css(styles.headlineStyles)}>Colors</h4>
                 <table>
                   <tr>
                     <td>Background Color:</td>
@@ -186,16 +185,19 @@ You can also save this as a pdf for later use.</p>
           <SpacingInset size='m'>
             <p>Colors:</p>
             <SpacingStack size='m' />
-            {this.displayBaseColors(this.props.colors.baseColors)}
-            {this.constructAccentColors(this.props.colors.contrast.colors)}
-            <ColorDisplay
-              hexVal={'#333333'}
-            />
-            <ColorDisplay
-              hexVal={'#ffffff'}
-            />
+            <div className={css(styles.centerContent)}>
+              {this.displayBaseColors(this.props.colors.baseColors)}
+              {this.constructAccentColors(this.props.colors.contrast.colors)}
+              <ColorDisplay
+                hexVal={'#333333'}
+              />
+              <ColorDisplay
+                hexVal={'#ffffff'}
+              />
+            </div>
           </SpacingInset>
         </BorderedBox>
+        <SpacingStack size='l' />
       </div>
     )
   }
@@ -217,6 +219,13 @@ const styles = StyleSheet.create({
   flexRow: {
     display: 'flex',
     flexDirection: 'row'
+  },
+  headlineStyles: {
+    color: appColors.secondary
+  },
+  centerContent: {
+    display: 'flex',
+    justifyContent: 'space-around'
   }
 })
 
