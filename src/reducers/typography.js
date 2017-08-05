@@ -11,9 +11,7 @@ const initialState = {
   headline1: {
     size: 48,
     spacingTop: 40,
-    spacingBottom: 20,
-    errors: {
-    }
+    spacingBottom: 20
   },
   headline2: {
     size: 36,
