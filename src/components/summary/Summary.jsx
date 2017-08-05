@@ -13,6 +13,7 @@ import Progress from '../shared/Progress.jsx'
 import BorderedBox from '../shared/BorderedBox.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
 import { generatePDF } from '../helpers/functions/pdfGenerator.js'
+import TableDisplay from './TableDisplay.jsx'
 
 class Summary extends React.Component {
 
@@ -64,6 +65,38 @@ class Summary extends React.Component {
     return baseColorDisplays
   }
 
+  /**
+   * Builds a string with spaces from a camelCase key
+   * See https://stackoverflow.com/a/4149393/4181679
+   */
+  stringifyKey(key) {
+    return key
+      // insert a space before all caps
+      .replace(/([A-Z])/g, ' $1')
+      // uppercase the first character
+      .replace(/^./, function(str){
+        return str.toUpperCase()
+      })
+  }
+
+  constructArrayForTable(object) {
+    let valuesArray = []
+
+    for (var key in object) {
+      if (object.hasOwnProperty(key)) {
+        valuesArray.push(
+          {
+            name: this.stringifyKey(key),
+            value: object[key]
+          }
+        )
+      }
+    }
+    console.log(valuesArray); //eslint-disable-line
+
+    return valuesArray
+  }
+
   render() {
     return (
       <div>
@@ -94,52 +127,56 @@ You can also save this as a pdf for later use.</p>
             </div>
           </SpacingInset>
         </BorderedBox>
+        <SpacingStack size='l' />
+        <BorderedBox>
+          <SpacingInset size='m'>
+            <p>Typography:</p>
+            <SpacingStack size='m' />
+            <TableDisplay
+              title='General'
+              content={this.constructArrayForTable(this.props.typography.general)}
+            />
+            <TableDisplay
+              title='Headline1'
+              content={this.constructArrayForTable(this.props.typography.headline1)}
+            />
+            <TableDisplay
+              title='Headline2'
+              content={this.constructArrayForTable(this.props.typography.headline2)}
+            />
+            <TableDisplay
+              title='Headline3'
+              content={this.constructArrayForTable(this.props.typography.headline3)}
+            />
 
-        This is everything from Typography <br />
-        <ul>
-          <li>Font Family: {this.props.typography.general.fontFamily}</li>
-          <li>Font Size: {this.props.typography.general.fontSize}</li>
-          <li>Line Height: {this.props.typography.general.lineHeight}</li>
-          <li>Text Width: {this.props.typography.general.textWidth}</li>
-          <li>Paragraph Spacing: {this.props.typography.general.textSpacing}</li>
-          <li>Headline 1:
-            <ul>
-              <li>Size: {this.props.typography.headline1.size}</li>
-              <li>Spacing Top: {this.props.typography.headline1.spacingTop}</li>
-              <li>Spacing Bottom: {this.props.typography.headline1.spacingBottom}</li>
-            </ul>
-          </li>
-          <li>Headline 2:
-            <ul>
-              <li>Size: {this.props.typography.headline2.size}</li>
-              <li>Spacing Top: {this.props.typography.headline2.spacingTop}</li>
-              <li>Spacing Bottom: {this.props.typography.headline2.spacingBottom}</li>
-            </ul>
-          </li>
-          <li>Headline 3:
-            <ul>
-              <li>Size: {this.props.typography.headline3.size}</li>
-              <li>Spacing Top: {this.props.typography.headline3.spacingTop}</li>
-              <li>Spacing Bottom: {this.props.typography.headline3.spacingBottom}</li>
-            </ul>
-          </li>
-          <li>Colors:
-            <ul>
-              <li>Background Color: {this.props.typography.colors.background}</li>
-              <li>Text Color: {this.props.typography.colors.foreground}</li>
-            </ul>
-          </li>
-        </ul>
-
-        Your Colors
-        {this.displayBaseColors(this.props.colors.baseColors)}
-        {this.constructAccentColors(this.props.colors.contrast.colors)}
-        <ColorDisplay
-          hexVal={'#333333'}
-        />
-        <ColorDisplay
-          hexVal={'#ffffff'}
-        />
+            <h3>Colors</h3>
+            <table>
+              <tr>
+                <td>Background Color:</td>
+                <td>{this.props.typography.colors.background}</td>
+              </tr>
+              <tr>
+                <td>Text Color:</td>
+                <td>{this.props.typography.colors.foreground}</td>
+              </tr>
+            </table>
+          </SpacingInset>
+        </BorderedBox>
+        <SpacingStack size='l' />
+        <BorderedBox>
+          <SpacingInset size='m'>
+            <p>Colors:</p>
+            <SpacingStack size='m' />
+            {this.displayBaseColors(this.props.colors.baseColors)}
+            {this.constructAccentColors(this.props.colors.contrast.colors)}
+            <ColorDisplay
+              hexVal={'#333333'}
+            />
+            <ColorDisplay
+              hexVal={'#ffffff'}
+            />
+          </SpacingInset>
+        </BorderedBox>
       </div>
     )
   }
