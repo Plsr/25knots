@@ -10,8 +10,8 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "production": "cross-env NODE_ENV=production node server.js",
-    "heroku-prebuild": "yarn install --production=false",
-    "heroku-postbuild": "webpack -p --config webpack.config.js",
+    "heroku-prebuild": "NODE_ENV=development",
+    "heroku-postbuild": "NODE_ENV=production; webpack -p --config webpack.config.js",
     "build": "webpack --config webpack.config.js",
     "postinstall": "webpack -p",
     "storybook": "start-storybook -p 6006",
