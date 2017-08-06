@@ -6,7 +6,7 @@ import NavigationButton from './NavigationButton.jsx'
 
 function BottomNavigation(props) {
   return (
-    <div>
+    <div className={css(styles.stickToBottom)}>
       <NavigationBackground shadowVariant='up' >
         <div className={css(styles.alignRight)}>
           <NavigationButton to={props.to} inactive={props.inactive} >
@@ -22,6 +22,11 @@ const styles = StyleSheet.create({
   alignRight: {
     display: 'flex',
     justifyContent: 'flex-end'
+  },
+  stickToBottom: {
+    position: 'fixed',
+    bottom: '0%',
+    width: '100%'
   }
 })
 
