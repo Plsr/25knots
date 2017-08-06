@@ -43,7 +43,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Progress />
+        <Progress currentPath={this.props.location.pathname} />
         <SpacingStack size='l' />
         <IntroductionHero />
         {this.renderSetupStep()}

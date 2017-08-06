@@ -70,7 +70,7 @@ export default class Typography extends React.Component {
 
     return (
       <div>
-        <Progress />
+        <Progress currentPath={this.props.location.pathname} />
         <div style={{textAlign: 'center'}}>
           <div className={css(styles.wrapperStyles)}>
             <div className={css(styles.textStyles)}>

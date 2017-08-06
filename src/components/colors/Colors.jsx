@@ -140,7 +140,7 @@ class Colors extends React.Component {
   render() {
     return (
       <div>
-        <Progress />
+        <Progress currentPath={this.props.location.pathname} />
         <SpacingStack size='m' />
         {this.displayControllerForScope()}
         <SpacingStack size='xxl' />

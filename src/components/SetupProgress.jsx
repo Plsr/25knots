@@ -99,7 +99,7 @@ class SetupProgress extends React.Component {
           <IconButton
             icon={currentOption.icon}
             onClick={this.handleIconButtonClick}
-            key={currentOption.value}
+            key={i}
             identifier={currentOption.value}
             active={this.state.activeOption === currentOption.value}
           >
