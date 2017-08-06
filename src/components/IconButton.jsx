@@ -50,6 +50,7 @@ class IconButton extends React.Component {
 
 const styles = StyleSheet.create({
   baseStyles: {
+    width: '100%',
     backgroundColor: baseColors.white,
     borderRadius: '4px',
     borderStyle: 'solid',
