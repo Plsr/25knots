@@ -9,8 +9,7 @@ function IntroductionHero() {
     <SpacingStack size='xxl'>
       <div className={css(styles.ContainerStyles)}>
         <Headline1 content='25knots' />
-        <p>Some explanation about what exectly is going on in this view and what the user should do.
-    I guess, this could also be two or more lines.</p>
+        <p>25knots can help you defining some design basics for your project. At first. please tell us what you are going to build today.</p>
       </div>
     </SpacingStack>
   )

@@ -117,7 +117,7 @@ class SetupProgress extends React.Component {
     return (
       <BorderedBox>
         <SpacingInset size='l'>
-          <span>This will later be some explanation</span>
+          <span>Choose what you are building</span>
           <SpacingInset size='l' />
           <div className={css(styles.buttonWrapperStyles)}>
             {this.generateContent()}
