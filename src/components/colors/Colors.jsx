@@ -3,6 +3,7 @@ import React from 'react'
 import BaseColorController from './BaseColorController.jsx'
 import AndroidAccentColorController from './AndroidAccentColorController.jsx'
 import GeneralAccentColorController from './GeneralAccentColorController.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import ColorSummary from './ColorSummary.jsx'
 import Progress from '../shared/Progress.jsx'
 import BottomNavigation from '../shared/BottomNavigation.jsx'
@@ -139,8 +140,10 @@ class Colors extends React.Component {
   render() {
     return (
       <div>
-        <Progress />
+        <Progress currentPath={this.props.location.pathname} />
+        <SpacingStack size='m' />
         {this.displayControllerForScope()}
+        <SpacingStack size='xxl' />
         <BottomNavigation
           to='/summary'
           inactive={!this.props.colorWizardFinished}

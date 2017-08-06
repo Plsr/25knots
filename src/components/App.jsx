@@ -2,7 +2,7 @@ import React from 'react'
 
 import Progress from './shared/Progress.jsx'
 import IntroductionHero from './IntroductionHero.jsx'
-import SpacingInset from './helpers/spacing/SpacingInset.jsx'
+import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import SetupProgress from './SetupProgress.jsx'
 import SetupSummary from './SetupSummary.jsx'
 import BottomNavigation from './shared/BottomNavigation.jsx'
@@ -43,11 +43,11 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <Progress />
-        <SpacingInset size='l'>
-          <IntroductionHero />
-          {this.renderSetupStep()}
-        </SpacingInset>
+        <Progress currentPath={this.props.location.pathname} />
+        <SpacingStack size='l' />
+        <IntroductionHero />
+        {this.renderSetupStep()}
+        <SpacingStack size='xxl' />
         <BottomNavigation to='/typography' inactive={!this.props.setupFinished} title='Next Section' />
       </div>
     )

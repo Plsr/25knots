@@ -95,15 +95,18 @@ class SetupProgress extends React.Component {
       let currentOption = setupOptions[i]
 
       iconButtons.push(
-        <IconButton
-          icon={currentOption.icon}
-          onClick={this.handleIconButtonClick}
-          key={currentOption.value}
-          identifier={currentOption.value}
-          active={this.state.activeOption === currentOption.value}
-        >
-          {currentOption.text}
-        </IconButton>
+        <div className={css(styles.iconButtonWrapper)}>
+          <IconButton
+            icon={currentOption.icon}
+            onClick={this.handleIconButtonClick}
+            key={i}
+            identifier={currentOption.value}
+            active={this.state.activeOption === currentOption.value}
+          >
+            {currentOption.text}
+          </IconButton>
+        </div>
+
       )
     }
 
@@ -114,7 +117,7 @@ class SetupProgress extends React.Component {
     return (
       <BorderedBox>
         <SpacingInset size='l'>
-          <span>This will later be some explanation</span>
+          <span>Choose what you are building</span>
           <SpacingInset size='l' />
           <div className={css(styles.buttonWrapperStyles)}>
             {this.generateContent()}
@@ -134,6 +137,9 @@ const styles = StyleSheet.create({
   buttonWrapperStyles: {
     display: 'flex',
     justifyContent: 'space-between'
+  },
+  iconButtonWrapper: {
+    width: '30%'
   }
 })
 

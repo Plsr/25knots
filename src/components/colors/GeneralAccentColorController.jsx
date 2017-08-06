@@ -172,7 +172,6 @@ class GeneralAccentColorController extends React.Component {
             </div>
           </SpacingInset>
         </BorderedBox>
-        <SpacingStack size='l' />
       </div>
     )
   }

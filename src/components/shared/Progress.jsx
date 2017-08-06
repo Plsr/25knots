@@ -4,15 +4,14 @@ import { StyleSheet, css } from 'aphrodite'
 import ProgressItem from './ProgressItem.jsx'
 import NavigationBackground from './NavigationBackground.jsx'
 
-function Progress() {
+const Progress = ({ currentPath }) => {
   return (
     <NavigationBackground>
       <ul className={css(styles.ListStyles)}>
-        <ProgressItem title='Intro' />
-        <ProgressItem title='Typography' />
-        <ProgressItem title='Grids & Layout' />
-        <ProgressItem title='Farben' />
-        <ProgressItem title='Ergebnisse' />
+        <ProgressItem title='Intro' active={currentPath === '/'} />
+        <ProgressItem title='Typography' active={currentPath === '/typography'} />
+        <ProgressItem title='Colors' active={currentPath === '/colors'} />
+        <ProgressItem title='Summary' active={currentPath === '/summary'} />
       </ul>
     </NavigationBackground>
   )
@@ -21,7 +20,7 @@ function Progress() {
 const styles = StyleSheet.create({
   ListStyles: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around',
     listStyle: 'none',
     margin: 0
   }

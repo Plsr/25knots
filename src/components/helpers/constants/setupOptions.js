@@ -36,32 +36,32 @@ export const setupOptions = [
     shouldDisplayForScope: 'NATIVE_APP'
   },
   {
-    icon: ICONS.WEBSITE,
+    icon: ICONS.RESPONSIVE,
     text: 'Responsive',
     value: SCOPES.RESPONSIVE,
     shouldDisplayForScope: 'WEBSITE'
   },
   {
-    icon: ICONS.WEBSITE,
+    icon: ICONS.NOT_RESPONSIVE,
     text: 'Not responsive',
     value: SCOPES.NOT_RESPONSIVE,
     shouldDisplayForScope: 'WEBSITE'
   },
   {
     icon: ICONS.PAGE,
-    text: 'Auf Papier',
+    text: 'On Paper',
     value: SCOPES.PAPER,
     shouldDisplayForScope: 'TEXT_DOCUMENT'
   },
   {
-    icon: ICONS.PAGE,
-    text: 'Am Display',
+    icon: ICONS.DISPLAY,
+    text: 'On Display',
     value: SCOPES.DISPLAY,
     shouldDisplayForScope: 'TEXT_DOCUMENT'
   },
   {
-    icon: ICONS.PAGE,
-    text: 'Papier & Display',
+    icon: ICONS.DISPLAY_PAPER,
+    text: 'Paper & Display',
     value: SCOPES.PAPER_DISPLAY,
     shouldDisplayForScope: 'TEXT_DOCUMENT'
   }

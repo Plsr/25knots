@@ -68,7 +68,6 @@ const ColorSummary = ({baseColors, accentColors, black, white, onBackButtonClick
           </SecondaryButton>
         </SpacingInset>
       </BorderedBox>
-      <SpacingStack size='l' />
     </div>
   )
 }

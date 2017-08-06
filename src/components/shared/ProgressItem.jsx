@@ -1,12 +1,19 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import { baseColors } from '../../styles/base/colors.js'
+import { baseColors, appColors } from '../../styles/base/colors.js'
 
-function ProgressItem(props) {
+function ProgressItem({ title, active }) {
   return (
     <li className={css(styles.NavigationItem)}>
-      <span className={css(styles.ProgressTextStyle)}> {props.title} </span>
+      <span className={
+        css(
+          styles.ProgressTextStyle,
+          active && styles.activeTextStyles
+        )
+      }>
+        {title}
+      </span>
     </li>
   )
 }
@@ -17,6 +24,9 @@ const styles = StyleSheet.create({
   },
   ProgressTextStyle: {
     color: baseColors.midGrey
+  },
+  activeTextStyles: {
+    color: appColors.primary
   }
 })
 

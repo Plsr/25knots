@@ -235,7 +235,6 @@ class AndroidAccentColorController extends React.Component {
             </div>
           </SpacingInset>
         </BorderedBox>
-        <SpacingStack size='l' />
       </div>
     )
   }
