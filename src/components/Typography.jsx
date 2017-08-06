@@ -8,7 +8,7 @@ import TabTitle from './TabTitle.jsx'
 import TabContent from './TabContent.jsx'
 import VariableHeadline from './VariableHeadline.jsx'
 import VariableText from './VariableText.jsx'
-import SpacingInset from './helpers/spacing/SpacingInset.jsx'
+import SpacingStack from './helpers/spacing/SpacingStack.jsx'
 import GeneralControls from './GeneralControls.jsx'
 import HeadlineControls from './HeadlineControls.jsx'
 import ColorControls from './ColorControls.jsx'
@@ -74,55 +74,55 @@ export default class Typography extends React.Component {
         <div style={{textAlign: 'center'}}>
           <div className={css(styles.wrapperStyles)}>
             <div className={css(styles.textStyles)}>
-              <SpacingInset size={'m'}>
-                <div className={css(styles.textWrapperStyles)}>
-                  <VariableHeadline
-                    fontSize={this.props.headline1.size}
-                    spacingTop={this.props.headline1.spacingTop}
-                    spacingBottom={this.props.headline1.spacingBottom}
-                  />
+              <SpacingStack size='m' />
+              <div className={css(styles.textWrapperStyles)}>
+                <VariableHeadline
+                  fontSize={this.props.headline1.size}
+                  spacingTop={this.props.headline1.spacingTop}
+                  spacingBottom={this.props.headline1.spacingBottom}
+                />
 
-                  <VariableText
-                    fontSize={this.props.general.fontSize}
-                    lineHeight={this.props.general.lineHeight}
-                    spacingBottom={0}
-                  />
+                <VariableText
+                  fontSize={this.props.general.fontSize}
+                  lineHeight={this.props.general.lineHeight}
+                  spacingBottom={0}
+                />
 
-                  <VariableHeadline
-                    fontSize={this.props.headline2.size}
-                    spacingTop={this.props.headline2.spacingTop}
-                    spacingBottom={this.props.headline2.spacingBottom}
-                  />
+                <VariableHeadline
+                  fontSize={this.props.headline2.size}
+                  spacingTop={this.props.headline2.spacingTop}
+                  spacingBottom={this.props.headline2.spacingBottom}
+                />
 
-                  <VariableText
-                    fontSize={this.props.general.fontSize}
-                    lineHeight={this.props.general.lineHeight}
-                    spacingBottom={0}
-                  />
+                <VariableText
+                  fontSize={this.props.general.fontSize}
+                  lineHeight={this.props.general.lineHeight}
+                  spacingBottom={0}
+                />
 
-                  <VariableHeadline
-                    fontSize={this.props.headline3.size}
-                    spacingTop={this.props.headline3.spacingTop}
-                    spacingBottom={this.props.headline3.spacingBottom}
-                  />
+                <VariableHeadline
+                  fontSize={this.props.headline3.size}
+                  spacingTop={this.props.headline3.spacingTop}
+                  spacingBottom={this.props.headline3.spacingBottom}
+                />
 
-                  <VariableText
-                    fontSize={this.props.general.fontSize}
-                    lineHeight={this.props.general.lineHeight}
-                    spacingBottom={this.props.general.textSpacing}
-                  />
-                  <VariableText
-                    fontSize={this.props.general.fontSize}
-                    lineHeight={this.props.general.lineHeight}
-                    spacingBottom={0}
-                  />
-                  <TextWidthCalculator
-                    fontSize={this.props.general.fontSize}
-                    fontFamily={this.props.general.fontFamily}
-                    onChange={this.updateBodyWidthConstraints}
-                  />
-                </div>
-              </SpacingInset>
+                <VariableText
+                  fontSize={this.props.general.fontSize}
+                  lineHeight={this.props.general.lineHeight}
+                  spacingBottom={this.props.general.textSpacing}
+                />
+                <VariableText
+                  fontSize={this.props.general.fontSize}
+                  lineHeight={this.props.general.lineHeight}
+                  spacingBottom={0}
+                />
+                <TextWidthCalculator
+                  fontSize={this.props.general.fontSize}
+                  fontFamily={this.props.general.fontFamily}
+                  onChange={this.updateBodyWidthConstraints}
+                />
+              </div>
+              <SpacingStack size='xxl' />
             </div>
 
             <div>
