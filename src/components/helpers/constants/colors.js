@@ -1,110 +1,110 @@
 export const COLORS = [
   {
-    color: 'red',
+    color: '#DC143C',
     adjective: 'energetic'
   },
   {
-    color: 'red',
+    color: '#FF4500',
     adjective: 'exciting'
   },
   {
-    color: 'red',
+    color: '#B22222',
     adjective: 'romantic'
   },
   {
-    color: 'pink',
+    color: '#FF1493',
     adjective: 'loving'
   },
   {
-    color: 'blue',
+    color: '#1E90FF',
     adjective: 'calm'
   },
   {
-    color: 'blue',
+    color: '#00CED1',
     adjective: 'wise'
   },
   {
-    color: 'blue',
+    color: '#4B0082',
     adjective: 'loyal'
   },
   {
-    color: 'blue',
+    color: '#ADD8E6',
     adjective: 'focussed'
   },
   {
-    color: 'green',
+    color: '#7CFC00',
     adjective: 'natural'
   },
   {
-    color: 'green',
+    color: '#32CD32',
     adjective: 'wealthy'
   },
   {
-    color: 'green',
+    color: '#3CB371',
     adjective: 'conservative'
   },
   {
-    color: 'green',
+    color: '#6B8E23',
     adjective: 'masculine'
   },
   {
-    color: 'green',
+    color: '#98FB98',
     adjective: 'harmonious'
   },
   {
-    color: 'yellow',
+    color: '#FFFF00',
     adjective: 'cheerful'
   },
   {
-    color: 'yellow',
+    color: '#FFD700	',
     adjective: 'bright'
   },
   {
-    color: 'yellow',
+    color: '#f7f754',
     adjective: 'sunny'
   },
   {
-    color: 'yellow',
+    color: '#e7f789',
     adjective: 'optimistic'
   },
   {
-    color: 'yellow',
+    color: '#f7e869',
     adjective: 'creative'
   },
   {
-    color: 'orange',
+    color: '#ff9900',
     adjective: 'funny'
   },
   {
-    color: 'orange',
+    color: '#ffa902',
     adjective: 'happy'
   },
   {
-    color: 'orange',
+    color: '#e7a446',
     adjective: 'ambitious'
   },
   {
-    color: 'purple',
+    color: '#cc00cc',
     adjective: 'royal'
   },
   {
-    color: 'purple',
+    color: '#990099',
     adjective: 'misterious'
   },
   {
-    color: 'purple',
+    color: '#9900cc',
     adjective: 'respectful'
   },
   {
-    color: 'brown',
+    color: '#cc3300',
     adjective: 'reliable'
   },
   {
-    color: 'brown',
+    color: '#cc6600',
     adjective: 'stable'
   },
   {
-    color: 'brown',
+    color: '#663300',
     adjective: 'organic'
   }
 ]
