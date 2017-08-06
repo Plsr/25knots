@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
   stickToBottom: {
     position: 'fixed',
     bottom: '0%',
-    width: '100%'
+    width: '100%',
+    zIndex: 3
   }
 })
 
