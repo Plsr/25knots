@@ -85,5 +85,7 @@ export function generatePDF(typography, colors) {
     xVal += 30
   }
 
-  pdf.save('test.pdf')
+  let date = new Date()
+  let dateString = date.getFullYear() + '-' + (date.getMonth() + 1 ) + '-' + date.getDate() + '-' + date.getHours() + '-' + date.getMinutes()
+  pdf.save('25knots_' + dateString + '.pdf')
 }
