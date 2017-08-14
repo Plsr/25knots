@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {randomDummyHeadline} from './helpers/constants/dummyText'
+import {randomDummyHeadline} from '../../helpers/constants/dummyText'
 
 export default class VariableHeadline extends React.Component {
   constructor(props) {

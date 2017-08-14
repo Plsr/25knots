@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {randomDummyParagraph} from './helpers/constants/dummyText'
+import {randomDummyParagraph} from '../../helpers/constants/dummyText'
 
 export default class VariableText extends React.Component {
   constructor(props) {

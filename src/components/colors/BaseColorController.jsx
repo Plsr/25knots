@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import DropdownController from '../DropdownController.jsx'
+import DropdownController from '../shared/DropdownController.jsx'
 import ColorDisplay from './ColorDisplay.jsx'
 import ColorSelector from './ColorSelector.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
@@ -10,8 +10,8 @@ import BorderedBox from '../shared/BorderedBox.jsx'
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import { ChromePicker } from 'react-color'
-import {SCOPES} from '../helpers/constants/scopes.js'
-import { getMaterialColorObjectForShade } from '../helpers/functions/colorCalculations.js'
+import {SCOPES} from '../../helpers/constants/scopes.js'
+import { getMaterialColorObjectForShade } from '../../helpers/functions/colorCalculations.js'
 
 class BaseColorController extends React.Component {
   constructor(props) {

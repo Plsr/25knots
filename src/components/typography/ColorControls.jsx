@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import ColorpickerController from './ColorpickerController.jsx'
 import Callout from './Callout.jsx'
 

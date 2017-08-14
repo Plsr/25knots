@@ -9,9 +9,8 @@ import logger from 'redux-logger'
 import './styles/global.css'
 import './styles/normalize.css'
 
-import AppContainer from './containers/AppContainer.js'
+import SetupContainer from './containers/SetupContainer.js'
 import TypographyContainer from './containers/TypographyContainer.js'
-import Intro from './components/Intro.jsx'
 import ColorsContainer from './containers/ColorsContainer.js'
 import SummaryContainer from './containers/SummaryContainer.js'
 
@@ -24,8 +23,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={AppContainer}/>
-        <Route path="/intro" component={Intro}/>
+        <Route exact path="/" component={SetupContainer}/>
         <Route path="/typography" component={TypographyContainer}/>
         <Route path="/colors" component={ColorsContainer}/>
         <Route path="/summary" component={SummaryContainer}/>

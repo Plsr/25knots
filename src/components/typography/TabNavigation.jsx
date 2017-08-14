@@ -3,7 +3,7 @@ import {StyleSheet, css} from 'aphrodite'
 
 import TabTitle from './TabTitle.jsx'
 import TabContent from './TabContent.jsx'
-import {baseColors} from '../styles/base/colors.js'
+import {baseColors} from '../../styles/base/colors.js'
 
 export default class TabNavigation extends React.Component {
   constructor(props) {

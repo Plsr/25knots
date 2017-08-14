@@ -1,8 +1,8 @@
 import React from 'react'
 
-import DropdownController from './DropdownController.jsx'
-import {FONTS} from './helpers/constants/fonts.js'
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
+import DropdownController from '../shared/DropdownController.jsx'
+import {FONTS} from '../../helpers/constants/fonts.js'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SliderController from './SliderController.jsx'
 import Callout from './Callout.jsx'
 

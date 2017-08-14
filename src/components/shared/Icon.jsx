@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { baseColors } from '../styles/base/colors.js'
+import { baseColors } from '../../styles/base/colors.js'
 
 /**
  * Displays a given SVG path

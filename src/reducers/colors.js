@@ -1,6 +1,6 @@
 import { SET_VALUE_FOR_KEY, NEXT_COLOR_WIZARD_STEP, PREVIOUS_COLOR_WIZARD_STEP, FINISH_COLOR_WIZARD, SET_COLOR_CONTRAST, FIRST_COLOR_WIZARD_STEP, SET_BASE_COLORS } from '../actions'
 
-import {COLORS} from '../components/helpers/constants/colors.js'
+import {COLORS} from '../helpers/constants/colors.js'
 
 const initialState = {
   baseColors: [

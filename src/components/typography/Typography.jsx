@@ -1,24 +1,24 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import {ICONS} from './helpers/constants/icons.js'
+import {ICONS} from '../../helpers/constants/icons.js'
 
 import TabNavigation from './TabNavigation.jsx'
 import TabTitle from './TabTitle.jsx'
 import TabContent from './TabContent.jsx'
 import VariableHeadline from './VariableHeadline.jsx'
 import VariableText from './VariableText.jsx'
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
-import SpacingInset from './helpers/spacing/SpacingInset.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
+import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import GeneralControls from './GeneralControls.jsx'
 import HeadlineControls from './HeadlineControls.jsx'
 import ColorControls from './ColorControls.jsx'
 import TextWidthCalculator from './TextWidthCalculator.jsx'
-import Progress from './shared/Progress.jsx'
-import BottomNavigation from './shared/BottomNavigation.jsx'
-import SecondaryButton from './shared/SecondaryButton.jsx'
+import Progress from '../shared/Progress.jsx'
+import BottomNavigation from '../shared/BottomNavigation.jsx'
+import SecondaryButton from '../shared/SecondaryButton.jsx'
 
-import calculateApplicationErrors from './helpers/errors'
+import calculateApplicationErrors from '../../helpers/errors'
 
 export default class Typography extends React.Component {
   constructor(props) {

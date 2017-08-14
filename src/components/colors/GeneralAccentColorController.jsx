@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import { calculateComplementary, calculateMonochromaticColors, calculateTriadContrast } from '../helpers/functions/colorCalculations.js'
+import { calculateComplementary, calculateMonochromaticColors, calculateTriadContrast } from '../../helpers/functions/colorCalculations.js'
 
 import ColorDisplay from './ColorDisplay.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
@@ -10,7 +10,7 @@ import BorderedBox from '../shared/BorderedBox.jsx'
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SpacingInline from '../helpers/spacing/SpacingInline.jsx'
-import PlainButton from '../PlainButton.jsx'
+import PlainButton from '../shared/PlainButton.jsx'
 
 const CONTRAST_OPTIONS = {
   complementary: 'Complementary',

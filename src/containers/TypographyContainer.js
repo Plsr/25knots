@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { setValueForKey, setGeneralValueForKey, setValueInArea, setErrors, resetTypographyData } from '../actions'
-import Typography from '../components/Typography.jsx'
+import Typography from '../components/typography/Typography.jsx'
 
 const mapStateToProps = (state, ownProps) => {
   let typographyState = state.typography

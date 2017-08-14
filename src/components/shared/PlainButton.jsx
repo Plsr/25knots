@@ -1,13 +1,11 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import {baseColors, appColors} from '../styles/base/colors.js'
-import {fontSizes} from '../styles/base/fonts.js'
-import SpacingInset from './helpers/spacing/SpacingInset.jsx'
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
-import Icon from './Icon.jsx'
+import {baseColors, appColors} from '../../styles/base/colors.js'
+import {fontSizes} from '../../styles/base/fonts.js'
+import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 
-class IconButton extends React.Component {
+class PlainButton extends React.Component {
   constructor(props) {
     super(props)
     this.toggleHoverState = this.toggleHoverState.bind(this)
@@ -38,9 +36,7 @@ class IconButton extends React.Component {
           this.props.active && styles.activeStyles
         )}
       >
-        <SpacingInset size='l'>
-          <Icon icon={this.props.icon} color={this.computeIconColor()} size='40' />
-          <SpacingStack size='l' />
+        <SpacingInset size='m'>
           {this.props.children}
         </SpacingInset>
       </button>
@@ -50,7 +46,6 @@ class IconButton extends React.Component {
 
 const styles = StyleSheet.create({
   baseStyles: {
-    width: '100%',
     backgroundColor: baseColors.white,
     borderRadius: '4px',
     borderStyle: 'solid',
@@ -73,4 +68,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default IconButton
+export default PlainButton

@@ -1,13 +1,13 @@
 import React from 'react'
 
-import Progress from './shared/Progress.jsx'
+import Progress from '../shared/Progress.jsx'
 import IntroductionHero from './IntroductionHero.jsx'
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SetupProgress from './SetupProgress.jsx'
 import SetupSummary from './SetupSummary.jsx'
-import BottomNavigation from './shared/BottomNavigation.jsx'
+import BottomNavigation from '../shared/BottomNavigation.jsx'
 
-import {setupOptions} from './helpers/constants/setupOptions.js' // Remove after setupSteps was moved to redux container
+import {setupOptions} from '../../helpers/constants/setupOptions.js'
 
 export default class App extends React.Component {
   constructor(props) {

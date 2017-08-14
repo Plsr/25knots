@@ -9,8 +9,8 @@ import BorderedBox from '../shared/BorderedBox.jsx'
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SpacingInline from '../helpers/spacing/SpacingInline.jsx'
-import PlainButton from '../PlainButton.jsx'
-import { getMaterialColorObjectForShade } from '../helpers/functions/colorCalculations.js'
+import PlainButton from '../shared/PlainButton.jsx'
+import { getMaterialColorObjectForShade } from '../../helpers/functions/colorCalculations.js'
 
 class AndroidAccentColorController extends React.Component {
   constructor(props) {

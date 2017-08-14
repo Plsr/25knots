@@ -1,6 +1,6 @@
 import React from 'react'
 
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SliderController from './SliderController.jsx'
 
 class HeadlineController extends React.Component {
