@@ -2,8 +2,8 @@ import { connect } from 'react-redux'
 import { setValueForKey, nextColorWizardStep, previousColorWizardStep, finishColorWizard, setColorContrast, firstColorWizardStep, setBaseColors } from '../actions'
 import Colors from '../components/colors/Colors.jsx'
 
-import {COLORS, MATERIAL_COLORS, IOS_COLORS} from '../components/helpers/constants/colors.js'
-import {SCOPES} from '../components/helpers/constants/scopes.js'
+import {COLORS, MATERIAL_COLORS, IOS_COLORS} from '../helpers/constants/colors.js'
+import {SCOPES} from '../helpers/constants/scopes.js'
 
 const mapStateToProps = (state, ownProps) => {
   let colorState = state.colors

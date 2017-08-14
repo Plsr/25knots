@@ -1,11 +1,11 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import Icon from './Icon.jsx'
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
-import SpacingStrechedInset from './helpers/spacing/SpacingStrechedInset.jsx'
-import {appColors, baseColors} from '../styles/base/colors.js'
-import {ICONS} from './helpers/constants/icons.js'
+import Icon from '../shared/Icon.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
+import SpacingStrechedInset from '../helpers/spacing/SpacingStrechedInset.jsx'
+import {appColors, baseColors} from '../../styles/base/colors.js'
+import {ICONS} from '../../helpers/constants/icons.js'
 
 class TabTitle extends React.Component {
   constructor(props) {

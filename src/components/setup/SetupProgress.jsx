@@ -1,10 +1,10 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import SpacingInset from './helpers/spacing/SpacingInset.jsx'
+import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import IconButton from './IconButton.jsx'
-import SecondaryButton from './shared/SecondaryButton.jsx'
-import BorderedBox from './shared/BorderedBox.jsx'
+import SecondaryButton from '../shared/SecondaryButton.jsx'
+import BorderedBox from '../shared/BorderedBox.jsx'
 
 class SetupProgress extends React.Component {
   constructor(props) {

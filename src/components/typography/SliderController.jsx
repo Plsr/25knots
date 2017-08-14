@@ -4,7 +4,7 @@ import {StyleSheet, css} from 'aphrodite'
 import SliderInput from './SliderInput.jsx'
 import UnitValueDisplay from './UnitValueDisplay.jsx'
 import Callout from './Callout.jsx'
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 
 
 function SliderController(props) {

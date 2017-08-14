@@ -18,7 +18,7 @@ class TextWidthCalculator extends React.Component {
 
     // Calculate min an max width
     let minWidth = Math.floor(65 / charsPerPixel)
-    let maxWidth = Math.floor(75 / charsPerPixel)
+    let maxWidth = Math.floor(85 / charsPerPixel)
 
     // Update values in parent
     this.props.onChange(minWidth, maxWidth)

@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
-import { setValueForKey, setGeneralValueForKey, setValueInArea, setErrors } from '../actions'
-import Typography from '../components/Typography.jsx'
+import { setValueForKey, setGeneralValueForKey, setValueInArea, setErrors, resetTypographyData } from '../actions'
+import Typography from '../components/typography/Typography.jsx'
 
 const mapStateToProps = (state, ownProps) => {
   let typographyState = state.typography
   let scopes = state.setup.scopes
-  
+
   return {
     ...typographyState,
     scopes: [
@@ -28,6 +28,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setErrors: (errors) => {
       dispatch(setErrors(errors))
+    },
+    resetTypographyData: () => {
+      dispatch(resetTypographyData())
     }
   }
 }

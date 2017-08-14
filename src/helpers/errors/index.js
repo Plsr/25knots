@@ -10,19 +10,18 @@ function calculateApplicationErrors(typographyValues, bodyWidthConstraints) {
   let bodyFontSize = typographyValues.general.fontSize
   let lineHeight = (bodyFontSize * typographyValues.general.lineHeight) / 100
 
-  // Headline 1
+  // Headline 1 Constraints
   let bodyFontConstant = 0
   if (bodyFontSize > 14) {
     bodyFontConstant = (bodyFontSize - 14) / 10
   }
   let headline1SizeContraint = bodyFontSize * (1.68 + bodyFontConstant)
 
-  // Headline 2
-  let h1Size = typographyValues.headline1.size
-  let h1ScalePos = getClosestValueFromScale(h1Size)
+  // Headline 2 Constraints
+  let h1ScalePos = getClosestValueFromScale(headline1SizeContraint)
   let headline2SizeContraint = getPreviousSize(h1ScalePos)
 
-  // Headline 3
+  // Headline 3 Constraints
   let h2Size = typographyValues.headline2.size
   let h2ScalePos = getClosestValueFromScale(h2Size)
   let headline3SizeContraint = getPreviousSize(h2ScalePos)

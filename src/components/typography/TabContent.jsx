@@ -1,8 +1,8 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import {baseColors} from '../styles/base/colors.js'
-import SpacingInset from './helpers/spacing/SpacingInset.jsx'
+import {baseColors} from '../../styles/base/colors.js'
+import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 
 function TabContent(props) {
   return (

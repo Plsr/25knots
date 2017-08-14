@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import DropdownController from '../DropdownController.jsx'
+import DropdownController from '../shared/DropdownController.jsx'
 import ColorDisplay from './ColorDisplay.jsx'
 import ColorSelector from './ColorSelector.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
@@ -10,8 +10,8 @@ import BorderedBox from '../shared/BorderedBox.jsx'
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import { ChromePicker } from 'react-color'
-import {SCOPES} from '../helpers/constants/scopes.js'
-import { getMaterialColorObjectForShade } from '../helpers/functions/colorCalculations.js'
+import {SCOPES} from '../../helpers/constants/scopes.js'
+import { getMaterialColorObjectForShade } from '../../helpers/functions/colorCalculations.js'
 
 class BaseColorController extends React.Component {
   constructor(props) {
@@ -225,6 +225,10 @@ class BaseColorController extends React.Component {
       AlignContentEnd: {
         display: 'flex',
         justifyContent: 'flex-end'
+      },
+      CenterContent: {
+        display: 'flex',
+        justifyContent: 'space-around'
       }
     })
 
@@ -264,7 +268,9 @@ class BaseColorController extends React.Component {
                 <SpacingInset size='l' >
                   {this.getColorDisplayContentForScope(this.props.scope)}
                   <SpacingStack size='m' />
-                  {this.displayColorsForScope(this.props.scope)}
+                  <div className={css(styles.CenterContent)}>
+                    {this.displayColorsForScope(this.props.scope)}
+                  </div>
                 </SpacingInset>
               </div>
             </SpacingInset>
@@ -281,8 +287,5 @@ class BaseColorController extends React.Component {
     )
   }
 }
-
-
-
 
 export default BaseColorController

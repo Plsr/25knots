@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StyleSheet, css } from 'aphrodite'
 
-import { isLight, getBrightness } from '../helpers/functions/colorCalculations.js'
+import { isLight, getBrightness } from '../../helpers/functions/colorCalculations.js'
 
 
 const ColorDisplay = ({size, active, onClick, hexVal, colorName, saturation}) => {

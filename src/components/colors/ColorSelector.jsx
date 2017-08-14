@@ -1,4 +1,5 @@
 import React from 'react'
+import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 
 import ColorDisplay from './ColorDisplay.jsx'
 
@@ -10,13 +11,15 @@ class ColorSelector extends React.Component {
     for (var i = 0; i < this.props.options.length; i++) {
       let currVal = this.props.options[i]
       colorOptions.push(
-        <ColorDisplay
-          hexVal={currVal}
-          key={i}
-          active={this.props.active === this.props.options[i]}
-          onClick={() => this.props.onClick(currVal)}
-          size={this.props.displaySize}
-        />
+        <SpacingInset size='xs' displayStyle='inline-block'>
+          <ColorDisplay
+            hexVal={currVal}
+            key={i}
+            active={this.props.active === this.props.options[i]}
+            onClick={() => this.props.onClick(currVal)}
+            size={this.props.displaySize}
+          />
+        </SpacingInset>
       )
     }
 

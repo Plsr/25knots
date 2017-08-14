@@ -26,3 +26,11 @@ and finally
 yarn start
 ```
 to get the app running on `http://localhost:8080`.
+
+### Running Storybooks
+After completing the previous step, run
+```
+yarn run storybook
+```
+
+Storybook is now running on `http://localhost:6006`.

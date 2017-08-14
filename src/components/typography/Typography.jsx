@@ -1,31 +1,32 @@
 import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
-import {ICONS} from './helpers/constants/icons.js'
+import {ICONS} from '../../helpers/constants/icons.js'
 
 import TabNavigation from './TabNavigation.jsx'
 import TabTitle from './TabTitle.jsx'
 import TabContent from './TabContent.jsx'
 import VariableHeadline from './VariableHeadline.jsx'
 import VariableText from './VariableText.jsx'
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
+import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import GeneralControls from './GeneralControls.jsx'
 import HeadlineControls from './HeadlineControls.jsx'
 import ColorControls from './ColorControls.jsx'
 import TextWidthCalculator from './TextWidthCalculator.jsx'
-import Progress from './shared/Progress.jsx'
-import BottomNavigation from './shared/BottomNavigation.jsx'
+import Progress from '../shared/Progress.jsx'
+import BottomNavigation from '../shared/BottomNavigation.jsx'
+import SecondaryButton from '../shared/SecondaryButton.jsx'
 
-import calculateApplicationErrors from './helpers/errors'
+import calculateApplicationErrors from '../../helpers/errors'
 
 export default class Typography extends React.Component {
   constructor(props) {
     super(props)
 
-    // TODO: Set reasonable base constraints
     this.bodyWidthConstraints = {
       min: 200,
-      max: 400
+      max: 700
     }
     this.handleChange = this.handleChange.bind(this)
     this.updateBodyWidthConstraints = this.updateBodyWidthConstraints.bind(this)
@@ -42,9 +43,19 @@ export default class Typography extends React.Component {
 
   calculateErrors() {
     let errors = calculateApplicationErrors(this.props, this.bodyWidthConstraints)
-    console.log(errors) // eslint-disable-line no-console
-
+    console.log(errors); //eslint-disable-line
     return errors
+  }
+
+  errorsPresent(errors) {
+    for (var errorArea in errors) {
+      if (errors.hasOwnProperty(errorArea)) {
+        if (errors[errorArea].present) {
+          return true
+        }
+      }
+    }
+    return false
   }
 
   render() {
@@ -64,7 +75,12 @@ export default class Typography extends React.Component {
       textWrapperStyles: {
         width: this.props.general.textWidth + 'px',
         color: this.props.colors.foreground,
-        fontFamily: this.props.general.fontFamily
+        fontFamily: this.props.general.fontFamily,
+        padding: '36px'
+      },
+      buttonFixed: {
+        position: 'fixed',
+        right: '350px'
       }
     })
 
@@ -124,6 +140,15 @@ export default class Typography extends React.Component {
               </div>
               <SpacingStack size='xxl' />
             </div>
+            <SpacingInset size='m' >
+              <div className={css(styles.buttonFixed)}>
+                <SecondaryButton
+                  onClick={this.props.resetTypographyData}
+                >
+                  Reset
+                </SecondaryButton>
+              </div>
+            </SpacingInset>
 
             <div>
               <TabNavigation>
@@ -187,7 +212,7 @@ export default class Typography extends React.Component {
         </div>
         <BottomNavigation
           to='/colors'
-          inactive={false}
+          inactive={this.errorsPresent(errors)}
           title='Next Section'
         />
       </div>

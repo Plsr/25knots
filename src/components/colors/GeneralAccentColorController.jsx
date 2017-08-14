@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import { calculateComplementary, calculateMonochromaticColors, calculateTriadContrast } from '../helpers/functions/colorCalculations.js'
+import { calculateComplementary, calculateMonochromaticColors, calculateTriadContrast } from '../../helpers/functions/colorCalculations.js'
 
 import ColorDisplay from './ColorDisplay.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
@@ -10,7 +10,7 @@ import BorderedBox from '../shared/BorderedBox.jsx'
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SpacingInline from '../helpers/spacing/SpacingInline.jsx'
-import PlainButton from '../PlainButton.jsx'
+import PlainButton from '../shared/PlainButton.jsx'
 
 const CONTRAST_OPTIONS = {
   complementary: 'Complementary',
@@ -123,6 +123,10 @@ class GeneralAccentColorController extends React.Component {
       SpaceEven: {
         display: 'flex',
         justifyContent: 'space-between'
+      },
+      CenterContent: {
+        display: 'flex',
+        justifyContent: 'space-around'
       }
     })
 
@@ -148,7 +152,9 @@ class GeneralAccentColorController extends React.Component {
                     Your Base Color is placed in the background for you to check
                   </p>
                   <SpacingStack size='m' />
-                  {this.displayColors()}
+                  <div className={css(styles.CenterContent)}>
+                    {this.displayColors()}
+                  </div>
                 </SpacingInset>
               </div>
             </SpacingInset>
@@ -163,7 +169,6 @@ class GeneralAccentColorController extends React.Component {
               </SecondaryButton>
               <SecondaryButton
                 onClick={() => {
-                  console.log(this.state.contrastToShow, this.state.colors); // eslint-disable-line
                   this.props.onNextButtonClick(this.state.contrastToShow, this.accentColors[this.state.contrastToShow])
                 }}
               >

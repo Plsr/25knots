@@ -1,18 +1,18 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import { extractScopeInformation } from '../helpers/functions/scopes.js'
+import { extractScopeInformation } from '../../helpers/functions/scopes.js'
 import {appColors} from '../../styles/base/colors.js'
 import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import SpacingInline from '../helpers/spacing/SpacingInline.jsx'
 import ColorDisplay from '../colors/ColorDisplay.jsx'
-import Icon from '../Icon.jsx'
+import Icon from '../shared/Icon.jsx'
 import Headline1 from '../shared/Headline1.jsx'
 import Progress from '../shared/Progress.jsx'
 import BorderedBox from '../shared/BorderedBox.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
-import { generatePDF } from '../helpers/functions/pdfGenerator.js'
+import { generatePDF } from '../../helpers/functions/pdfGenerator.js'
 import TableDisplay from './TableDisplay.jsx'
 
 class Summary extends React.Component {
@@ -115,6 +115,9 @@ You can also save this as a pdf for later use.</p>
           >
             Save as PDF
           </SecondaryButton>
+          <SpacingStack size='l' />
+          <p>Want to help and improve this Tool? <br/>Help is always welcome in the <a href="https://github.com/Plsr/25knots">Github Repository</a></p>
+          <SpacingStack size='l' />
         </div>
         <SpacingStack size='l' />
         <BorderedBox>

@@ -3,7 +3,7 @@ import {StyleSheet, css} from 'aphrodite'
 
 import TabTitle from './TabTitle.jsx'
 import TabContent from './TabContent.jsx'
-import {baseColors} from '../styles/base/colors.js'
+import {baseColors} from '../../styles/base/colors.js'
 
 export default class TabNavigation extends React.Component {
   constructor(props) {
@@ -85,7 +85,9 @@ export default class TabNavigation extends React.Component {
 const styles = StyleSheet.create({
   wrapperStyles: {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    position: 'fixed',
+    right: 0
   },
   TabListStyles: {
     height: '100vh',

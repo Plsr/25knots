@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import Headline1 from './shared/Headline1.jsx'
-import SpacingStack from './helpers/spacing/SpacingStack.jsx'
+import Headline1 from '../shared/Headline1.jsx'
+import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 
 function IntroductionHero() {
   return (
