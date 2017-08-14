@@ -1,4 +1,4 @@
-import {SET_VALUE_FOR_KEY, SET_GENERAL_VALUE_FOR_KEY, SET_VALUE_IN_AREA, SET_ERRORS} from '../actions'
+import {SET_VALUE_FOR_KEY, SET_GENERAL_VALUE_FOR_KEY, SET_VALUE_IN_AREA, SET_ERRORS, RESET_TYPOGRAPHY_DATA} from '../actions'
 
 const initialState = {
   general: {
@@ -54,6 +54,8 @@ const typography = (state = initialState, action) => {
       return Object.assign({}, state, {
         errorsPresent: action.errorsPresent
       })
+    case RESET_TYPOGRAPHY_DATA:
+      return initialState
     default:
       return state
   }

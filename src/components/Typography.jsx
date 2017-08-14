@@ -9,12 +9,14 @@ import TabContent from './TabContent.jsx'
 import VariableHeadline from './VariableHeadline.jsx'
 import VariableText from './VariableText.jsx'
 import SpacingStack from './helpers/spacing/SpacingStack.jsx'
+import SpacingInset from './helpers/spacing/SpacingInset.jsx'
 import GeneralControls from './GeneralControls.jsx'
 import HeadlineControls from './HeadlineControls.jsx'
 import ColorControls from './ColorControls.jsx'
 import TextWidthCalculator from './TextWidthCalculator.jsx'
 import Progress from './shared/Progress.jsx'
 import BottomNavigation from './shared/BottomNavigation.jsx'
+import SecondaryButton from './shared/SecondaryButton.jsx'
 
 import calculateApplicationErrors from './helpers/errors'
 
@@ -64,7 +66,12 @@ export default class Typography extends React.Component {
       textWrapperStyles: {
         width: this.props.general.textWidth + 'px',
         color: this.props.colors.foreground,
-        fontFamily: this.props.general.fontFamily
+        fontFamily: this.props.general.fontFamily,
+        padding: '36px'
+      },
+      buttonFixed: {
+        position: 'fixed',
+        right: '350px'
       }
     })
 
@@ -124,6 +131,15 @@ export default class Typography extends React.Component {
               </div>
               <SpacingStack size='xxl' />
             </div>
+            <SpacingInset size='m' >
+              <div className={css(styles.buttonFixed)}>
+                <SecondaryButton
+                  onClick={this.props.resetTypographyData}
+                >
+                  Reset
+                </SecondaryButton>
+              </div>
+            </SpacingInset>
 
             <div>
               <TabNavigation>

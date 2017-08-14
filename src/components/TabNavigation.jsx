@@ -85,7 +85,9 @@ export default class TabNavigation extends React.Component {
 const styles = StyleSheet.create({
   wrapperStyles: {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    position: 'fixed',
+    right: 0
   },
   TabListStyles: {
     height: '100vh',

@@ -14,6 +14,7 @@ export const FIRST_COLOR_WIZARD_STEP = 'FIRST_COLOR_WIZARD_STEP'
 export const FINISH_COLOR_WIZARD = 'FINISH_COLOR_WIZARD'
 export const SET_BASE_COLORS = 'SET_BASE_COLORS'
 export const SET_COLOR_CONTRAST = 'SET_COLOR_CONTRAST'
+export const RESET_TYPOGRAPHY_DATA = 'RESET_TYPOGRAPHY_DATA'
 
 export const nextSetupStep = () => {
   return {
@@ -115,5 +116,11 @@ export const setBaseColors = (colors) => {
   return {
     type: SET_BASE_COLORS,
     colors
+  }
+}
+
+export const resetTypographyData = () => {
+  return {
+    type: RESET_TYPOGRAPHY_DATA
   }
 }
