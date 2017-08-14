@@ -24,10 +24,9 @@ export default class Typography extends React.Component {
   constructor(props) {
     super(props)
 
-    // TODO: Set reasonable base constraints
     this.bodyWidthConstraints = {
       min: 200,
-      max: 400
+      max: 700
     }
     this.handleChange = this.handleChange.bind(this)
     this.updateBodyWidthConstraints = this.updateBodyWidthConstraints.bind(this)

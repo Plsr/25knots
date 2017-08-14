@@ -5,23 +5,23 @@ const initialState = {
     fontFamily: 'Arial',
     fontSize: 16,
     lineHeight: 140,
-    textWidth: 600,
+    textWidth: 580,
     textSpacing: 20
   },
   headline1: {
-    size: 48,
-    spacingTop: 40,
-    spacingBottom: 20
+    size: 36,
+    spacingTop: 46,
+    spacingBottom: 26
   },
   headline2: {
-    size: 36,
-    spacingTop: 30,
-    spacingBottom: 15
+    size: 28,
+    spacingTop: 42,
+    spacingBottom: 20
   },
   headline3: {
-    size: 24,
-    spacingTop: 20,
-    spacingBottom: 10
+    size: 20,
+    spacingTop: 28,
+    spacingBottom: 14
   },
   colors: {
     background: '#ffffff',
