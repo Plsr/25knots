@@ -43,9 +43,19 @@ export default class Typography extends React.Component {
 
   calculateErrors() {
     let errors = calculateApplicationErrors(this.props, this.bodyWidthConstraints)
-    console.log(errors) // eslint-disable-line no-console
-
+    console.log(errors); //eslint-disable-line
     return errors
+  }
+
+  errorsPresent(errors) {
+    for (var errorArea in errors) {
+      if (errors.hasOwnProperty(errorArea)) {
+        if (errors[errorArea].present) {
+          return true
+        }
+      }
+    }
+    return false
   }
 
   render() {
@@ -202,7 +212,7 @@ export default class Typography extends React.Component {
         </div>
         <BottomNavigation
           to='/colors'
-          inactive={false}
+          inactive={this.errorsPresent(errors)}
           title='Next Section'
         />
       </div>

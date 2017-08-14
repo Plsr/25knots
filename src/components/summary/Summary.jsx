@@ -115,6 +115,9 @@ You can also save this as a pdf for later use.</p>
           >
             Save as PDF
           </SecondaryButton>
+          <SpacingStack size='l' />
+          <p>Want to help and improve this Tool? <br/>Help is always welcome in the <a href="https://github.com/Plsr/25knots">Github Repository</a></p>
+          <SpacingStack size='l' />
         </div>
         <SpacingStack size='l' />
         <BorderedBox>
