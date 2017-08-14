@@ -18,7 +18,7 @@ class HeadlineController extends React.Component {
     return (
       <div>
         <SliderController
-          title={this.props.title +  'Size'}
+          title={this.props.title +  ' Size'}
           value={this.props.size}
           min={8}
           max={120}
@@ -29,7 +29,7 @@ class HeadlineController extends React.Component {
         />
         <SpacingStack size={'l'} />
         <SliderController
-          title={this.props.title +  'Spacing Top'}
+          title={this.props.title +  ' Spacing Top'}
           value={this.props.spacingTop}
           min={0}
           max={100}
@@ -40,7 +40,7 @@ class HeadlineController extends React.Component {
         />
         <SpacingStack size={'l'} />
         <SliderController
-          title={this.props.title +  'Spacing Bottom'}
+          title={this.props.title +  ' Spacing Bottom'}
           value={this.props.spacingBottom}
           min={0}
           max={100}
