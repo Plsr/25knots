@@ -225,6 +225,10 @@ class BaseColorController extends React.Component {
       AlignContentEnd: {
         display: 'flex',
         justifyContent: 'flex-end'
+      },
+      CenterContent: {
+        display: 'flex',
+        justifyContent: 'space-around'
       }
     })
 
@@ -264,7 +268,9 @@ class BaseColorController extends React.Component {
                 <SpacingInset size='l' >
                   {this.getColorDisplayContentForScope(this.props.scope)}
                   <SpacingStack size='m' />
-                  {this.displayColorsForScope(this.props.scope)}
+                  <div className={css(styles.CenterContent)}>
+                    {this.displayColorsForScope(this.props.scope)}
+                  </div>
                 </SpacingInset>
               </div>
             </SpacingInset>
@@ -281,8 +287,5 @@ class BaseColorController extends React.Component {
     )
   }
 }
-
-
-
 
 export default BaseColorController

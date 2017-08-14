@@ -123,6 +123,10 @@ class GeneralAccentColorController extends React.Component {
       SpaceEven: {
         display: 'flex',
         justifyContent: 'space-between'
+      },
+      CenterContent: {
+        display: 'flex',
+        justifyContent: 'space-around'
       }
     })
 
@@ -148,7 +152,9 @@ class GeneralAccentColorController extends React.Component {
                     Your Base Color is placed in the background for you to check
                   </p>
                   <SpacingStack size='m' />
-                  {this.displayColors()}
+                  <div className={css(styles.CenterContent)}>
+                    {this.displayColors()}
+                  </div>
                 </SpacingInset>
               </div>
             </SpacingInset>
@@ -163,7 +169,6 @@ class GeneralAccentColorController extends React.Component {
               </SecondaryButton>
               <SecondaryButton
                 onClick={() => {
-                  console.log(this.state.contrastToShow, this.state.colors); // eslint-disable-line
                   this.props.onNextButtonClick(this.state.contrastToShow, this.accentColors[this.state.contrastToShow])
                 }}
               >
