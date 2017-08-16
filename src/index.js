@@ -13,6 +13,7 @@ import SetupContainer from './containers/SetupContainer.js'
 import TypographyContainer from './containers/TypographyContainer.js'
 import ColorsContainer from './containers/ColorsContainer.js'
 import SummaryContainer from './containers/SummaryContainer.js'
+import LayoutGridContainer from './containers/LayoutGridContainer.js'
 
 let store = createStore(
   ApplicationState,
@@ -27,6 +28,7 @@ ReactDOM.render(
         <Route path="/typography" component={TypographyContainer}/>
         <Route path="/colors" component={ColorsContainer}/>
         <Route path="/summary" component={SummaryContainer}/>
+        <Route path="/layout-grid" component={LayoutGridContainer}/>
       </Switch>
     </Router>
   </Provider>,
