@@ -20,6 +20,7 @@ import BottomNavigation from '../src/components/shared/BottomNavigation.jsx'
 import PlainButton from '../src/components/shared/PlainButton.jsx'
 import ColorDisplay from '../src/components/colors/ColorDisplay.jsx'
 import BorderedBox from '../src/components/shared/BorderedBox.jsx'
+import FullbleedImageText from '../src/components/shared/FullbleedImageText.jsx'
 
 storiesOf('Buttons', module)
   .addDecorator(story => (
@@ -142,4 +143,12 @@ storiesOf('Plain Button', module)
     >
       I am Active
     </PlainButton>
+  ))
+
+storiesOf('Fullbleed Image & Text', module)
+  .add('Image & Text ', () => (
+    <FullbleedImageText
+      htmlText={<p>This is a little text for testing <a href="google.de">Goolge</a></p>}
+      imageName='xcode-guidelines.png'
+    />
   ))
