@@ -39,7 +39,14 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
       { test: /\.css$/, loader: [ 'style-loader', 'css-loader' ] },
-      { test: /\.(png|jpg)$/, loader: 'url?limit=25000' }
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192
+        }  
+      }
+
     ]
   },
   devServer: {
