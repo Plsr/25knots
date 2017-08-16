@@ -10,7 +10,9 @@ const FullbleedImageText = ({ htmlText, imageName }) => {
     <SpacingInset size='l' >
       <div className={css(styles.flexContainer)}>
         { htmlText }
-        <img className={css(styles.image)} src={require('../../images/' + imageName)} alt=""/>
+        { imageName &&
+          <img className={css(styles.image)} src={require('../../images/' + imageName)} alt=""/>
+        }
       </div>
     </SpacingInset>
   )
@@ -19,6 +21,7 @@ const FullbleedImageText = ({ htmlText, imageName }) => {
 const styles = StyleSheet.create({
   flexContainer: {
     display: 'flex',
+    height: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center'

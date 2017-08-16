@@ -3,8 +3,9 @@ import { Redirect } from 'react-router'
 
 import SCOPES from '../../helpers/constants/scopes.js'
 
-export default class LayoutGrid extends React.Component {
+import FullbleedImageText from '../shared/FullbleedImageText.jsx'
 
+export default class LayoutGrid extends React.Component {
 
   render () {
 
@@ -15,9 +16,10 @@ export default class LayoutGrid extends React.Component {
 
     if ( this.props.scope[0] === SCOPES.NATIVE_APP ) {
       return (
-        <div>
-          Layout & Grid for Native
-        </div>
+        <FullbleedImageText
+          htmlText={}
+          imagePath={}
+        />
       )
     } else {
       return (
@@ -28,4 +30,9 @@ export default class LayoutGrid extends React.Component {
     }
 
   }
+}
+
+const TEXT_ELEMENTS = {
+  IOS: <p>When Building your Interfaces, Xcode will help you with laying out your elements. <br/>Please stick to theses guidelines and also accomodate the <a href="https://developer.apple.com/ios/human-interface-guidelines/visual-design/layout/">Human Interface Design Guidelines.</a></p>,
+  ANDROID: <p>The <a href="https://material.io/guidelines/layout/principles.html">Material Design Guidelines</a> do provide a detailed guide to layouts. Please stick to them</p>
 }
