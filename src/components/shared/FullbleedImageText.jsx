@@ -21,7 +21,7 @@ const FullbleedImageText = ({ htmlText, imageName }) => {
 const styles = StyleSheet.create({
   flexContainer: {
     display: 'flex',
-    height: '100%',
+    height: '90vh',
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center'
