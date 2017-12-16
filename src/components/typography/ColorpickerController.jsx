@@ -2,7 +2,7 @@ import React from 'react'
 import {StyleSheet, css} from 'aphrodite'
 
 import { ChromePicker } from 'react-color'
-import tinycolor from 'react-color/modules/tinycolor2'
+import tinycolor from 'tinycolor2'
 
 class ColorpickerController extends React.Component {
   constructor(props) {
