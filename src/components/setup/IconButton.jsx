@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import glamorous from 'glamorous'
 
 import {baseColors, appColors} from '../../styles/base/colors.js'
@@ -26,9 +27,9 @@ const Button = glamorous.button({
   }
 })
 
-const IconButton = ({ onClick, isActive, children, identifier, icon }) => (
+const IconButton = ({ onClick, isActive, children, value, icon }) => (
   <Button
-    onClick={() => onClick(identifier)}
+    onClick={() => onClick(value)}
     isActive={isActive}
   >
     <SpacingInset size='l'>
@@ -38,5 +39,17 @@ const IconButton = ({ onClick, isActive, children, identifier, icon }) => (
     </SpacingInset>
   </Button>
 )
+
+IconButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  isActive: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  value: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired
+}
+
+IconButton.defaultProps = {
+  isActive: false
+}
 
 export default IconButton
