@@ -1,2 +1,3 @@
 **/*.html
 **/*.css
+./stories/index.js

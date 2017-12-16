@@ -1,5 +1,5 @@
 import React from 'react'
-import { storiesOf, action, linkTo } from '@kadira/storybook'
+import { storiesOf, action } from '@storybook/react'
 import { MemoryRouter } from 'react-router'
 
 import {ICONS} from '../src/helpers/constants/icons.js'

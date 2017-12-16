@@ -1,4 +1,4 @@
-import tinycolor from 'react-color/modules/tinycolor2'
+import tinycolor from 'tinycolor2'
 
 /**
  * Check contrast of the two currently picked colors
