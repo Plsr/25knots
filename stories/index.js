@@ -39,6 +39,16 @@ storiesOf('Buttons', module)
       Smartphone
     </IconButton>
   ))
+  .add('Icon Button active', () => (
+    <IconButton
+      onClick={action('clicked')}
+      icon={ICONS.SMARTPHONE}
+      isActive
+    >
+      Smartphone
+    </IconButton>
+  ))
+
 
 storiesOf('Icons', module)
   .add('Regular Icon', () => (

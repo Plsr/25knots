@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, css } from 'aphrodite'
+import glamorous from 'glamorous'
 
 import {baseColors, appColors} from '../../styles/base/colors.js'
 import {fontSizes} from '../../styles/base/fonts.js'
@@ -7,70 +7,36 @@ import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import Icon from '../shared/Icon.jsx'
 
-class IconButton extends React.Component {
-  constructor(props) {
-    super(props)
-    this.toggleHoverState = this.toggleHoverState.bind(this)
-    this.state ={
-      hover: false
-    }
-  }
-
-  toggleHoverState() {
-    this.setState({
-      hover: !this.state.hover
-    })
-  }
-
-  computeIconColor() {
-    return this.state.hover || this.props.active ? appColors.secondary : baseColors.lighterMidGrey
-  }
-
-  render() {
-    return (
-      <button
-        onMouseOver={this.toggleHoverState}
-        onMouseOut={this.toggleHoverState}
-        onClick={() => this.props.onClick(this.props.identifier)}
-        className={css(
-          styles.baseStyles,
-          this.state.hover && styles.hoverStyles,
-          this.props.active && styles.activeStyles
-        )}
-      >
-        <SpacingInset size='l'>
-          <Icon icon={this.props.icon} color={this.computeIconColor()} size='40' />
-          <SpacingStack size='l' />
-          {this.props.children}
-        </SpacingInset>
-      </button>
-    )
-  }
-}
-
-const styles = StyleSheet.create({
-  baseStyles: {
-    width: '100%',
-    backgroundColor: baseColors.white,
-    borderRadius: '4px',
-    borderStyle: 'solid',
-    borderWidth: '2px',
-    borderColor: baseColors.lighterMidGrey,
-    color: baseColors.lighterMidGrey,
-    fontSize: fontSizes.m,
-    cursor: 'pointer',
-    ':focus': {
-      outline: 0
-    }
-  },
-  hoverStyles: {
+const Button = glamorous.button({
+  backgroundColor: baseColors.white,
+  borderRadius: '4px',
+  border: `2px solid ${baseColors.lighterMidGrey}`,
+  color: baseColors.lighterMidGrey,
+  fontSize: fontSizes.m,
+  ':hover': {
     borderColor: appColors.secondary,
     color: appColors.secondary
-  },
-  activeStyles: {
-    borderColor: appColors.secondary,
-    color: appColors.secondary
+  }
+}, props => {
+  if (props.isActive) {
+    return {
+      borderColor: appColors.secondary,
+      color: appColors.secondary
+    }
   }
 })
+
+const IconButton = ({ onClick, isActive, children, identifier, icon }) => (
+  <Button
+    onClick={() => onClick(identifier)}
+    isActive={isActive}
+  >
+    <SpacingInset size='l'>
+      <Icon icon={icon} size='40' />
+      <SpacingStack size='l' />
+      {children}
+    </SpacingInset>
+  </Button>
+)
 
 export default IconButton
