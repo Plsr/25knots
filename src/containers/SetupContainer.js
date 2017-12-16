@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { setScope, setSetupToFinished, previousSetupStep, resetSetup } from '../actions'
+import { setScope, setScopes, setSetupToFinished, previousSetupStep, resetSetup } from '../actions'
 import Setup from '../components/setup/Setup.jsx'
 
 const mapStateToProps = (state, ownProps) => {
@@ -27,6 +27,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     resetSetup: () => {
       dispatch(resetSetup())
+    },
+    setScopes: scopes => {
+      dispatch(setScopes(scopes))
     }
   }
 }

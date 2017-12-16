@@ -1,6 +1,7 @@
 // Action types
 export const NEXT_SETUP_STEP = 'NEXT_SETUP_STEP'
 export const SET_SCOPE = 'SET_SCOPE'
+export const SET_SCOPES = 'SET_SCOPES'
 export const SET_SETUP_TO_FINISHED = 'SET_SETUP_TO_FINISHED'
 export const PREVIOUS_SETUP_STEP = 'PREVIOUS_SETUP_STEP'
 export const RESET_SETUP = 'RESET_SETUP'
@@ -26,6 +27,13 @@ export const setScope = scope => {
   return {
     type: SET_SCOPE,
     scope
+  }
+}
+
+export const setScopes = scopes => {
+  return {
+    type: SET_SCOPES,
+    scopes
   }
 }
 

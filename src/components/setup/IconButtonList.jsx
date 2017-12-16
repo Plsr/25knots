@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import glamorous from 'glamorous'
 
-import IconButton from './IconButton'
+import IconButton from './IconButton.jsx'
 
 const Wrapper = glamorous.div({
   display: 'flex',
@@ -32,7 +32,8 @@ const IconButtonList = ({ items, onItemClick, activeItem }) => (
 
 IconButtonList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onItemClick: PropTypes.func.isRequired
+  onItemClick: PropTypes.func.isRequired,
+  activeItem: PropTypes.string
 }
 
 export default IconButtonList

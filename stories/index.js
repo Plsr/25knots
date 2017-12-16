@@ -3,6 +3,8 @@ import { storiesOf, action } from '@storybook/react'
 import { MemoryRouter } from 'react-router'
 
 import {ICONS} from '../src/helpers/constants/icons.js'
+import {setupOptions} from '../src/helpers/constants/setupOptions.js'
+
 import { appColors } from '../src/styles/base/colors.js'
 
 import SpacingInset from '../src/components/helpers/spacing/SpacingInset.jsx'
@@ -10,6 +12,7 @@ import SpacingInset from '../src/components/helpers/spacing/SpacingInset.jsx'
 import NavigationButton from '../src/components/shared/NavigationButton.jsx'
 import SecondaryButton from '../src/components/shared/SecondaryButton.jsx'
 import IconButton from '../src/components/setup/IconButton.jsx'
+import IconButtonList from '../src/components/setup/IconButtonList.jsx'
 import Icon from '../src/components/shared/Icon.jsx'
 import TabNavigation from '../src/components/typography/TabNavigation.jsx'
 import TabTitle from '../src/components/typography/TabTitle.jsx'
@@ -47,6 +50,13 @@ storiesOf('Buttons', module)
     >
       Smartphone
     </IconButton>
+  ))
+  .add('IconButtonList', () => (
+    <IconButtonList
+      items={Object.values(setupOptions)}
+      onItemClick={() => {}}
+      activeItem={Object.values(setupOptions)[0].value}
+    />
   ))
 
 

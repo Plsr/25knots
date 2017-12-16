@@ -17,6 +17,9 @@ const Button = glamorous.button({
   ':hover': {
     borderColor: appColors.secondary,
     color: appColors.secondary
+  },
+  ':focus': {
+    outline: 0
   }
 }, props => {
   if (props.isActive) {

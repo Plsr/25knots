@@ -8,14 +8,12 @@ import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SpacingInline from '../helpers/spacing/SpacingInline.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
 import Icon from '../shared/Icon.jsx'
-import { extractScopeInformation } from '../../helpers/functions/scopes.js'
 
 function buildSummary(scopes) {
-  let extractedScopes = extractScopeInformation(scopes)
   let summaryElemets = []
 
-  for (var i = 0; i < extractedScopes.length; i++) {
-    let currentScope = extractedScopes[i]
+  for (var i = 0; i < scopes.length; i++) {
+    let currentScope = scopes[i]
     summaryElemets.push(
       <SpacingStack size='l' key={i} >
         <div className={css(styles.SummaryItemStyles)}>
@@ -25,7 +23,7 @@ function buildSummary(scopes) {
           <SpacingInline size={'l'} >
             <Icon icon={currentScope.icon} color={appColors.secondary} size={42} />
           </SpacingInline>
-          <span>{currentScope.text}</span>
+          <span>{currentScope.name}</span>
         </div>
       </SpacingStack>
     )

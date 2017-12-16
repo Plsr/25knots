@@ -33,6 +33,7 @@ export default class App extends React.Component {
           setupSteps={'2'}
           setupOptions={setupOptions}
           setScope={this.props.setScope}
+          setScopes={this.props.setScopes}
           setSetupToFinished={this.props.setSetupToFinished}
           previousSetupStep={this.props.previousSetupStep}
         />
