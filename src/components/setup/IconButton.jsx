@@ -9,6 +9,7 @@ import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import Icon from '../shared/Icon.jsx'
 
 const Button = glamorous.button({
+  width: '100%',
   backgroundColor: baseColors.white,
   borderRadius: '4px',
   border: `2px solid ${baseColors.lighterMidGrey}`,
