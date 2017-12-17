@@ -1,68 +1,55 @@
 import {ICONS} from './icons.js'
 import {SCOPES} from './scopes.js'
 
-export const setupOptions = [
-  {
+export const setupOptions = {
+  [SCOPES.NATIVE_APP]: {
     icon: ICONS.SMARTPHONE,
-    text: 'Native App',
+    name: 'Native App',
     value: SCOPES.NATIVE_APP,
-    shouldDisplayForScope: undefined,
-    initialOption: true
+    'subsequent_options': [
+      {
+        icon: ICONS.ANDROID,
+        name: 'Android',
+        value: SCOPES.ANDROID,
+        'subsequent_options': null
+      },
+      {
+        icon: ICONS.IOS,
+        name: 'iOS',
+        value: SCOPES.IOS,
+        'subsequent_options': null
+      }
+    ]
   },
-  {
+  [SCOPES.WEBSITE]: {
     icon: ICONS.WEBSITE,
-    text: 'Website',
+    name: 'Website',
     value: SCOPES.WEBSITE,
-    shouldDisplayForScope: undefined,
-    initialOption: true
+    'subsequent_options': null
   },
-  {
+  [SCOPES.TEXT_DOCUMENT]: {
     icon: ICONS.PAGE,
-    text: 'Text Document',
+    name: 'Text Document',
     value: SCOPES.TEXT_DOCUMENT,
-    shouldDisplayForScope: undefined,
-    initialOption: true
-  },
-  {
-    icon: ICONS.ANDROID,
-    text: 'Android',
-    value: SCOPES.ANDROID,
-    shouldDisplayForScope: 'NATIVE_APP'
-  },
-  {
-    icon: ICONS.IOS,
-    text: 'iOS',
-    value: SCOPES.IOS,
-    shouldDisplayForScope: 'NATIVE_APP'
-  },
-  {
-    icon: ICONS.RESPONSIVE,
-    text: 'Responsive',
-    value: SCOPES.RESPONSIVE,
-    shouldDisplayForScope: 'WEBSITE'
-  },
-  {
-    icon: ICONS.NOT_RESPONSIVE,
-    text: 'Not responsive',
-    value: SCOPES.NOT_RESPONSIVE,
-    shouldDisplayForScope: 'WEBSITE'
-  },
-  {
-    icon: ICONS.PAGE,
-    text: 'On Paper',
-    value: SCOPES.PAPER,
-    shouldDisplayForScope: 'TEXT_DOCUMENT'
-  },
-  {
-    icon: ICONS.DISPLAY,
-    text: 'On Display',
-    value: SCOPES.DISPLAY,
-    shouldDisplayForScope: 'TEXT_DOCUMENT'
-  },
-  {
-    icon: ICONS.DISPLAY_PAPER,
-    text: 'Paper & Display',
-    value: SCOPES.PAPER_DISPLAY,
-    shouldDisplayForScope: 'TEXT_DOCUMENT'
+    'subsequent_options': [
+      {
+        icon: ICONS.PAGE,
+        name: 'On Paper',
+        value: SCOPES.PAPER,
+        'subsequent_options': null
+      },
+      {
+        icon: ICONS.DISPLAY,
+        name: 'On Display',
+        value: SCOPES.DISPLAY,
+        'subsequent_options': null
+      },
+      {
+        icon: ICONS.DISPLAY_PAPER,
+        name: 'Paper & Display',
+        value: SCOPES.PAPER_DISPLAY,
+        'subsequent_options': null
+      }
+    ]
   }
-]
+}

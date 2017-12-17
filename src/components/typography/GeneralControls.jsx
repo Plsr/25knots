@@ -12,7 +12,6 @@ class GeneralControls extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.displayGeneralErrors = this.displayGeneralErrors.bind(this)
-    this.determineFontFamilies = this.determineFontFamilies.bind(this)
   }
 
   handleChange(key, value) {
@@ -35,13 +34,19 @@ class GeneralControls extends React.Component {
     return generalErrors
   }
 
-  determineFontFamilies() {
-    let scope = this.props.scopes[1]
-    return FONTS[scope]
+  determineFontFamilies = () => {
+    const { scopes } = this.props
+    const fonts = []
+
+    scopes.map(scope => {
+      if (FONTS[scope.value]) fonts.push(...FONTS[scope.value])
+    })
+
+    return fonts
   }
 
   render() {
-    let fontFamilies = this.determineFontFamilies()
+    const fontFamilies = this.determineFontFamilies()
     return (
       <div>
         <DropdownController

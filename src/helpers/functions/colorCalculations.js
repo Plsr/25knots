@@ -1,4 +1,4 @@
-import tinycolor from 'react-color/modules/tinycolor2'
+import tinycolor from 'tinycolor2'
 
 import {MATERIAL_COLOR_SHADES} from '../constants/colors.js'
 
