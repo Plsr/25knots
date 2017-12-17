@@ -16,6 +16,10 @@ class Colors extends React.Component {
   constructor(props) {
     super(props)
 
+    this.scope = this.props.scopes[1]
+      ? this.props.scopes[1].value
+      : null
+
     this.handleColorPickerChange = this.handleColorPickerChange.bind(this)
     this.handleBaseColorPickerChange = this.handleBaseColorPickerChange.bind(this)
     this.handleAccentColorSelectorClick = this.handleAccentColorSelectorClick.bind(this)
@@ -67,7 +71,7 @@ class Colors extends React.Component {
   }
 
   determineNextStep(baseColors) {
-    if (this.props.scopes[1] === SCOPES.IOS) {
+    if (this.scope === SCOPES.IOS) {
       this.props.finishColorWizard()
       this.props.setBaseColors(baseColors)
     } else {
@@ -77,7 +81,7 @@ class Colors extends React.Component {
   }
 
   determinePreviousStep() {
-    if (this.props.scopes[1] === SCOPES.IOS) {
+    if (this.scope === SCOPES.IOS) {
       this.props.firstColorWizardStep()
     } else {
       this.props.previousSetupStep()
@@ -90,7 +94,7 @@ class Colors extends React.Component {
       case 1:
         return (
           <BaseColorController
-            scope={this.props.scopes[1]}
+            scope={this.scope}
             colorSet={this.props.colorSet}
             colors={this.props.baseColors}
             dropdownChange={this.handleDropdownChange}
@@ -100,7 +104,7 @@ class Colors extends React.Component {
           />
         )
       case 2:
-        if (this.props.scopes[1] === SCOPES.ANDROID) {
+        if (this.scope === SCOPES.ANDROID) {
           return (
             <AndroidAccentColorController
               baseColors={this.props.baseColors}

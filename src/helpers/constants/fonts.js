@@ -1,4 +1,7 @@
 export const FONTS = {
+  WEBSITE: [
+    'Verdana', 'Arial', 'Tahoma', 'TrebuchetMS'
+  ],
   DISPLAY: [
     'Verdana', 'Arial', 'Tahoma', 'TrebuchetMS'
   ],

@@ -1,26 +1,29 @@
 import React from 'react'
-import {StyleSheet, css} from 'aphrodite'
+import PropTypes from 'prop-types'
+import glamorous from 'glamorous'
+import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 
 import {baseColors} from '../../styles/base/colors.js'
 
-function BorderedBox(props) {
+const Box = glamorous.div({
+  border: `1px solid ${baseColors.lighterMidGrey}`,
+  borderRadius: '4px',
+  maxWidth: '800px',
+  margin: '0 auto'
+})
+
+const BorderedBox = ({ children }) => {
   return (
-    <div className={css(styles.boxStyles)} >
-      {props.children}
-    </div>
+    <Box>
+      <SpacingInset size='l'>
+        {children}
+      </SpacingInset>
+    </Box>
   )
 }
 
-const styles = StyleSheet.create({
-  boxStyles: {
-    borderRadius: '4px',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: baseColors.lighterMidGrey,
-    maxWidth: '800px',
-    margin: '0 auto',
-    lineHeight: 1.5
-  }
-})
+BorderedBox.propTypes = {
+  children: PropTypes.node.isRequired
+}
 
 export default BorderedBox

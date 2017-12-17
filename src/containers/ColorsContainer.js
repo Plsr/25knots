@@ -48,7 +48,8 @@ const mapDispatchToProps = (dispatch) => {
 
 // Get the colors for the currently set scope
 const getColorsetForScope = (scope) => {
-  switch (scope) {
+  if (!scope) return COLORS
+  switch (scope.value) {
     case SCOPES.ANDROID:
       return MATERIAL_COLORS
     case SCOPES.IOS:

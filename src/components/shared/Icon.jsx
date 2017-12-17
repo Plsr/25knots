@@ -1,24 +1,26 @@
 import React from 'react'
-
-import { baseColors } from '../../styles/base/colors.js'
+import PropTypes from 'prop-types'
 
 /**
  * Displays a given SVG path
  * Heavily inspired by David Gilbertsons article:
  * https://medium.com/@david.gilbertson/icons-as-react-components-de3e33cb8792
  */
-function Icon(props) {
-  // If no size is given, default to 22 x 22
-  let size = props.size || '22'
+const Icon = ({ size, color, icon }) => (
+  <svg width={size} height={size} viewBox="0 0 1024 1024">
+    <path style={{fill: color}} d={icon}></path>
+  </svg>
+)
 
-  // If no color is given, default to black
-  let color = props.color || baseColors.black
+Icon.propTypes = {
+  size: PropTypes.number,
+  color: PropTypes.string,
+  icon: PropTypes.string.isRequired
+}
 
-  return (
-    <svg width={size} height={size} viewBox="0 0 1024 1024">
-      <path style={{fill: color}} d={props.icon}></path>
-    </svg>
-  )
+Icon.defaultProps = {
+  size: 22,
+  color: 'currentColor'
 }
 
 export default Icon

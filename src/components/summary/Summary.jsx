@@ -1,7 +1,6 @@
 import React from 'react'
 import { StyleSheet, css } from 'aphrodite'
 
-import { extractScopeInformation } from '../../helpers/functions/scopes.js'
 import {appColors} from '../../styles/base/colors.js'
 import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
@@ -18,11 +17,10 @@ import TableDisplay from './TableDisplay.jsx'
 class Summary extends React.Component {
 
   buildScopeSummary(scopes) {
-    let extractedScopes = extractScopeInformation(scopes)
     let summaryElemets = []
 
-    for (var i = 0; i < extractedScopes.length; i++) {
-      let currentScope = extractedScopes[i]
+    for (var i = 0; i < scopes.length; i++) {
+      let currentScope = scopes[i]
       summaryElemets.push(
         <div className={css(styles.singleScopeStyles)}>
           <SpacingInline size={'l'} >
@@ -31,7 +29,7 @@ class Summary extends React.Component {
           <SpacingInline size={'l'} >
             <Icon icon={currentScope.icon} color={appColors.secondary} size={42} />
           </SpacingInline>
-          <span>{currentScope.text}</span>
+          <span>{currentScope.name}</span>
         </div>
       )
     }
