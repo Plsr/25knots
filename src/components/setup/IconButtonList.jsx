@@ -16,7 +16,7 @@ const Item = glamorous.div({
 const IconButtonList = ({ items, onItemClick, activeItem }) => (
   <Wrapper>
     {items.map(item => (
-      <Item>
+      <Item key={item.value}>
         <IconButton
           onClick={onItemClick}
           icon={item.icon}

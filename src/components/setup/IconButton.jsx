@@ -36,7 +36,7 @@ const IconButton = ({ onClick, isActive, children, value, icon }) => (
     isActive={isActive}
   >
     <SpacingInset size='l'>
-      <Icon icon={icon} size='40' />
+      <Icon icon={icon} size={40} />
       <SpacingStack size='l' />
       {children}
     </SpacingInset>
