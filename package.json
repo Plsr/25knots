@@ -3,17 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "homepage": "https://plsr.github.io/25knots",
   "engines": {
     "node": "8.4.0"
   },
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server",
-    "production": "cross-env NODE_ENV=production node server.js",
-    "build": "webpack --config webpack.config.js",
-    "postinstall": "webpack -p",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
     "lint": "eslint 'src/**'"
   },
   "devDependencies": {
@@ -30,6 +28,7 @@
     "eslint-loader": "^1.8.0",
     "eslint-plugin-react": "^7.1.0",
     "html-webpack-plugin": "2.28.0",
+    "react-scripts": "^1.0.17",
     "redux-logger": "^3.0.6",
     "webpack": "2.5.1",
     "webpack-dev-server": "^2.4.5"

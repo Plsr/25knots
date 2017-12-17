@@ -22,7 +22,7 @@ export default class App extends React.Component {
       return (
         <SetupSummary
           scopes={this.props.scopes}
-          resetSetup={this.props.resetSetup}
+          onButtonClick={this.props.resetScopes}
         />
       )
     }
