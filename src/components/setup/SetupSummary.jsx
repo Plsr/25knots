@@ -40,7 +40,7 @@ function SetupSummary(props) {
       <span>If this is correct, you can use the red button on the bottom of the page to go to the next section.
 Otherwise, you can choose to start the setup again from the beginning.</span>
       <SpacingStack size={'l'} />
-      <SecondaryButton variant={'outline'} onClick={props.resetSetup}>Start over</SecondaryButton>
+      <SecondaryButton variant={'outline'} onClick={props.onButtonClick}>Start over</SecondaryButton>
     </div>
   )
 }
