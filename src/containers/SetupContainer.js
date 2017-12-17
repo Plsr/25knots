@@ -1,14 +1,12 @@
 import { connect } from 'react-redux'
-import { setScope, setScopes, setSetupToFinished, previousSetupStep, resetSetup } from '../actions'
+import { setScopes, resetScopes } from '../actions'
 import Setup from '../components/setup/Setup.jsx'
 
-const mapStateToProps = (state, ownProps) => {
-  let setupState = state.setup
+const mapStateToProps = (state) => {
+  let scopes = state.setup.scopes
   return {
-    setupStep: setupState.setupStep,
-    setupFinished: setupState.setupFinished,
-    scopes: setupState.scopes,
-    ...ownProps
+    scopes: scopes,
+    scopesSelected: scopes.length > 0
   }
 }
 
@@ -16,21 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setScope: scope => {
-      dispatch(setScope(scope))
-    },
-    setSetupToFinished: () => {
-      dispatch(setSetupToFinished())
-    },
-    previousSetupStep: () => {
-      dispatch(previousSetupStep())
-    },
-    resetSetup: () => {
-      dispatch(resetSetup())
-    },
-    setScopes: scopes => {
-      dispatch(setScopes(scopes))
-    }
+    setScopes: scopes => dispatch(setScopes(scopes)),
+    resetScopes: () => dispatch(resetScopes())
   }
 }
 

@@ -1,10 +1,6 @@
 // Action types
-export const NEXT_SETUP_STEP = 'NEXT_SETUP_STEP'
-export const SET_SCOPE = 'SET_SCOPE'
 export const SET_SCOPES = 'SET_SCOPES'
-export const SET_SETUP_TO_FINISHED = 'SET_SETUP_TO_FINISHED'
-export const PREVIOUS_SETUP_STEP = 'PREVIOUS_SETUP_STEP'
-export const RESET_SETUP = 'RESET_SETUP'
+export const RESET_SCOPES = 'RESET_SCOPES'
 export const SET_VALUE_FOR_KEY = 'SET_VALUE_FOR_KEY'
 export const SET_GENERAL_VALUE_FOR_KEY = 'SET_GENERAL_VALUE_FOR_KEY'
 export const SET_VALUE_IN_AREA = 'SET_VALUE_IN_AREA'
@@ -17,43 +13,12 @@ export const SET_BASE_COLORS = 'SET_BASE_COLORS'
 export const SET_COLOR_CONTRAST = 'SET_COLOR_CONTRAST'
 export const RESET_TYPOGRAPHY_DATA = 'RESET_TYPOGRAPHY_DATA'
 
-export const nextSetupStep = () => {
-  return {
-    type: NEXT_SETUP_STEP
-  }
-}
+export const setScopes = scopes => ({
+  type: SET_SCOPES,
+  scopes
+})
 
-export const setScope = scope => {
-  return {
-    type: SET_SCOPE,
-    scope
-  }
-}
-
-export const setScopes = scopes => {
-  return {
-    type: SET_SCOPES,
-    scopes
-  }
-}
-
-export const setSetupToFinished = () => {
-  return {
-    type: SET_SETUP_TO_FINISHED
-  }
-}
-
-export const previousSetupStep = () => {
-  return {
-    type: PREVIOUS_SETUP_STEP
-  }
-}
-
-export const resetSetup = () => {
-  return {
-    type: RESET_SETUP
-  }
-}
+export const resetScopes = () => ({ type: RESET_SCOPES })
 
 export const setValueForKey = (key, value) => {
   return {

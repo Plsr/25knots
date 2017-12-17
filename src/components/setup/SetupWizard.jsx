@@ -1,11 +1,10 @@
 import React from 'react'
 
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
-import BorderedBox from '../shared/BorderedBox.jsx'
 import IconButtonList from './IconButtonList.jsx'
 import ButtonNavigation from './ButtonNavigation.jsx'
 
-class SetupProgress extends React.Component {
+class SetupWizard extends React.Component {
   constructor(props) {
     super(props)
 
@@ -63,25 +62,23 @@ class SetupProgress extends React.Component {
     const { selectedScopes } = this.state
 
     return (
-      <BorderedBox>
-        <SpacingInset size='l'>
-          <span>Choose what you are building</span>
-          <SpacingInset size='l' />
-          <IconButtonList
-            items={this.state.currentOptions}
-            activeItem={this.state.activeOption.value}
-            onItemClick={this.handleItemClick}
-          />
-          <SpacingInset size='l' />
-          <ButtonNavigation
-            nextButtonAction={this.handleNextButtonClick}
-            nextActionForbidden={!this.state.activeOption}
-            previousButtonAction={selectedScopes.length > 0 ? this.handleBackButtonClick : null}
-          />
-        </SpacingInset>
-      </BorderedBox>
+      <div>
+        <span>Choose what you are building</span>
+        <SpacingInset size='l' />
+        <IconButtonList
+          items={this.state.currentOptions}
+          activeItem={this.state.activeOption.value}
+          onItemClick={this.handleItemClick}
+        />
+        <SpacingInset size='l' />
+        <ButtonNavigation
+          nextButtonAction={this.handleNextButtonClick}
+          nextActionForbidden={!this.state.activeOption}
+          previousButtonAction={selectedScopes.length > 0 ? this.handleBackButtonClick : null}
+        />
+      </div>
     )
   }
 }
 
-export default SetupProgress
+export default SetupWizard

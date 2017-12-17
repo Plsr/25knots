@@ -3,8 +3,9 @@ import React from 'react'
 import Progress from '../shared/Progress.jsx'
 import IntroductionHero from './IntroductionHero.jsx'
 import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
-import SetupProgress from './SetupProgress.jsx'
+import SetupWizard from './SetupWizard.jsx'
 import SetupSummary from './SetupSummary.jsx'
+import BorderedBox from '../shared/BorderedBox.jsx'
 import BottomNavigation from '../shared/BottomNavigation.jsx'
 
 import {setupOptions} from '../../helpers/constants/setupOptions.js'
@@ -17,28 +18,20 @@ export default class App extends React.Component {
   }
 
   renderSetupStep() {
-    if (this.props.setupFinished) {
+    if (this.props.scopesSelected) {
       return (
         <SetupSummary
-          setupOptions={setupOptions}
           scopes={this.props.scopes}
           resetSetup={this.props.resetSetup}
         />
       )
-    } else {
-      return (
-        <SetupProgress
-          scopes={this.props.scopes}
-          setupStep={this.props.setupStep}
-          setupSteps={'2'}
-          setupOptions={setupOptions}
-          setScope={this.props.setScope}
-          setScopes={this.props.setScopes}
-          setSetupToFinished={this.props.setSetupToFinished}
-          previousSetupStep={this.props.previousSetupStep}
-        />
-      )
     }
+    return (
+      <SetupWizard
+        setupOptions={setupOptions}
+        setScopes={this.props.setScopes}
+      />
+    )
   }
 
   render() {
@@ -47,9 +40,11 @@ export default class App extends React.Component {
         <Progress currentPath={this.props.location.pathname} />
         <SpacingStack size='l' />
         <IntroductionHero />
-        {this.renderSetupStep()}
+        <BorderedBox>
+          {this.renderSetupStep()}
+        </BorderedBox>
         <SpacingStack size='xxl' />
-        <BottomNavigation to='/typography' inactive={!this.props.setupFinished} title='Next Section' />
+        <BottomNavigation to='/typography' inactive={!this.props.scopesSelected} title='Next Section' />
       </div>
     )
   }
