@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "homepage": "25knots.de",
   "engines": {
     "node": "8.4.0"
   },
