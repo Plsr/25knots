@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "homepage": "https://plsr.github.io/25knots",
+  "homepage": "25knots.de",
   "engines": {
     "node": "8.4.0"
   },
