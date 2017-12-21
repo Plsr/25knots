@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     ...typographyState,
+    scopesPresent: state.setup.scopes.length > 0,
     scopes: [
       ...scopes
     ],
