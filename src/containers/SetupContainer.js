@@ -5,6 +5,7 @@ import Setup from '../components/setup/Setup.jsx'
 const mapStateToProps = (state) => {
   let scopes = state.setup.scopes
   return {
+    scopesPresent: state.setup.scopes.length > 0,
     scopes: scopes,
     scopesSelected: scopes.length > 0
   }

@@ -4,6 +4,7 @@ import Summary from '../components/summary/Summary.jsx'
 const mapStateToProps = (state, ownProps) => {
 
   return {
+    scopesPresent: state.setup.scopes.length > 0,
     ...state,
     ...ownProps
   }

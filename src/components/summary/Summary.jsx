@@ -13,6 +13,7 @@ import BorderedBox from '../shared/BorderedBox.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
 import { generatePDF } from '../../helpers/functions/pdfGenerator.js'
 import TableDisplay from './TableDisplay.jsx'
+import EnsureScopesPresent from '../../utils/EnsureScopesPresent.jsx'
 
 class Summary extends React.Component {
 
@@ -230,4 +231,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default Summary
+export default EnsureScopesPresent(Summary)

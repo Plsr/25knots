@@ -17,10 +17,11 @@ import TextWidthCalculator from './TextWidthCalculator.jsx'
 import Progress from '../shared/Progress.jsx'
 import BottomNavigation from '../shared/BottomNavigation.jsx'
 import SecondaryButton from '../shared/SecondaryButton.jsx'
+import EnsureScopesPresent from '../../utils/EnsureScopesPresent.jsx'
 
 import calculateApplicationErrors from '../../helpers/errors'
 
-export default class Typography extends React.Component {
+class Typography extends React.Component {
   constructor(props) {
     super(props)
 
@@ -219,3 +220,5 @@ export default class Typography extends React.Component {
     )
   }
 }
+
+export default EnsureScopesPresent(Typography)

@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   let colorSet = getColorsetForScope(scopes[1])
 
   return {
+    scopesPresent: state.setup.scopes.length > 0,
     ...colorState,
     colorSet,
     scopes: [

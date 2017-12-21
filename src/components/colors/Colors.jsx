@@ -7,6 +7,7 @@ import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import ColorSummary from './ColorSummary.jsx'
 import Progress from '../shared/Progress.jsx'
 import BottomNavigation from '../shared/BottomNavigation.jsx'
+import EnsureScopesPresent from '../../utils/EnsureScopesPresent.jsx'
 
 import {MATERIAL_COLOR_SHADES} from '../../helpers/constants/colors.js'
 import {SCOPES} from '../../helpers/constants/scopes.js'
@@ -158,4 +159,4 @@ class Colors extends React.Component {
   }
 }
 
-export default Colors
+export default EnsureScopesPresent(Colors)
