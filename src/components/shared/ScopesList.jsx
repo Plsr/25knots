@@ -27,7 +27,8 @@ const ListItem = glamorous.li({
     return [
       {
         display: 'inline-flex',
-        paddingRight: spacing.xl
+        paddingRight: spacing.xl,
+        marginBottom: 0
       }
     ]
   }
