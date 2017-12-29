@@ -6,7 +6,6 @@ import SpacingStack from '../helpers/spacing/SpacingStack.jsx'
 import SpacingInset from '../helpers/spacing/SpacingInset.jsx'
 import SpacingInline from '../helpers/spacing/SpacingInline.jsx'
 import ColorDisplay from '../colors/ColorDisplay.jsx'
-import Icon from '../shared/Icon.jsx'
 import Headline1 from '../shared/Headline1.jsx'
 import Progress from '../shared/Progress.jsx'
 import BorderedBox from '../shared/BorderedBox.jsx'
@@ -14,29 +13,9 @@ import SecondaryButton from '../shared/SecondaryButton.jsx'
 import { generatePDF } from '../../helpers/functions/pdfGenerator.js'
 import TableDisplay from './TableDisplay.jsx'
 import EnsureScopesPresent from '../../utils/EnsureScopesPresent.jsx'
+import ScopesList from '../shared/ScopesList.jsx'
 
 class Summary extends React.Component {
-
-  buildScopeSummary(scopes) {
-    let summaryElemets = []
-
-    for (var i = 0; i < scopes.length; i++) {
-      let currentScope = scopes[i]
-      summaryElemets.push(
-        <div className={css(styles.singleScopeStyles)}>
-          <SpacingInline size={'l'} >
-            ➜
-          </SpacingInline>
-          <SpacingInline size={'l'} >
-            <Icon icon={currentScope.icon} color={appColors.secondary} size={42} />
-          </SpacingInline>
-          <span>{currentScope.name}</span>
-        </div>
-      )
-    }
-
-    return summaryElemets
-  }
 
   constructAccentColors(accentColors) {
     let accentColorDisplays = []
@@ -123,9 +102,7 @@ You can also save this as a pdf for later use.</p>
           <SpacingInset size='m'>
             <p>You are building the following:</p>
             <SpacingStack size='m' />
-            <div className={css(styles.flexRow)}>
-              {this.buildScopeSummary(this.props.setup.scopes)}
-            </div>
+            <ScopesList items={this.props.setup.scopes} asInline />
           </SpacingInset>
         </BorderedBox>
         <SpacingStack size='l' />
@@ -208,15 +185,6 @@ You can also save this as a pdf for later use.</p>
 const styles = StyleSheet.create({
   ContainerStyles: {
     textAlign: 'center'
-  },
-  singleScopeStyles: {
-    display: 'flex',
-    alignItems: 'center',
-    marginRight: '64px',
-    color: appColors.secondary,
-    ':last-child': {
-      marginRight: 0
-    }
   },
   flexRow: {
     display: 'flex',
