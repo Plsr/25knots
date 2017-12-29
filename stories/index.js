@@ -14,6 +14,7 @@ import SecondaryButton from '../src/components/shared/SecondaryButton.jsx'
 import IconButton from '../src/components/setup/IconButton.jsx'
 import IconButtonList from '../src/components/setup/IconButtonList.jsx'
 import Icon from '../src/components/shared/Icon.jsx'
+import ScopesList from '../src/components/shared/ScopesList.jsx'
 import TabNavigation from '../src/components/typography/TabNavigation.jsx'
 import TabTitle from '../src/components/typography/TabTitle.jsx'
 import TabContent from '../src/components/typography/TabContent.jsx'
@@ -23,6 +24,8 @@ import BottomNavigation from '../src/components/shared/BottomNavigation.jsx'
 import PlainButton from '../src/components/shared/PlainButton.jsx'
 import ColorDisplay from '../src/components/colors/ColorDisplay.jsx'
 import BorderedBox from '../src/components/shared/BorderedBox.jsx'
+
+import '../src/styles/global.css'
 
 storiesOf('Buttons', module)
   .addDecorator(story => (
@@ -71,6 +74,13 @@ storiesOf('Icons', module)
     <Icon icon={ICONS.SMARTPHONE} size={'40'}/>
   ))
 
+storiesOf('ScopesList', module)
+  .add('ScopesList', () => (
+    <ScopesList items={Object.values(setupOptions)} />
+  ))
+  .add('ScopesList hoizontal', () => (
+    <ScopesList items={Object.values(setupOptions)} asInline />
+  ))
 storiesOf('TabNavigation', module)
   .add('TabNavigation', () => (
     <TabNavigation>
