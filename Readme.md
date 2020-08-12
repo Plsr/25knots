@@ -1,36 +1,44 @@
-![logo 25knots](https://user-images.githubusercontent.com/3950661/29005494-bf29b8a0-7adc-11e7-8f79-bff5f4fd4199.png)
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# 25knots
-25knots is a small application that aims to help people getting the basics in their design process right. This tool is aimed a people that usually wouldn't have the time or resources to engage design in their projects. This is **not** a tool for designers. If you use 25knots and think you could do better afterwards, the Tool probably isn't for you. However, you are very welcome to contribute!
+## Available Scripts
 
-The easiest way to use 25knots is visiting [25knots.de](http://www.25knots.de).
+In the project directory, you can run:
 
-## Contributing
-I'm more than happy to have people involved in the development of this product, in any possible way. If you want to contribute, there are several ways to do so.  
-* **Report a bug:** If you noticed anything is off during you use of 25knots, just [open an issue](https://github.com/Plsr/25knots/issues/new) in this repository
-* **Propose a feature:** If you feel like something is missing or would be a great addition to the Tool, pleas [open an issue](https://github.com/Plsr/25knots/issues/new) and describe what you'd like to see implemented. Conceptual request are just as welcome as design improvements or additions to the codebase.
+### `yarn start`
 
-### Building the application
-To build the application, first clone this repository
-```
-git clone https://github.com/Plsr/25knots.git
-```
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Afterwards, run
-```
-yarn install
-```
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-and finally
-```
-yarn start
-```
-to get the app running on `http://localhost:8080`.
+### `yarn test`
 
-### Running Storybooks
-After completing the previous step, run
-```
-yarn run storybook
-```
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-Storybook is now running on `http://localhost:6006`.
+### `yarn build`
+
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
